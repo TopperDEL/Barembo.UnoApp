@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace Barembo.UnoApp
 {
@@ -29,6 +32,8 @@ namespace Barembo.UnoApp
         /// </summary>
         public App()
         {
+            AppCenter.Start("cfc03045-3cc0-4026-b98d-e4bc207dc783", typeof(Analytics), typeof(Crashes));
+
             ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
 
             this.InitializeComponent();
@@ -116,8 +121,8 @@ namespace Barembo.UnoApp
             factory
                 .WithFilter(new FilterLoggerSettings
                     {
-                        { "Uno", LogLevel.Warning },
-                        { "Windows", LogLevel.Warning },
+                        { "Uno", Microsoft.Extensions.Logging.LogLevel.Warning },
+                        { "Windows", Microsoft.Extensions.Logging.LogLevel.Warning },
 
 						// Debug JS interop
 						// { "Uno.Foundation.WebAssemblyRuntime", LogLevel.Debug },
@@ -154,9 +159,9 @@ namespace Barembo.UnoApp
 					}
                 )
 #if DEBUG
-				.AddConsole(LogLevel.Debug);
+				.AddConsole(Microsoft.Extensions.Logging.LogLevel.Debug);
 #else
-                .AddConsole(LogLevel.Information);
+                .AddConsole(Microsoft.Extensions.Logging.LogLevel.Information);
 #endif
         }
     }
