@@ -5,9 +5,10 @@
     xmlns:local="using:Barembo.UnoApp.Shared.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:prismMvvm="using:Prism.Mvvm"
     xmlns:prismRegions="using:Prism.Regions"
+    xmlns:prismMvvm="using:Prism.Mvvm"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
+    Loaded="ContentControl_Loaded"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

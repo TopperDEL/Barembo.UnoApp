@@ -20,6 +20,8 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Prism.Ioc;
 using Barembo.UnoApp.Shared.Views;
+using Prism;
+using Prism.Mvvm;
 
 namespace Barembo.UnoApp
 {
@@ -28,6 +30,15 @@ namespace Barembo.UnoApp
     /// </summary>
     sealed partial class App
     {
+        /// <summary>
+        /// Returns the Ioc-Container if something needs to be resolved
+        /// </summary>
+        /// <returns>The IContainerProvider</returns>
+        public static IContainerProvider GetIocContainer()
+        {
+            return ((PrismApplicationBase)App.Current).Container;
+        }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -98,6 +109,16 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IEntryService, Barembo.Services.EntryService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.StoreService>();
+
+            //App-Services
+            containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.ILoginService, Barembo.UnoApp.Shared.Services.LoginService>();
+        }
+
+        protected override void ConfigureViewModelLocator()
+        {
+            base.ConfigureViewModelLocator();
+
+            ViewModelLocationProvider.Register<LoginView, Barembo.App.Core.ViewModels.LoginViewModel>();
         }
 
 

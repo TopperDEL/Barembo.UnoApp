@@ -1,4 +1,11 @@
-﻿using System;
+﻿using Barembo.App.Core.Interfaces;
+using Barembo.Models;
+using Prism;
+using Prism.DryIoc;
+using Prism.Events;
+using Prism.Ioc;
+using Prism.Regions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,15 +20,30 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace Barembo.UnoApp.Shared.Views
 {
     public sealed partial class Shell
     {
-        public Shell()
+        readonly IRegionManager _regionManager;
+        readonly IEventAggregator _eventAggregator;
+
+        public Shell(IRegionManager regionManager, IEventAggregator eventAggregator)
         {
             this.InitializeComponent();
+
+            _regionManager = regionManager;
+            _eventAggregator = eventAggregator;
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.SuccessfullyLoggedInMessage>().Subscribe(NavigateToBookShelfView);
+        }
+
+        private void ContentControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            _regionManager.RegisterViewWithRegion("ContentRegion", typeof(LoginView));
+        }
+
+        private void NavigateToBookShelfView(StoreAccess storeAccess)
+        {
+
         }
     }
 }
