@@ -1,6 +1,4 @@
-﻿using Barembo.App.Core.ViewModels;
-using Barembo.Models;
-using Prism.Regions;
+﻿using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,16 +14,16 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+// Die Elementvorlage "Leere Seite" wird unter https://go.microsoft.com/fwlink/?LinkId=234238 dokumentiert.
 
 namespace Barembo.UnoApp.Shared.Views
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
     /// </summary>
-    public sealed partial class BookShelfView : Page, INavigationAware
+    public sealed partial class CreateBookShelfView : Page, INavigationAware
     {
-        public BookShelfView()
+        public CreateBookShelfView()
         {
             this.InitializeComponent();
         }
@@ -41,7 +39,7 @@ namespace Barembo.UnoApp.Shared.Views
 
         public async void OnNavigatedTo(NavigationContext navigationContext)
         {
-            await ((BookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
+            //await ((CreateBookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
         }
     }
 }
