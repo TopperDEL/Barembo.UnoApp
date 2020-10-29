@@ -82,7 +82,6 @@
       <Version>8.0.0.1909</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI" Version="3.1.6" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="3.1.6" Condition="'$(Configuration)'=='Debug'" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
   </ItemGroup>
