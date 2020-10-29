@@ -4,5 +4,12 @@
     xmlns:prismIoc="using:Prism.DryIoc"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Barembo.UnoApp">
+    <prismIoc:PrismApplication.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Converters.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </prismIoc:PrismApplication.Resources>
 
 </prismIoc:PrismApplication>
