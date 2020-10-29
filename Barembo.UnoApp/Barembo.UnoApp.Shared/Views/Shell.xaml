@@ -20,6 +20,6 @@
             <TextBlock Text="{Binding Title}" FontSize="30" />
             <TextBlock Text="Welcome to Barembo and Prism!" FontSize="15" />
         </StackPanel>
-        <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="ContentRegion" />
+        <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="{x:Bind ContentRegion}" />
     </Grid>
 </ContentControl>

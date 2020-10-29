@@ -24,6 +24,7 @@ namespace Barembo.UnoApp.Shared.Views
 {
     public sealed partial class Shell
     {
+        public string ContentRegion = "ContentRegion";
         readonly IRegionManager _regionManager;
         readonly IEventAggregator _eventAggregator;
 
@@ -38,12 +39,12 @@ namespace Barembo.UnoApp.Shared.Views
 
         private void ContentControl_Loaded(object sender, RoutedEventArgs e)
         {
-            _regionManager.RegisterViewWithRegion("ContentRegion", typeof(LoginView));
+            _regionManager.RegisterViewWithRegion(ContentRegion, typeof(LoginView));
         }
 
         private void NavigateToBookShelfView(StoreAccess storeAccess)
         {
-
+            _regionManager.RequestNavigate(ContentRegion, "BookShelfView");
         }
     }
 }
