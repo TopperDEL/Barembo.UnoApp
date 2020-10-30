@@ -1,5 +1,19 @@
 # Barembo.UnoApp
-[![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=-1)
-[![Build status](https://build.appcenter.ms/v0.1/apps/face9add-7241-443c-b9a6-f12d2163507d/branches/main/badge)](https://appcenter.ms)
 
- The Barembo-App, made with Uno
+ The Barembo-App, made with Uno. Currently under heavy development. At the moment I'm concentrating on the build-pipeline.
+
+### Build Pipelines
+
+| Platform | main branch                              | releases branch                          |
+|----------|------------------------------------------|------------------------------------------|
+| UWP      | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=-1) | `n/a` |
+| Android  | `n/a` | `n/a` |
+| iOS      | `n/a` | `n/a` |
+
+### Release Pipelines
+
+| Platform | Beta/TestFlight | Production |
+|----------|-------|-----------|
+| UWP      | `n/a` | `n/a` |
+| Android  | `n/a` | `n/a` |
+| iOS      | `n/a` | `n/a` |
