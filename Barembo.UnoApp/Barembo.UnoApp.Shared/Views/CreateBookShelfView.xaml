@@ -11,6 +11,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Create bookshelf"/>
+        <TextBox Text="{Binding OwnerName}" Header="Owner name"/>
+        <Button Content="Create" Command="{Binding CreateBookShelfCommand}"/>
     </Grid>
 </Page>

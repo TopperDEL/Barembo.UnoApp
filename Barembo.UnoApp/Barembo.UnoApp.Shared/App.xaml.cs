@@ -124,6 +124,7 @@ namespace Barembo.UnoApp
 
             ViewModelLocationProvider.Register<LoginView, Barembo.App.Core.ViewModels.LoginViewModel>();
             ViewModelLocationProvider.Register<BookShelfView, Barembo.App.Core.ViewModels.BookShelfViewModel>();
+            ViewModelLocationProvider.Register<CreateBookShelfView, Barembo.App.Core.ViewModels.CreateBookShelfViewModel>();
         }
 
 

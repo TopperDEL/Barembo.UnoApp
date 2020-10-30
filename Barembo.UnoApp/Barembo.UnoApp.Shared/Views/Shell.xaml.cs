@@ -36,6 +36,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator = eventAggregator;
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.SuccessfullyLoggedInMessage>().Subscribe(NavigateToBookShelfView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.NoBookShelfExistsMessage>().Subscribe(NavigateToCreateBookShelfView);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookShelfCreatedMessage>().Subscribe(NavigateToBookShelfView);
         }
 
         private void ContentControl_Loaded(object sender, RoutedEventArgs e)
