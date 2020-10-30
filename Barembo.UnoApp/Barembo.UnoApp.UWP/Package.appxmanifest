@@ -8,7 +8,7 @@
 
   <Identity
     Name="8916TimParth.Barembo"
-    Publisher="CN=07929E22-2FB8-4C9D-B9EB-B4A357099123"
+    Publisher="CN=&quot;CN=07929E22-2FB8-4C9D-B9EB-B4A357099123&quot;"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="27fbdf4b-0927-4327-9162-5ea91aae3d59" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
