@@ -6,7 +6,7 @@
 
 | Platform | main branch                              | releases branch                          |
 |----------|------------------------------------------|------------------------------------------|
-| UWP      | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=-1) | `n/a` |
+| UWP      | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=-1) | `[![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=3) |
 | Android  | `n/a` | `n/a` |
 | iOS      | `n/a` | `n/a` |
 
