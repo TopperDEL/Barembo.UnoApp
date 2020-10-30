@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="395e5576-8970-48a2-a8ab-5761bd748eb6"
-    Publisher="CN=Tim"
+    Name="8916TimParth.Barembo"
+    Publisher="CN=07929E22-2FB8-4C9D-B9EB-B4A357099123"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ee144183-5470-41f1-969b-b7a78487f06e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="27fbdf4b-0927-4327-9162-5ea91aae3d59" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Barembo.UnoApp</DisplayName>
-    <PublisherDisplayName>Barembo.UnoApp</PublisherDisplayName>
+    <DisplayName>Barembo</DisplayName>
+    <PublisherDisplayName>Tim Parth</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,7 +32,7 @@
       Executable="Barembo.UnoApp.exe"
       EntryPoint="Barembo.UnoApp.App">
       <uap:VisualElements
-        DisplayName="Barembo.UnoApp"
+        DisplayName="Barembo"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="Barembo.UnoApp"
