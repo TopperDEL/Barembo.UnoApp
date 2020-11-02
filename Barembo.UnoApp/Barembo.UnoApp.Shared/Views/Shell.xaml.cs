@@ -43,7 +43,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookCreatedMessage>().Subscribe(NavigateToBookShelfView);
         }
 
-        private void ContentControl_Loaded(object sender, RoutedEventArgs e)
+        private void ShellLoaded(object sender, RoutedEventArgs e)
         {
             _regionManager.RegisterViewWithRegion(ContentRegion, typeof(LoginView));
         }

@@ -37,7 +37,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator = eventAggregator;
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void LoginViewLoaded(object sender, RoutedEventArgs e)
         {
             if (_loginService.GetIsLoggedIn())
             {

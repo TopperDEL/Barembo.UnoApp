@@ -8,7 +8,7 @@
     xmlns:prismRegions="using:Prism.Regions"
     xmlns:prismMvvm="using:Prism.Mvvm"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
-    Loaded="ContentControl_Loaded"
+    Loaded="ShellLoaded"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

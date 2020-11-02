@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     xmlns:prismMvvm="using:Prism.Mvvm"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="LoginViewLoaded">
 
     <Grid>
         <StackPanel>
