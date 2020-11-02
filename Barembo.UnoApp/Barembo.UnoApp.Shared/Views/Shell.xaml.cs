@@ -34,6 +34,7 @@ namespace Barembo.UnoApp.Shared.Views
 
             _regionManager = regionManager;
             _eventAggregator = eventAggregator;
+
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.SuccessfullyLoggedInMessage>().Subscribe(NavigateToBookShelfView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.NoBookShelfExistsMessage>().Subscribe(NavigateToCreateBookShelfView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookShelfCreatedMessage>().Subscribe(NavigateToBookShelfView);

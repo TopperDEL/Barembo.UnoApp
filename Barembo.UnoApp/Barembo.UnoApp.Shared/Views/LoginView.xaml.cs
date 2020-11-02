@@ -1,4 +1,7 @@
-﻿using Prism.Regions;
+﻿using Barembo.App.Core.Interfaces;
+using Barembo.App.Core.Messages;
+using Prism.Events;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,9 +26,24 @@ namespace Barembo.UnoApp.Shared.Views
     /// </summary>
     public sealed partial class LoginView : Page
     {
-        public LoginView()
+        readonly ILoginService _loginService;
+        readonly IEventAggregator _eventAggregator;
+
+        public LoginView(ILoginService loginService, IEventAggregator eventAggregator)
         {
             this.InitializeComponent();
+
+            _loginService = loginService;
+            _eventAggregator = eventAggregator;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_loginService.GetIsLoggedIn())
+            {
+                var access = _loginService.GetLogin();
+                _eventAggregator.GetEvent<SuccessfullyLoggedInMessage>().Publish(access);
+            }
         }
     }
 }
