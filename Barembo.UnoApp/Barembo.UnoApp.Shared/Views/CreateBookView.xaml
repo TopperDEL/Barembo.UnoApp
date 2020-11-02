@@ -11,6 +11,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Create own book!"/>
+        <StackPanel>
+            <TextBox Text="{Binding BookName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Name"/>
+            <TextBox Text="{Binding BookDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            <Button Content="Create" Command="{Binding CreateBookCommand}"/>
+        </StackPanel>
     </Grid>
 </Page>
