@@ -124,39 +124,39 @@
     <value>Barembo</value>
   </data>
   <data name="BookDescription.Header" xml:space="preserve">
-    <value>Description</value>
+    <value>Beschreibung</value>
   </data>
   <data name="BookName.Header" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="BookShelfOwnerName.Header" xml:space="preserve">
-    <value>Owner name</value>
+    <value>Eigentümer</value>
   </data>
   <data name="CreateBookButton.Content" xml:space="preserve">
-    <value>Create book</value>
+    <value>Buch anlegen</value>
   </data>
   <data name="CreateBookShelfButton.Content" xml:space="preserve">
-    <value>Create bookshelf</value>
+    <value>Bücherschrank anlegen</value>
   </data>
   <data name="ImportBookButton.Content" xml:space="preserve">
-    <value>Import book</value>
+    <value>Buch importieren</value>
   </data>
   <data name="LoginButton.Content" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="NewBookButton.Content" xml:space="preserve">
-    <value>Create new book</value>
+    <value>Neues Buch anlegen</value>
   </data>
   <data name="SatelliteAddress.Header" xml:space="preserve">
-    <value>Satellite address</value>
+    <value>Satellite-Adresse</value>
   </data>
   <data name="Secret.Header" xml:space="preserve">
-    <value>Secret</value>
+    <value>Password</value>
   </data>
   <data name="SecretAndVerifyNotMatch.Text" xml:space="preserve">
-    <value>Secret and verify secret do not match</value>
+    <value>Die beiden Passwörter stimmen nicht überein</value>
   </data>
   <data name="SecretVerify.Header" xml:space="preserve">
-    <value>Verify secret</value>
+    <value>Passwort erneut</value>
   </data>
 </root>
