@@ -11,14 +11,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-    <StackPanel>
-        <TextBox Text="{Binding SatelliteAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Satellite Address"/>
-        <TextBox Text="{Binding ApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Api-Key"/>
-        <PasswordBox Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret"/>
-        <PasswordBox Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret verify"/>
-        <TextBlock Text="Secret and Secretverify do not match" Foreground="Red"
+        <StackPanel>
+            <TextBox Text="{Binding SatelliteAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Satellite Address"/>
+            <TextBox Text="{Binding ApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Api-Key"/>
+            <PasswordBox Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret"/>
+            <PasswordBox Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret verify"/>
+            <TextBlock Text="Secret and Secretverify do not match" Foreground="Red"
                    Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-        <Button Command="{Binding LoginCommand}" Content="Login"/>
-    </StackPanel>
+            <Button Command="{Binding LoginCommand}" Content="Login"/>
+        </StackPanel>
     </Grid>
 </Page>
