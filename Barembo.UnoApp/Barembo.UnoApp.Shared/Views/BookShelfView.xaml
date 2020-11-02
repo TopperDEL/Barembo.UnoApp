@@ -11,6 +11,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Bookshelf!"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="New book" Command="{Binding AddOwnBookCommand}"/>
+            <Button Content="Import book" Command="{Binding AddForeignBookCommand}"/>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Text="{Binding BookShelf.OwnerName, Mode=OneWay}"/>
     </Grid>
 </Page>

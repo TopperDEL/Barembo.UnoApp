@@ -1,4 +1,6 @@
-﻿using Prism.Regions;
+﻿using Barembo.App.Core.ViewModels;
+using Barembo.Models;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,9 +39,9 @@ namespace Barembo.UnoApp.Shared.Views
         {
         }
 
-        public async void OnNavigatedTo(NavigationContext navigationContext)
+        public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            //await ((CreateBookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
+            ((CreateBookShelfViewModel)this.DataContext).Init((StoreAccess)navigationContext.Parameters["StoreAccess"]);
         }
     }
 }
