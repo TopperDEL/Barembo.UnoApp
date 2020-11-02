@@ -11,7 +11,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBox Text="{Binding OwnerName}" Header="Owner name"/>
-        <Button Content="Create" Command="{Binding CreateBookShelfCommand}"/>
+        <StackPanel>
+            <TextBox Text="{Binding OwnerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Owner name"/>
+            <Button Content="Create" Command="{Binding CreateBookShelfCommand}"/>
+        </StackPanel>
     </Grid>
 </Page>
