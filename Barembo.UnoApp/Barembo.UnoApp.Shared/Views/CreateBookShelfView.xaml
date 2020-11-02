@@ -13,7 +13,7 @@
     <Grid>
         <StackPanel>
             <TextBox Text="{Binding OwnerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Owner name"/>
-            <Button Content="Create" Command="{Binding CreateBookShelfCommand}"/>
+            <Button x:Uid="CreateBookShelfButton" Content="Create bookshelf" Command="{Binding CreateBookShelfCommand}"/>
         </StackPanel>
     </Grid>
 </Page>

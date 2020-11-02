@@ -12,9 +12,9 @@
 
     <Grid>
         <StackPanel>
-            <TextBox Text="{Binding BookName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Name"/>
-            <TextBox Text="{Binding BookDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
-            <Button Content="Create" Command="{Binding CreateBookCommand}"/>
+            <TextBox x:Uid="BookName" Text="{Binding BookName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Name"/>
+            <TextBox x:Uid="BookDescription" Text="{Binding BookDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            <Button x:Uid="CreateBookButton" Content="Create" Command="{Binding CreateBookCommand}"/>
         </StackPanel>
     </Grid>
 </Page>

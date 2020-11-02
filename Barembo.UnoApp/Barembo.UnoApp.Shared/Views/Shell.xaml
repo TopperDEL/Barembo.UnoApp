@@ -16,10 +16,10 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Margin="20">
+        <!--<StackPanel Margin="20">
             <TextBlock Text="{Binding Title}" FontSize="30" />
             <TextBlock Text="Welcome to Barembo and Prism!" FontSize="15" />
-        </StackPanel>
+        </StackPanel>-->
         <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="{x:Bind ContentRegion}" />
     </Grid>
 </ContentControl>
