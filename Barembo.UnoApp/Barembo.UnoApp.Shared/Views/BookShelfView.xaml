@@ -24,8 +24,11 @@
         <ListView Grid.Row="2" ItemsSource="{Binding Books, Mode=OneWay}" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:BookViewModel">
-                    <StackPanel>
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Book.Name, Mode=OneWay}"/>
+                        <Button Content="Create entry" Command="{Binding CreateEntryCommand}"/>
+                        <Button Content="List entries" Command="{Binding ShowEntriesCommand}"/>
+                        <Button Content="Share book" Command="{Binding ShareBookCommand}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -41,6 +41,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.AddOwnBookMessage>().Subscribe(NavigateToCreateBookView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.AddForeignBookMessage>().Subscribe(NavigateToImportBookView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookCreatedMessage>().Subscribe(NavigateToBookShelfView);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.CreateBookEntryMessage>().Subscribe(NavigateToCreateEntryView);
         }
 
         private void ShellLoaded(object sender, RoutedEventArgs e)
@@ -76,6 +77,13 @@ namespace Barembo.UnoApp.Shared.Views
             parameters.Add("StoreAccess", data.Item1);
             parameters.Add("BookShelf", data.Item2);
             _regionManager.RequestNavigate(ContentRegion, "ImportBookView", parameters);
+        }
+
+        private void NavigateToCreateEntryView(BookReference bookReference)
+        {
+            var parameters = new NavigationParameters();
+            parameters.Add("BookReference", bookReference);
+            _regionManager.RequestNavigate(ContentRegion, "CreateEntryView", parameters);
         }
     }
 }
