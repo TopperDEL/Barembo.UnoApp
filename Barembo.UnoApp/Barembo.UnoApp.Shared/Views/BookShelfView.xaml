@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:prismMvvm="using:Prism.Mvvm"
+    xmlns:prismMvvm="using:Prism.Mvvm" xmlns:viewmodels="using:Barembo.App.Core.ViewModels"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -21,8 +21,14 @@
             <Button x:Uid="ImportBookButton" Content="Import book" Command="{Binding AddForeignBookCommand}"/>
         </StackPanel>
         <TextBlock Grid.Row="1" Text="{Binding BookShelf.OwnerName, Mode=OneWay}"/>
-        <ListView Grid.Row="2" ItemsSource="{Binding Books, Mode=OneWay}">
-            
+        <ListView Grid.Row="2" ItemsSource="{Binding Books, Mode=OneWay}" >
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:BookViewModel">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Book.Name, Mode=OneWay}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>
