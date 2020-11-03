@@ -24,7 +24,7 @@ namespace Barembo.UnoApp.Shared.Views
 {
     public sealed partial class Shell
     {
-        public string ContentRegion = "ContentRegion";
+        public string ContentRegion { get; } = "ContentRegion";
         readonly IRegionManager _regionManager;
         readonly IEventAggregator _eventAggregator;
 

@@ -22,7 +22,10 @@ namespace Barembo.UnoApp.Shared.Services
                 if (!string.IsNullOrEmpty(access.AccessGrant))
                     return true;
             }
-            catch { }
+            catch
+            {
+                //Whatever happened - consider the user as not logged in
+            }
             return false;
         }
 
