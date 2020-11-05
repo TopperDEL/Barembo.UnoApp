@@ -29,8 +29,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\CreateBookView.xaml.cs">
       <DependentUpon>CreateBookView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\CreateEntryView.xaml.cs">
-      <DependentUpon>CreateEntryView.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CreateBookEntryView.xaml.cs">
+      <DependentUpon>CreateBookEntryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ImportBookView.xaml.cs">
       <DependentUpon>ImportBookView.xaml</DependentUpon>
@@ -59,7 +59,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Views\CreateEntryView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\CreateBookEntryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

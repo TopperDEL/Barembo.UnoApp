@@ -27,6 +27,7 @@ namespace Barembo.UnoApp.Shared.Views
         public string ContentRegion { get; } = "ContentRegion";
         readonly IRegionManager _regionManager;
         readonly IEventAggregator _eventAggregator;
+        private StoreAccess _currentStoreAccess;
 
         public Shell(IRegionManager regionManager, IEventAggregator eventAggregator)
         {
@@ -42,6 +43,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.AddForeignBookMessage>().Subscribe(NavigateToImportBookView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookCreatedMessage>().Subscribe(NavigateToBookShelfView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.CreateBookEntryMessage>().Subscribe(NavigateToCreateEntryView);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookEntrySavedMessage>().Subscribe(NavigateFromSavedBookEntry);
         }
 
         private void ShellLoaded(object sender, RoutedEventArgs e)
@@ -51,6 +53,7 @@ namespace Barembo.UnoApp.Shared.Views
 
         private void NavigateToBookShelfView(StoreAccess storeAccess)
         {
+            _currentStoreAccess = storeAccess;
             var parameters = new NavigationParameters();
             parameters.Add("StoreAccess", storeAccess);
             _regionManager.RequestNavigate(ContentRegion, "BookShelfView", parameters);
@@ -83,7 +86,12 @@ namespace Barembo.UnoApp.Shared.Views
         {
             var parameters = new NavigationParameters();
             parameters.Add("BookReference", bookReference);
-            _regionManager.RequestNavigate(ContentRegion, "CreateEntryView", parameters);
+            _regionManager.RequestNavigate(ContentRegion, "CreateBookEntryView", parameters);
+        }
+
+        private void NavigateFromSavedBookEntry(Tuple<BookReference, EntryReference> obj)
+        {
+            NavigateToBookShelfView(_currentStoreAccess);
         }
     }
 }
