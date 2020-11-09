@@ -40,7 +40,7 @@ namespace Barembo.UnoApp.Shared.Helpers
             var paged = (from e in _entryReferences
                           select e).Skip(pageIndex * pageSize).Take(pageSize);
 
-            return paged.Select(s => new EntryViewModel(s, _entryService));
+            return paged.Select(s => new EntryViewModel(s, _entryService, SynchronizationContext.Current));
         }
     }
 }
