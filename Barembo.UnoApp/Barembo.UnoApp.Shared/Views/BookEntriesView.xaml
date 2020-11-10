@@ -13,11 +13,13 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <TextBlock Text="Entries" Grid.Row="0"/>
-        <ListView ItemsSource="{x:Bind LocalEntries, Mode=OneWay}" Grid.Row="1">
+        <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Grid.Row="1"/>
+        <ListView ItemsSource="{Binding Entries, Mode=OneWay}" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:EntryViewModel">
                     <StackPanel>

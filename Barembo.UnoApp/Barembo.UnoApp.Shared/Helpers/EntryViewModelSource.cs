@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using Barembo.App.Core.ViewModels;
+using Prism.Events;
 
 namespace Barembo.UnoApp.Shared.Helpers
 {
@@ -15,12 +16,14 @@ namespace Barembo.UnoApp.Shared.Helpers
     {
         private IEnumerable<EntryReference> _entryReferences;
         private readonly IEntryService _entryService;
+        private readonly IEventAggregator _eventAggregator;
         private readonly BookReference _bookReference;
         private bool _loaded;
 
-        public EntryViewModelSource(IEntryService entryService, BookReference bookReference)
+        public EntryViewModelSource(IEntryService entryService, IEventAggregator eventAggregator, BookReference bookReference)
         {
             _entryService = entryService;
+            _eventAggregator = eventAggregator;
             _bookReference = bookReference;
         }
 

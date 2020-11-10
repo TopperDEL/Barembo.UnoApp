@@ -3,6 +3,7 @@ using Barembo.Interfaces;
 using Barembo.Models;
 using Barembo.UnoApp.Shared.Helpers;
 using Microsoft.Toolkit.Uwp;
+using Prism.Events;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -24,22 +25,17 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Barembo.UnoApp.Shared.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class BookEntriesView : Page, INavigationAware, INotifyPropertyChanged
+    public sealed partial class BookEntriesView : Page, INavigationAware
     {
         private readonly IEntryService _entryService;
+        private readonly IEventAggregator _eventAggregator;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public IncrementalLoadingCollection<EntryViewModelSource, EntryViewModel> LocalEntries { get; set; }
-
-        public BookEntriesView(IEntryService entryService)
+        public BookEntriesView(IEntryService entryService, IEventAggregator eventAggregator)
         {
             this.InitializeComponent();
 
             _entryService = entryService;
+            _eventAggregator = eventAggregator;
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -54,11 +50,9 @@ namespace Barembo.UnoApp.Shared.Views
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             var vm = (BookEntriesViewModel)this.DataContext;
-            var source = new EntryViewModelSource(_entryService, (BookReference)navigationContext.Parameters["BookReference"]);
+            var source = new EntryViewModelSource(_entryService, _eventAggregator, (BookReference)navigationContext.Parameters["BookReference"]);
             var collection = new IncrementalLoadingCollection<EntryViewModelSource, EntryViewModel>(source, 5);
             vm.Entries = collection;
-            LocalEntries = collection;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LocalEntries)));
         }
     }
 }

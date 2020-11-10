@@ -138,6 +138,9 @@
   <data name="CreateBookShelfButton.Content" xml:space="preserve">
     <value>Create bookshelf</value>
   </data>
+  <data name="GoBackButton.Content" xml:space="preserve">
+    <value>Go back</value>
+  </data>
   <data name="ImportBookButton.Content" xml:space="preserve">
     <value>Import book</value>
   </data>

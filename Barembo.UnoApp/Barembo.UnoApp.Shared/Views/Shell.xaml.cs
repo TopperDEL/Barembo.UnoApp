@@ -45,6 +45,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.CreateBookEntryMessage>().Subscribe(NavigateToCreateEntryView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookEntrySavedMessage>().Subscribe(NavigateFromSavedBookEntry);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ShowBookEntriesMessage>().Subscribe(NavigateToBookEntriesView);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.GoBackMessage>().Subscribe(GoBack);
         }
 
         private void ShellLoaded(object sender, RoutedEventArgs e)
@@ -100,6 +101,11 @@ namespace Barembo.UnoApp.Shared.Views
             var parameters = new NavigationParameters();
             parameters.Add("BookReference", bookReference);
             _regionManager.RequestNavigate(ContentRegion, "BookEntriesView", parameters);
+        }
+
+        private void GoBack()
+        {
+            _regionManager.Regions[ContentRegion].NavigationService.Journal.GoBack();
         }
     }
 }
