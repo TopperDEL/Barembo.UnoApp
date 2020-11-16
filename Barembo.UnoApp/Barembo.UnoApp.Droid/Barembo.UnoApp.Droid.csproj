@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.3</Version>
+      <Version>0.9.17</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>3.4.3</Version>
@@ -72,10 +72,19 @@
     <PackageReference Include="Prism.DryIoc.Uno">
       <Version>8.0.0.1909</Version>
     </PackageReference>
+    <PackageReference Include="Uno.Microsoft.Toolkit">
+      <Version>6.1.0-build.191.gc988bdd4ff</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp">
+      <Version>6.1.0-build.191.gc988bdd4ff</Version>
+    </PackageReference>
     <PackageReference Include="Uno.UI" Version="3.1.6" />
     <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.32" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
+    <PackageReference Include="uplink.NET">
+      <Version>2.3.5</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

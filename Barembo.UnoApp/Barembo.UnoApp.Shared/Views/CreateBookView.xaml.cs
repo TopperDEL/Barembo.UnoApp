@@ -1,6 +1,5 @@
-﻿using Barembo.App.Core.Interfaces;
-using Barembo.App.Core.Messages;
-using Prism.Events;
+﻿using Barembo.App.Core.ViewModels;
+using Barembo.Models;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -24,26 +23,26 @@ namespace Barembo.UnoApp.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class LoginView : Page
+    public sealed partial class CreateBookView : Page, INavigationAware
     {
-        readonly ILoginService _loginService;
-        readonly IEventAggregator _eventAggregator;
-
-        public LoginView(ILoginService loginService, IEventAggregator eventAggregator)
+        public CreateBookView()
         {
             this.InitializeComponent();
-
-            _loginService = loginService;
-            _eventAggregator = eventAggregator;
         }
 
-        private void LoginViewLoaded(object sender, RoutedEventArgs e)
+        public bool IsNavigationTarget(NavigationContext navigationContext)
         {
-            if (_loginService.GetIsLoggedIn())
-            {
-                var access = _loginService.GetLogin();
-                _eventAggregator.GetEvent<SuccessfullyLoggedInMessage>().Publish(access);
-            }
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            ((CreateBookViewModel)this.DataContext).Init((StoreAccess)navigationContext.Parameters["StoreAccess"],
+                                                         (BookShelf)navigationContext.Parameters["BookShelf"]);
         }
     }
 }

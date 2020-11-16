@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Barembo.UnoApp.Shared.Views.CreateBookShelfView"
+    x:Class="Barembo.UnoApp.Shared.Views.ImportBookView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Barembo.UnoApp.Shared.Views"
@@ -11,9 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel>
-            <TextBox Text="{Binding OwnerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Owner name"/>
-            <Button x:Uid="CreateBookShelfButton" Content="Create bookshelf" Command="{Binding CreateBookShelfCommand}"/>
-        </StackPanel>
+        <TextBlock Text="Import book view!"/>
     </Grid>
 </Page>

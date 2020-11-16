@@ -117,7 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApiKey.Header" xml:space="preserve">
+    <value>API-key</value>
+  </data>
   <data name="ApplicationName" xml:space="preserve">
-    <value>Barembo.UnoApp</value>
+    <value>Barembo</value>
+  </data>
+  <data name="BookDescription.Header" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="BookName.Header" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="BookShelfOwnerName.Header" xml:space="preserve">
+    <value>Owner name</value>
+  </data>
+  <data name="CreateBookButton.Content" xml:space="preserve">
+    <value>Create book</value>
+  </data>
+  <data name="CreateBookShelfButton.Content" xml:space="preserve">
+    <value>Create bookshelf</value>
+  </data>
+  <data name="GoBackButton.Content" xml:space="preserve">
+    <value>Go back</value>
+  </data>
+  <data name="ImportBookButton.Content" xml:space="preserve">
+    <value>Import book</value>
+  </data>
+  <data name="LoginButton.Content" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="NewBookButton.Content" xml:space="preserve">
+    <value>Create new book</value>
+  </data>
+  <data name="SatelliteAddress.Header" xml:space="preserve">
+    <value>Satellite address</value>
+  </data>
+  <data name="Secret.Header" xml:space="preserve">
+    <value>Secret</value>
+  </data>
+  <data name="SecretAndVerifyNotMatch.Text" xml:space="preserve">
+    <value>Secret and verify secret do not match</value>
+  </data>
+  <data name="SecretVerify.Header" xml:space="preserve">
+    <value>Verify secret</value>
   </data>
 </root>

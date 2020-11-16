@@ -116,6 +116,10 @@ namespace Barembo.UnoApp
             //Views to navigate to
             containerRegistry.RegisterForNavigation<BookShelfView>();
             containerRegistry.RegisterForNavigation<CreateBookShelfView>();
+            containerRegistry.RegisterForNavigation<CreateBookView>();
+            containerRegistry.RegisterForNavigation<CreateBookEntryView>();
+            //containerRegistry.RegisterForNavigation<ImportBookView>();
+            containerRegistry.RegisterForNavigation<BookEntriesView>();
         }
 
         protected override void ConfigureViewModelLocator()
@@ -124,6 +128,11 @@ namespace Barembo.UnoApp
 
             ViewModelLocationProvider.Register<LoginView, Barembo.App.Core.ViewModels.LoginViewModel>();
             ViewModelLocationProvider.Register<BookShelfView, Barembo.App.Core.ViewModels.BookShelfViewModel>();
+            ViewModelLocationProvider.Register<CreateBookShelfView, Barembo.App.Core.ViewModels.CreateBookShelfViewModel>();
+            ViewModelLocationProvider.Register<CreateBookView, Barembo.App.Core.ViewModels.CreateBookViewModel>();
+            ViewModelLocationProvider.Register<CreateBookEntryView, Barembo.App.Core.ViewModels.CreateBookEntryViewModel>();
+            //ViewModelLocationProvider.Register<ImportBookView, Barembo.App.Core.ViewModels.ImportBookViewModel>();
+            ViewModelLocationProvider.Register<BookEntriesView, Barembo.App.Core.ViewModels.BookEntriesViewModel>();
         }
 
 
@@ -139,38 +148,44 @@ namespace Barembo.UnoApp
                         { "Uno", Microsoft.Extensions.Logging.LogLevel.Warning },
                         { "Windows", Microsoft.Extensions.Logging.LogLevel.Warning },
 
-						// Debug JS interop
-						// { "Uno.Foundation.WebAssemblyRuntime", LogLevel.Debug },
+       //                  //Debug JS interop
 
-						// Generic Xaml events
-						// { "Windows.UI.Xaml", LogLevel.Debug },
-						// { "Windows.UI.Xaml.VisualStateGroup", LogLevel.Debug },
-						// { "Windows.UI.Xaml.StateTriggerBase", LogLevel.Debug },
-						// { "Windows.UI.Xaml.UIElement", LogLevel.Debug },
+       //                  { "Uno.Foundation.WebAssemblyRuntime", Microsoft.Extensions.Logging.LogLevel.Debug },
 
-						// Layouter specific messages
-						// { "Windows.UI.Xaml.Controls", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.Layouter", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
-						// { "Windows.Storage", LogLevel.Debug },
+       //                  //Generic Xaml events
 
-						// Binding related messages
-						// { "Windows.UI.Xaml.Data", LogLevel.Debug },
+       //                  { "Windows.UI.Xaml", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.VisualStateGroup", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.StateTriggerBase", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.UIElement", Microsoft.Extensions.Logging.LogLevel.Debug },
 
-						// DependencyObject memory references tracking
-						// { "ReferenceHolder", LogLevel.Debug },
+       //                  //Layouter specific messages
 
-						// ListView-related messages
-						// { "Windows.UI.Xaml.Controls.ListViewBase", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.ListView", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.GridView", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.VirtualizingPanelLayout", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.NativeListViewBase", LogLevel.Debug },
-						// { "Windows.UI.Xaml.Controls.ListViewBaseSource", LogLevel.Debug }, //iOS
-						// { "Windows.UI.Xaml.Controls.ListViewBaseInternalContainer", LogLevel.Debug }, //iOS
-						// { "Windows.UI.Xaml.Controls.NativeListViewBaseAdapter", LogLevel.Debug }, //Android
-						// { "Windows.UI.Xaml.Controls.BufferViewCache", LogLevel.Debug }, //Android
-						// { "Windows.UI.Xaml.Controls.VirtualizingPanelGenerator", LogLevel.Debug }, //WASM
+       //                  { "Windows.UI.Xaml.Controls", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.Controls.Layouter", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.Controls.Panel", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.Storage", Microsoft.Extensions.Logging.LogLevel.Debug },
+
+       //                  //Binding related messages
+
+       //                  { "Windows.UI.Xaml.Data", Microsoft.Extensions.Logging.LogLevel.Debug },
+
+       //                  //DependencyObject memory references tracking
+
+       //                  { "ReferenceHolder", Microsoft.Extensions.Logging.LogLevel.Debug },
+
+       //                  //ListView-related messages
+
+       //                  { "Windows.UI.Xaml.Controls.ListViewBase", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.Controls.ListView", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.Controls.GridView", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.Controls.VirtualizingPanelLayout", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.Controls.NativeListViewBase", Microsoft.Extensions.Logging.LogLevel.Debug },
+       //                  { "Windows.UI.Xaml.Controls.ListViewBaseSource", Microsoft.Extensions.Logging.LogLevel.Debug }, //iOS
+						 //{ "Windows.UI.Xaml.Controls.ListViewBaseInternalContainer", Microsoft.Extensions.Logging.LogLevel.Debug }, //iOS
+						 //{ "Windows.UI.Xaml.Controls.NativeListViewBaseAdapter", Microsoft.Extensions.Logging.LogLevel.Debug }, //Android
+						 //{ "Windows.UI.Xaml.Controls.BufferViewCache", Microsoft.Extensions.Logging.LogLevel.Debug }, //Android
+						 //{ "Windows.UI.Xaml.Controls.VirtualizingPanelGenerator", Microsoft.Extensions.Logging.LogLevel.Debug }, //WASM
 					}
                 )
 #if DEBUG
