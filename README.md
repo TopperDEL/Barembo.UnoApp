@@ -15,6 +15,6 @@
 
 | Platform | Beta/TestFlight | Production |
 |----------|-------|-----------|
-| UWP      | `n/a` | `n/a` |
+| UWP      | https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/1 | https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/4 |
 | Android  | `n/a` | `n/a` |
 | iOS      | `n/a` | `n/a` |
