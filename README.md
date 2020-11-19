@@ -1,5 +1,5 @@
 # Barembo.UnoApp
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b36018380eaa475ebb7178420db8e213)](https://app.codacy.com/gh/TopperDEL/Barembo.UnoApp?utm_source=github.com&utm_medium=referral&utm_content=TopperDEL/Barembo.UnoApp&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b36018380eaa475ebb7178420db8e213)](https://app.codacy.com/gh/TopperDEL/Barembo.UnoApp?utm_source=github.com&utm_medium=referral&utm_content=TopperDEL/Barembo.UnoApp&utm_campaign=Badge_Grade) [![Storj.io](https://storj.io/img/storj-badge.svg)](https://storj.io)
 
  The Barembo-App, made with Uno. Currently under heavy development. At the moment I'm concentrating on the build-pipeline.
 
@@ -15,6 +15,6 @@
 
 | Platform | Beta/TestFlight | Production |
 |----------|-------|-----------|
-| UWP      | `n/a` | `n/a` |
-| Android  | `n/a` | `n/a` |
+| UWP      | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/1) | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/4) |
+| Android  | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/2/2) | `n/a` |
 | iOS      | `n/a` | `n/a` |
