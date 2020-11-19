@@ -1,5 +1,5 @@
 # Barembo.UnoApp
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b36018380eaa475ebb7178420db8e213)](https://app.codacy.com/gh/TopperDEL/Barembo.UnoApp?utm_source=github.com&utm_medium=referral&utm_content=TopperDEL/Barembo.UnoApp&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b36018380eaa475ebb7178420db8e213)](https://app.codacy.com/gh/TopperDEL/Barembo.UnoApp?utm_source=github.com&utm_medium=referral&utm_content=TopperDEL/Barembo.UnoApp&utm_campaign=Badge_Grade) [![Storj.io](https://storj.io/img/storj-badge.svg)](https://storj.io)
 
  The Barembo-App, made with Uno. Currently under heavy development. At the moment I'm concentrating on the build-pipeline.
 
