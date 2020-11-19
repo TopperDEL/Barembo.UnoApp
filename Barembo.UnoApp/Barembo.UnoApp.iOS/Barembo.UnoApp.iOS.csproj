@@ -116,7 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.17</Version>
+      <Version>0.9.18</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>3.4.3</Version>
@@ -133,6 +133,9 @@
     <PackageReference Include="Uno.UI" Version="3.1.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
+    <PackageReference Include="uplink.NET">
+      <Version>2.4.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Contents.json">
