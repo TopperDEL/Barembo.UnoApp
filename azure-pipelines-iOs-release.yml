@@ -25,11 +25,16 @@ steps:
   inputs:
     restoreSolution: '**/*iOs.sln'
 
+- task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: 'iOsDevCertificate.p12'
+    certPwd: '$(iOsCertificatePassword)'
+    keychain: 'temp'
+
 - task: InstallAppleProvisioningProfile@1
   inputs:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'BaremboiOs.mobileprovision'
-
 
 - task: XamariniOS@2
   inputs:
