@@ -9,7 +9,7 @@
 |----------|------------------------------------------|------------------------------------------|
 | UWP      | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=-1) | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=3) |
 | Android  | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Debug%20Android)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=4) | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20Android)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=5) |
-| iOS      | [![Build Status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Debug%20iOs?branchName=azure-pipelines-iOs)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=10&branchName=azure-pipelines-iOs) | `n/a` |
+| iOS      | [![Build Status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Debug%20iOs?branchName=azure-pipelines-iOs)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=10&branchName=azure-pipelines-iOs) | [![Build Status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20iOs?branchName=azure-pipelines-ios-release)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=11&branchName=azure-pipelines-ios-release) |
 
 ## Release Pipelines
 
