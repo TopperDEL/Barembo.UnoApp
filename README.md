@@ -15,6 +15,6 @@
 
 | Platform | Beta/TestFlight | Production |
 |----------|-------|-----------|
-| UWP      | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/1) | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/4) |
-| Android  | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/2/2) | `n/a` |
+| UWP      | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/1)](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/1) | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/4)](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/1/4) |
+| Android  | [![Build status](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/2/2)](https://vsrm.dev.azure.com/topperdel/_apis/public/Release/badge/f65c4d47-6ca1-4f4a-9da8-9f6d01e782a6/2/2) | `n/a` |
 | iOS      | `n/a` | `n/a` |
