@@ -45,6 +45,4 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'ios_storeupload_drop'
-    publishLocation: 'Container'
