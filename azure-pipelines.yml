@@ -39,8 +39,8 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**/*.apk'
+    SourceFolder: '$(outputDirectory)'
+    Contents: '**/*signed*.apk'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   condition: succeededOrFailed()
 
