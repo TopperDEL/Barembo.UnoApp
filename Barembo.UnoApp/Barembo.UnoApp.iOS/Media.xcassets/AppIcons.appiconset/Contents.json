@@ -1,6 +1,18 @@
 {
   "images": [
     {
+      "scale": "1x",
+      "size": "120x120",
+      "idiom": "ipad",
+      "filename": "Icon-120.png"
+    },
+	{
+      "scale": "1x",
+      "size": "120x120",
+      "idiom": "iphone",
+      "filename": "Icon-120.png"
+    },
+	{
       "scale": "2x",
       "size": "20x20",
       "idiom": "iphone",
