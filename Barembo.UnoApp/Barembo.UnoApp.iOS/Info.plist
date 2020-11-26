@@ -53,14 +53,7 @@
 	<string>{320, 568}</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-	<key>UIRequiresFullScreen</key>
-	<true/>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>icon-60.png</string>
-		<string>icon-60@2x.png</string>
-		<string>icon-76.png</string>
-		<string>icon-76@2x.png</string>
-	</array>
+	<key>XSAppIconAssets</key>
+	<string>Media.xcassets/AppIcons.appiconset</string>
 </dict>
 </plist>
