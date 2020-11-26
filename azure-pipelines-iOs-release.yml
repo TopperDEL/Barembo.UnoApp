@@ -39,7 +39,7 @@ steps:
 - task: XamariniOS@2
   inputs:
     solutionFile: '**/*iOs.sln'
-    configuration: 'Release'
+    configuration: 'AppStore'
     buildForSimulator: false
     packageApp: true
 
