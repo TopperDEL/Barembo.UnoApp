@@ -17,16 +17,6 @@
     },
     {
       "scale": "3x",
-      "size": "29x29",
-      "idiom": "iphone"
-    },
-    {
-      "scale": "2x",
-      "size": "40x40",
-      "idiom": "iphone"
-    },
-    {
-      "scale": "3x",
       "size": "60x60",
       "idiom": "iphone"
     },
@@ -52,11 +42,6 @@
     },
     {
       "scale": "1x",
-      "size": "40x40",
-      "idiom": "ipad"
-    },
-    {
-      "scale": "2x",
       "size": "40x40",
       "idiom": "ipad"
     },
@@ -92,6 +77,24 @@
       "size": "76x76",
       "idiom": "ipad",
       "filename": "Barembo152x152.png"
+    },
+    {
+      "scale": "3x",
+      "size": "29x29",
+      "idiom": "iphone",
+      "filename": "Barembo87x87.png"
+    },
+    {
+      "scale": "2x",
+      "size": "40x40",
+      "idiom": "iphone",
+      "filename": "Barembo80x80.png"
+    },
+    {
+      "scale": "2x",
+      "size": "40x40",
+      "idiom": "ipad",
+      "filename": "Barembo80x801.png"
     }
   ],
   "properties": {},

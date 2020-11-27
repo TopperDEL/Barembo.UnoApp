@@ -55,5 +55,7 @@
 	<true/>
 	<key>XSAppIconAssets</key>
 	<string>Media.xcassets/AppIcons.appiconset</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 </dict>
 </plist>
