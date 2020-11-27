@@ -143,6 +143,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Barembo120x120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Barembo120x1201.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Barembo152x152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
