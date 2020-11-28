@@ -26,7 +26,7 @@ steps:
 
 - task: ios-bundle-version@1
   inputs:
-    sourcePath: 'Info.plist'
+    sourcePath: 'Barembo.UnoApp/Barembo.UnoApp.iOS/Info.plist'
     versionCodeOption: 'buildid'
     versionCode: '$(Build.BuildId)'
     printFile: true
