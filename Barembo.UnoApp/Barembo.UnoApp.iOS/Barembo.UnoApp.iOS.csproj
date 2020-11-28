@@ -118,7 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.18</Version>
+      <Version>0.9.19</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.0.0</Version>
