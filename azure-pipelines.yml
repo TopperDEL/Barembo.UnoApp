@@ -35,12 +35,13 @@ steps:
     apksignerKeystorePassword: '$(keystore.password)'
     apksignerKeystoreAlias: '$(keystore.alias)'
     apksignerKeyPassword: '$(keystore.keypassword)'
+    apksignerArguments: --out $(outputDirectory)/de.barembo.release.apk
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     SourceFolder: '$(outputDirectory)'
-    Contents: '**/*signed*.apk'
+    Contents: '*de.barembo.release.apk'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   condition: succeededOrFailed()
 
