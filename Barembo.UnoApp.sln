@@ -15,9 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barembo.UnoApp.macOS", "Bar
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Barembo.UnoApp\Barembo.UnoApp.Shared\Barembo.UnoApp.Shared.projitems*{18409a09-cf9c-4684-a171-917722aed3fb}*SharedItemsImports = 4
 		Barembo.UnoApp\Barembo.UnoApp.Shared\Barembo.UnoApp.Shared.projitems*{395e5576-8970-48a2-a8ab-5761bd748eb6}*SharedItemsImports = 4
 		Barembo.UnoApp\Barembo.UnoApp.Shared\Barembo.UnoApp.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
 		Barembo.UnoApp\Barembo.UnoApp.Shared\Barembo.UnoApp.Shared.projitems*{73ed4e63-2286-467a-82b8-de1a737a2885}*SharedItemsImports = 4
+		Barembo.UnoApp\Barembo.UnoApp.Shared\Barembo.UnoApp.Shared.projitems*{a0b0923d-85c4-4e35-86b1-7eac3018313b}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

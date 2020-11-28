@@ -8,8 +8,8 @@
 | Platform | main branch                              | releases branch                          |
 |----------|------------------------------------------|------------------------------------------|
 | UWP      | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=-1) | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20UWP)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=3) |
-| Android  | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Debug%20Android)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=4) | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20Android)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=5) |
-| iOS      | [![Build Status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Debug%20iOs?branchName=azure-pipelines-iOs)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=10&branchName=azure-pipelines-iOs) | [![Build Status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20iOs?branchName=release)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=11&branchName=release) |
+| Android  | [![Build status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Debug%20Android)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=4) | [![Build Status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20Android?branchName=main)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=14&branchName=main) |
+| iOS      | [![Build Status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Debug%20iOs?branchName=main)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=10&branchName=main) | [![Build Status](https://dev.azure.com/topperdel/Barembo/_apis/build/status/Release%20iOs?branchName=main)](https://dev.azure.com/topperdel/Barembo/_build/latest?definitionId=11&branchName=main) |
 
 ## Release Pipelines
 

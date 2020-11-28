@@ -5,21 +5,19 @@
     xmlns:local="using:Barembo.UnoApp.Shared.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:Uno.UI.Toolkit"
     xmlns:prismRegions="using:Prism.Regions"
     xmlns:prismMvvm="using:Prism.Mvvm"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Loaded="ShellLoaded"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" toolkit:VisibleBoundsPadding.PaddingMask="All">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!--<StackPanel Margin="20">
-            <TextBlock Text="{Binding Title}" FontSize="30" />
-            <TextBlock Text="Welcome to Barembo and Prism!" FontSize="15" />
-        </StackPanel>-->
+        
         <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="{x:Bind ContentRegion}" />
     </Grid>
 </ContentControl>

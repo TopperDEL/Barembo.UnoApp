@@ -13,7 +13,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>10.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -53,5 +53,11 @@
 	<string>{320, 568}</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>XSAppIconAssets</key>
+	<string>Media.xcassets/AppIcons.appiconset</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To attach a photo to your entry, we need access to your Photo Library.</string>
 </dict>
 </plist>
