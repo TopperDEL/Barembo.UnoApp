@@ -36,6 +36,13 @@ steps:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'BaremboiOs.mobileprovision'
 
+- task: ios-bundle-version@1
+  inputs:
+    sourcePath: 'Info.plist'
+    versionCodeOption: 'buildid'
+    versionCode: '$(Build.BuildId)'
+    printFile: true
+
 - task: XamariniOS@2
   inputs:
     solutionFile: '**/*iOs.sln'
