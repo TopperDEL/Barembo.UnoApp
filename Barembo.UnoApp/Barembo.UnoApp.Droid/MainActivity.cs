@@ -16,7 +16,7 @@ namespace Barembo.UnoApp.Droid
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			Xamarin.Essentials.Platform.Init(this, savedInstanceState); 
+			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 		}
 
 		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
@@ -26,4 +26,5 @@ namespace Barembo.UnoApp.Droid
 			base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		}
 	}
+}
 
