@@ -112,6 +112,7 @@ namespace Barembo.UnoApp
 
             //App-Services
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.ILoginService, Barembo.UnoApp.Shared.Services.LoginService>();
+            containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IBuildVersionInfoService, Barembo.UnoApp.Shared.Services.BuildVersionInfoService>();
 
             //Views to navigate to
             containerRegistry.RegisterForNavigation<BookShelfView>();
@@ -126,6 +127,7 @@ namespace Barembo.UnoApp
         {
             base.ConfigureViewModelLocator();
 
+            ViewModelLocationProvider.Register<Shell, Barembo.App.Core.ViewModels.VersionInfoViewModel>();
             ViewModelLocationProvider.Register<LoginView, Barembo.App.Core.ViewModels.LoginViewModel>();
             ViewModelLocationProvider.Register<BookShelfView, Barembo.App.Core.ViewModels.BookShelfViewModel>();
             ViewModelLocationProvider.Register<CreateBookShelfView, Barembo.App.Core.ViewModels.CreateBookShelfViewModel>();
