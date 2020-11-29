@@ -10,7 +10,7 @@ namespace Barembo.UnoApp.Shared.Services
     {
         public string GetBaremboVersion()
         {
-            return VersionTracking.CurrentVersion + " - " + VersionTracking.CurrentBuild;
+            return VersionTracking.CurrentVersion + " / " + VersionTracking.CurrentBuild;
         }
     }
 }

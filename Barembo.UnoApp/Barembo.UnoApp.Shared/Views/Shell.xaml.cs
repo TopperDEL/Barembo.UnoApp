@@ -1,4 +1,5 @@
 ﻿using Barembo.App.Core.Interfaces;
+using Barembo.App.Core.ViewModels;
 using Barembo.Models;
 using Prism;
 using Prism.DryIoc;
@@ -28,6 +29,7 @@ namespace Barembo.UnoApp.Shared.Views
         readonly IRegionManager _regionManager;
         readonly IEventAggregator _eventAggregator;
         private StoreAccess _currentStoreAccess;
+        public VersionInfoViewModel VersionInfoVM { get; set; }
 
         public Shell(IRegionManager regionManager, IEventAggregator eventAggregator)
         {
