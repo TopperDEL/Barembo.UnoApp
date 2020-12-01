@@ -109,5 +109,20 @@ namespace Barembo.UnoApp.Shared.Views
         {
             _regionManager.Regions[ContentRegion].NavigationService.Journal.GoBack();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Before Storj-Init");
+                var version = VersionInfoVM.StorjVersion;
+                Microsoft.AppCenter.Analytics.Analytics.TrackEvent("After Storj-Init");
+            }
+            catch (Exception ex)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
+                Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Storj-Init Exception " + ex.Message);
+            }
+        }
     }
 }
