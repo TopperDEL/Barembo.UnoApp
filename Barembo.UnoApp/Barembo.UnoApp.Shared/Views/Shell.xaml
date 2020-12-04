@@ -21,6 +21,7 @@
             <TextBox Text="{Binding BaremboVersion}" Header="Barembo-Version" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>
             <!--<TextBox Text="{Binding StorjVersion}" Header="Storj-Version" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>-->
             <Button Content="Storj-Init" Click="Button_Click"/>
+            <TextBlock x:Name="storjVersionTXT"/>
         </StackPanel>
         
         <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="{x:Bind ContentRegion}" />

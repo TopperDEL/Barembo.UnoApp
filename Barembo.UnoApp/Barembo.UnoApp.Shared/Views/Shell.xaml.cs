@@ -115,8 +115,10 @@ namespace Barembo.UnoApp.Shared.Views
             try
             {
                 Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Before Storj-Init");
-                var version = VersionInfoVM.StorjVersion;
+                var version = ((VersionInfoViewModel)this.DataContext).StorjVersion;
                 Microsoft.AppCenter.Analytics.Analytics.TrackEvent("After Storj-Init");
+
+                storjVersionTXT.Text = version;
             }
             catch (Exception ex)
             {
