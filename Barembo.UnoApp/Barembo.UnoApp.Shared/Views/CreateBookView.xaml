@@ -15,6 +15,7 @@
             <TextBox x:Uid="BookName" Text="{Binding BookName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Name"/>
             <TextBox x:Uid="BookDescription" Text="{Binding BookDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
             <Button x:Uid="CreateBookButton" Content="Create" Command="{Binding CreateBookCommand}"/>
+            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
         </StackPanel>
     </Grid>
 </Page>

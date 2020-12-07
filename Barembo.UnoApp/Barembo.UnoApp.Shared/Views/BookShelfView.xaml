@@ -26,9 +26,9 @@
                 <DataTemplate x:DataType="viewmodels:BookViewModel">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Book.Name, Mode=OneWay}"/>
-                        <Button Content="Create entry" Command="{Binding CreateEntryCommand}"/>
-                        <Button Content="List entries" Command="{Binding ShowEntriesCommand}"/>
-                        <Button Content="Share book" Command="{Binding ShareBookCommand}"/>
+                        <Button x:Uid="CreateNewEntryButton" Content="Create entry" Command="{Binding CreateEntryCommand}"/>
+                        <Button x:Uid="ListEntriesButton" Content="List entries" Command="{Binding ShowEntriesCommand}"/>
+                        <Button x:Uid="ShareBookButton" Content="Share book" Command="{Binding ShareBookCommand}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
