@@ -118,6 +118,9 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.StoreService>();
 
+            //App-Core-Services
+            containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IThumbnailGeneratorService, Barembo.App.Core.Services.ThumbnailGeneratorService>();
+
             //App-Services
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.ILoginService, Barembo.UnoApp.Shared.Services.LoginService>();
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IBuildVersionInfoService, Barembo.UnoApp.Shared.Services.BuildVersionInfoService>();
