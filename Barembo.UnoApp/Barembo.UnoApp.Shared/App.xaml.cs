@@ -54,7 +54,7 @@ namespace Barembo.UnoApp
             mono_dllmap_insert(IntPtr.Zero, "storj_uplink", null, filepath, null);
 
             ////IntPtr result = ObjCRuntime.Dlfcn.dlopen(filepath, 0);
-            //var uni2 = universe2();
+            var uni2 = universe2();
             //var uni = universe();
             //var version = get_storj_version();
 #endif
@@ -80,8 +80,8 @@ namespace Barembo.UnoApp
         //[global::System.Runtime.InteropServices.DllImport("@rpath/storj_uplink.framework/storj_uplink", EntryPoint = "CSharp_uplinkfSWIG_internal_UniverseIsEmpty___", CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
         //public static extern bool universe();
 
-        //[global::System.Runtime.InteropServices.DllImport("storj_uplink", EntryPoint = "CSharp_uplinkfSWIG_internal_UniverseIsEmpty___")]
-        //public static extern bool universe2();
+        [global::System.Runtime.InteropServices.DllImport("storj_uplink", EntryPoint = "CSharp_uplinkfSWIG_internal_UniverseIsEmpty___")]
+        public static extern bool universe2();
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
