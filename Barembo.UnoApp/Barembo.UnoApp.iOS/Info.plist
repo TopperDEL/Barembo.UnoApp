@@ -56,6 +56,6 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To attach a photo to your entry, we need access to your Photo Library.</string>
 	<key>MinimumOSVersion</key>
-	<string>10.0</string>
+	<string>14.2</string>
 </dict>
 </plist>
