@@ -31,6 +31,9 @@ namespace Barembo.UnoApp.Shared.Views
         private StoreAccess _currentStoreAccess;
         public VersionInfoViewModel VersionInfoVM { get; set; }
 
+        [global::System.Runtime.InteropServices.DllImport("storj_uplink", EntryPoint = "CSharp_uplinkfSWIG_internal_UniverseIsEmpty___")]
+        public static extern bool universe2();
+
         public Shell(IRegionManager regionManager, IEventAggregator eventAggregator)
         {
             this.InitializeComponent();
@@ -115,7 +118,8 @@ namespace Barembo.UnoApp.Shared.Views
             try
             {
                 Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Before Storj-Init");
-                var version = ((VersionInfoViewModel)this.DataContext).StorjVersion;
+                var universe = universe2();
+                var version = universe ? "Erfolg!" : "Kackmist"; //((VersionInfoViewModel)this.DataContext).StorjVersion;
                 Microsoft.AppCenter.Analytics.Analytics.TrackEvent("After Storj-Init");
 
                 storjVersionTXT.Text = version;
