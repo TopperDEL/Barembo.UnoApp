@@ -138,11 +138,26 @@
   <data name="CreateBookShelfButton.Content" xml:space="preserve">
     <value>Create bookshelf</value>
   </data>
+  <data name="CreateEntryBody.Header" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="CreateEntryButton.Content" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CreateEntryHeader.Header" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="CreateNewEntryButton.Content" xml:space="preserve">
+    <value>Create entry</value>
+  </data>
   <data name="GoBackButton.Content" xml:space="preserve">
     <value>Go back</value>
   </data>
   <data name="ImportBookButton.Content" xml:space="preserve">
     <value>Import book</value>
+  </data>
+  <data name="ListEntriesButton.Content" xml:space="preserve">
+    <value>List entries</value>
   </data>
   <data name="LoginButton.Content" xml:space="preserve">
     <value>Login</value>
@@ -161,5 +176,8 @@
   </data>
   <data name="SecretVerify.Header" xml:space="preserve">
     <value>Verify secret</value>
+  </data>
+  <data name="ShareBookButton.Content" xml:space="preserve">
+    <value>Share book</value>
   </data>
 </root>

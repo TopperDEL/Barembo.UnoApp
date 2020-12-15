@@ -19,7 +19,7 @@
             <TextBlock x:Uid="SecretAndVerifyNotMatch" Text="Secret and Secretverify do not match" Foreground="Red"
                    Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>
             <Button x:Uid="LoginButton" Command="{Binding LoginCommand}" Content="Login"/>
-            <TextBlock Text="{Binding LoginError, Mode=OneWay}" Foreground="Red"
+            <TextBlock Text="{Binding LoginError, Mode=OneWay}" Foreground="Red" TextWrapping="Wrap"
                        Visibility="{Binding LoginFailed, Converter={StaticResource BooleanToVisibilityConverter}}"/>
         </StackPanel>
     </Grid>

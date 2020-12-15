@@ -12,8 +12,6 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MinimumOSVersion</key>
-	<string>10.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -45,8 +43,6 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UILaunchImageMinimumOSVersion</key>
-	<string>9.0</string>
 	<key>UILaunchImageOrientation</key>
 	<string>Portrait</string>
 	<key>UILaunchImageSize</key>
@@ -59,5 +55,7 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To attach a photo to your entry, we need access to your Photo Library.</string>
+	<key>MinimumOSVersion</key>
+	<string>14.2</string>
 </dict>
 </plist>

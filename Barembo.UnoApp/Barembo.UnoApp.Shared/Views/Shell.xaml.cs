@@ -54,7 +54,6 @@ namespace Barembo.UnoApp.Shared.Views
         {
             _regionManager.RegisterViewWithRegion(ContentRegion, typeof(LoginView));
         }
-
         private void NavigateToBookShelfView(StoreAccess storeAccess)
         {
             _currentStoreAccess = storeAccess;

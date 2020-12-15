@@ -45,8 +45,18 @@ namespace Barembo.UnoApp
         /// </summary>
         public App()
         {
-            AppCenter.Start("cfc03045-3cc0-4026-b98d-e4bc207dc783", typeof(Analytics), typeof(Crashes));
+#if __IOS__
+            AppCenter.Start("a36c506c-f8f6-438d-a1f3-bb1fa9bb783e", typeof(Analytics), typeof(Crashes));
 
+            //Initialize the uplink.NET-library
+            uplink.NET.Models.Access.Init_iOs(Foundation.NSBundle.MainBundle.BundlePath);
+#endif
+#if __DROID__
+            AppCenter.Start("c4909240-0dcb-4d5c-a2f3-95c0501ca07d", typeof(Analytics), typeof(Crashes));
+#endif
+#if __WINDOWS__
+            AppCenter.Start("cfc03045-3cc0-4026-b98d-e4bc207dc783", typeof(Analytics), typeof(Crashes));
+#endif
             ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
 
             this.InitializeComponent();
@@ -109,6 +119,9 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IEntryService, Barembo.Services.EntryService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.StoreService>();
+
+            //App-Core-Services
+            containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IThumbnailGeneratorService, Barembo.App.Core.Services.ThumbnailGeneratorService>();
 
             //App-Services
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.ILoginService, Barembo.UnoApp.Shared.Services.LoginService>();
