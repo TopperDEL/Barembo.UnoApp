@@ -47,6 +47,9 @@ namespace Barembo.UnoApp
         {
 #if __IOS__
             AppCenter.Start("a36c506c-f8f6-438d-a1f3-bb1fa9bb783e", typeof(Analytics), typeof(Crashes));
+
+            //Initialize the uplink.NET-library
+            uplink.NET.Models.Access.Init_iOs(Foundation.NSBundle.MainBundle.BundlePath);
 #endif
 #if __DROID__
             AppCenter.Start("c4909240-0dcb-4d5c-a2f3-95c0501ca07d", typeof(Analytics), typeof(Crashes));
