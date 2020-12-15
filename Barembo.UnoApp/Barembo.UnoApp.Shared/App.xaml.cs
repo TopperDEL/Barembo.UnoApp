@@ -47,16 +47,6 @@ namespace Barembo.UnoApp
         {
 #if __IOS__
             AppCenter.Start("a36c506c-f8f6-438d-a1f3-bb1fa9bb783e", typeof(Analytics), typeof(Crashes));
-            var fmw = @"storj_uplink.framework/storj_uplink";
-            var documentsPath = Foundation.NSBundle.MainBundle.BundlePath;
-            var filepath = System.IO.Path.Combine(documentsPath, "Frameworks", fmw);
-
-            mono_dllmap_insert(IntPtr.Zero, "storj_uplink", null, filepath, null);
-
-            ////IntPtr result = ObjCRuntime.Dlfcn.dlopen(filepath, 0);
-            var uni2 = universe2();
-            //var uni = universe();
-            //var version = get_storj_version();
 #endif
 #if __DROID__
             AppCenter.Start("c4909240-0dcb-4d5c-a2f3-95c0501ca07d", typeof(Analytics), typeof(Crashes));
@@ -64,24 +54,11 @@ namespace Barembo.UnoApp
 #if __WINDOWS__
             AppCenter.Start("cfc03045-3cc0-4026-b98d-e4bc207dc783", typeof(Analytics), typeof(Crashes));
 #endif
-
             ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
 
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
-
-        [System.Runtime.InteropServices.DllImport("__Internal",CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
-        private static extern void mono_dllmap_insert(IntPtr assembly, string dll, string func, string tdll, string tfunc);
-
-        //[global::System.Runtime.InteropServices.DllImport("@rpath/storj_uplink.framework/storj_uplink", EntryPoint = "CSharp_uplinkfSWIG_get_storj_version___", CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
-        //public static extern string get_storj_version();
-
-        //[global::System.Runtime.InteropServices.DllImport("@rpath/storj_uplink.framework/storj_uplink", EntryPoint = "CSharp_uplinkfSWIG_internal_UniverseIsEmpty___", CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
-        //public static extern bool universe();
-
-        [global::System.Runtime.InteropServices.DllImport("storj_uplink", EntryPoint = "CSharp_uplinkfSWIG_internal_UniverseIsEmpty___")]
-        public static extern bool universe2();
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
