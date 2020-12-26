@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\EntryViewModelSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\BuildVersionInfoService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LoginService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MediaFetchService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\BookEntriesView.xaml.cs">
       <DependentUpon>BookEntriesView.xaml</DependentUpon>
     </Compile>
