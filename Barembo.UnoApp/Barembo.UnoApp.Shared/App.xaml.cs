@@ -126,6 +126,7 @@ namespace Barembo.UnoApp
             //App-Services
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.ILoginService, Barembo.UnoApp.Shared.Services.LoginService>();
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IBuildVersionInfoService, Barembo.UnoApp.Shared.Services.BuildVersionInfoService>();
+            containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IMediaFetchService, Barembo.UnoApp.Shared.Services.MediaFetchService>();
 
             //Views to navigate to
             containerRegistry.RegisterForNavigation<BookShelfView>();
