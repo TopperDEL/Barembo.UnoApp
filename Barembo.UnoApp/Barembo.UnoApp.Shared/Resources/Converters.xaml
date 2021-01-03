@@ -3,4 +3,5 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Barembo.UnoApp.Shared.Resources" xmlns:converter="using:Barembo.UnoApp.Shared.Converter">
     <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <converter:ByteArrayToBitmapImageConverter x:Key="ByteArrayToBitmapImageConverter"/>
 </ResourceDictionary>

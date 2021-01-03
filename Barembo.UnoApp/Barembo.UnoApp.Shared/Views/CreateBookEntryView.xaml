@@ -14,6 +14,7 @@
         <StackPanel>
             <TextBox x:Uid="CreateEntryHeader" Text="{Binding Header, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Header"/>
             <TextBox x:Uid="CreateEntryBody" Text="{Binding Body, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Body"/>
+            <Button x:Uid="AddMediaButton" Content="Add media..." Command="{Binding AddMediaCommand}"/>
             <Button x:Uid="CreateEntryButton" Content="Save" Command="{Binding SaveEntryCommand}"/>
             <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
         </StackPanel>
