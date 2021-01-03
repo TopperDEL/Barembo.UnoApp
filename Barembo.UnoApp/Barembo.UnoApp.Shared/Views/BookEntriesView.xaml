@@ -23,6 +23,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:EntryViewModel">
                     <StackPanel>
+                        <Image Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" MaxWidth="600"/>
                         <TextBlock Text="{x:Bind Header, Mode=OneWay}" x:Phase="0"/>
                         <TextBlock Text="{x:Bind Body, Mode=OneWay}" x:Phase="1"/>
                     </StackPanel>

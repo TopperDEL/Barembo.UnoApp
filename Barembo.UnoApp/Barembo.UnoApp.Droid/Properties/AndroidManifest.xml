@@ -2,5 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="de.Barembo.UnoApp" android:versionCode="2" android:versionName="2.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="30" />
 	<uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.CAMERA" />
 	<application android:label="Barembo (new)" android:icon="@drawable/BaremboLogo"></application>
 </manifest>

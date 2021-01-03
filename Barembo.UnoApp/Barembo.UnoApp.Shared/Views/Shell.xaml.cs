@@ -1,4 +1,5 @@
 ﻿using Barembo.App.Core.Interfaces;
+using Barembo.App.Core.Messages;
 using Barembo.App.Core.ViewModels;
 using Barembo.Models;
 using Prism;
@@ -48,6 +49,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookEntrySavedMessage>().Subscribe(NavigateFromSavedBookEntry);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ShowBookEntriesMessage>().Subscribe(NavigateToBookEntriesView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.GoBackMessage>().Subscribe(GoBack);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.ErrorMessage>().Subscribe(RaiseError);
         }
 
         private void ShellLoaded(object sender, RoutedEventArgs e)
@@ -92,7 +94,7 @@ namespace Barembo.UnoApp.Shared.Views
             _regionManager.RequestNavigate(ContentRegion, "CreateBookEntryView", parameters);
         }
 
-        private void NavigateFromSavedBookEntry(EntryReference entryReference)
+        private void NavigateFromSavedBookEntry(Tuple<EntryReference,Entry> entryData)
         {
             NavigateToBookShelfView(_currentStoreAccess);
         }
@@ -107,6 +109,11 @@ namespace Barembo.UnoApp.Shared.Views
         private void GoBack()
         {
             _regionManager.Regions[ContentRegion].NavigationService.Journal.GoBack();
+        }
+
+        private void RaiseError(Tuple<ErrorType, string> errorData)
+        {
+
         }
     }
 }

@@ -19,6 +19,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converter\ByteArrayToBitmapImageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\EntryViewModelSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\BuildVersionInfoService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LoginService.cs" />

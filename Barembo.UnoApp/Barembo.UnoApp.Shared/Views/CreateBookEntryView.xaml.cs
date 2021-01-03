@@ -1,4 +1,5 @@
-﻿using Barembo.App.Core.ViewModels;
+﻿using Barembo.App.Core.Interfaces;
+using Barembo.App.Core.ViewModels;
 using Barembo.Models;
 using Prism.Regions;
 using System;
@@ -25,8 +26,12 @@ namespace Barembo.UnoApp.Shared.Views
     /// </summary>
     public sealed partial class CreateBookEntryView : Page, INavigationAware
     {
-        public CreateBookEntryView()
+        readonly IMediaFetchService _mediaFetchService;
+
+        public CreateBookEntryView(IMediaFetchService mediaFetchService)
         {
+            _mediaFetchService = mediaFetchService;
+
             this.InitializeComponent();
         }
 

@@ -55,7 +55,13 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To attach a photo to your entry, we need access to your Photo Library.</string>
-	<key>MinimumOSVersion</key>
+  <key>NSCameraUsageDescription</key>
+  <string>To attach a photo to your entry, we need access to your Camera.</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>To attach a video to your entry, we need access to your Microphone.</string>
+  <key>NSPhotoLibraryAddUsageDescription</key>
+  <string>To attach a photo or video to your entry, we need access to your Gallery.</string>
+  <key>MinimumOSVersion</key>
 	<string>14.2</string>
 </dict>
 </plist>

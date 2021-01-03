@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Barembo.UnoApp.Shared.Services
 {
@@ -21,14 +22,43 @@ namespace Barembo.UnoApp.Shared.Services
             _eventAggregator.GetEvent<MediaRequestedMessage>().Subscribe(HandleMediaRequested);
         }
 
-        private async void HandleMediaRequested(MediaResult result)
+        private async void HandleMediaRequested()
         {
-            var mediaData = await FetchMediaAsync();
+            try
+            {
+                var mediaData = await FetchMediaAsync();
+
+                if (mediaData != null)
+                {
+                    _eventAggregator.GetEvent<MediaReceivedMessage>().Publish(mediaData);
+                }
+            }
+            catch(Exception)
+            {
+            }
         }
 
-        public async Task<Tuple<Attachment, Stream>> FetchMediaAsync()
+        public async Task<MediaData> FetchMediaAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var photo = await MediaPicker.PickPhotoAsync();
+                if(photo != null)
+                {
+                    MediaData mediaData = new MediaData();
+                    mediaData.Stream = await photo.OpenReadAsync();
+                    mediaData.Attachment = new Attachment();
+                    mediaData.Attachment.Type = AttachmentType.Image;
+                    mediaData.Attachment.Size = mediaData.Stream.Length;
+                    mediaData.Attachment.FileName = photo.FileName;
+                    return mediaData;
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+            return null;
         }
     }
 }
