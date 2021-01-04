@@ -26,7 +26,9 @@ namespace Barembo.UnoApp.Shared.Services
         {
             try
             {
-                var mediaData = await FetchMediaAsync();
+                var tempFile = Path.GetTempFileName();
+
+                var mediaData = await FetchVideoAsync();
 
                 if (mediaData != null)
                 {
@@ -51,6 +53,29 @@ namespace Barembo.UnoApp.Shared.Services
                     mediaData.Attachment.Type = AttachmentType.Image;
                     mediaData.Attachment.Size = mediaData.Stream.Length;
                     mediaData.Attachment.FileName = photo.FileName;
+                    return mediaData;
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+            return null;
+        }
+
+        public async Task<MediaData> FetchVideoAsync()
+        {
+            try
+            {
+                var video = await MediaPicker.PickVideoAsync();
+                if (video != null)
+                {
+                    MediaData mediaData = new MediaData();
+                    mediaData.Stream = await video.OpenReadAsync();
+                    mediaData.Attachment = new Attachment();
+                    mediaData.Attachment.Type = AttachmentType.Video;
+                    mediaData.Attachment.Size = mediaData.Stream.Length;
+                    mediaData.Attachment.FileName = video.FileName;
                     return mediaData;
                 }
             }
