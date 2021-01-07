@@ -39,7 +39,9 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/uno-fluentui-assets.ttf</string>
+    <string>Fonts/uno-fluentui-assets.ttf</string>
+    <string>Fonts/Sniglet-ExtraBold.ttf</string>
+    <string>Fonts/Sniglet-Regular.ttf</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
