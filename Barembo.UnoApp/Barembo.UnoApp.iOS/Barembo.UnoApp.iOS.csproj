@@ -103,6 +103,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
+    <BundleResource Include="..\..\Fonts\Sniglet-ExtraBold.ttf">
+      <Link>Resources\Fonts\Sniglet-ExtraBold.ttf</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\Fonts\Sniglet-Regular.ttf">
+      <Link>Resources\Fonts\Sniglet-Regular.ttf</Link>
+    </BundleResource>
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />
