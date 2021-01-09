@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 namespace Barembo.UnoApp.Shared.Services
 {
     //This file holds the UWP-specific implementations.
-    //It is powered by FFMpeg and it's FrameGrabber.
+    //It is powered by FFMpeg and it's FrameGrabber and extracts the image from the stream.
     public partial class ThumbnailGeneration
     {
 #if WINDOWS_UWP
         public static async Task<string> GenerateThumbnailBase64FromVideoAsync_UWP(Stream videoStream, float positionPercent, string filePath)
         {
             var grabber = await FFmpegInterop.FrameGrabber.CreateFromStreamAsync(videoStream.AsRandomAccessStream());
-            var frame = await grabber.ExtractVideoFrameAsync(TimeSpan.FromSeconds(1)); //ToDo
+            var extractLocation = grabber.Duration * positionPercent;
+            var frame = await grabber.ExtractVideoFrameAsync(extractLocation);
             using (var stream = new Windows.Storage.Streams.InMemoryRandomAccessStream())
             {
                 await frame.EncodeAsJpegAsync(stream);

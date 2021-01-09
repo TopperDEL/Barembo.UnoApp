@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Barembo.UnoApp.Shared.Services
 {
+    //This files holds the Android-speicific implementation.
+    //It is powered by the Android-internals and fetches it's thumbnails from the file-path instead of the stream.
     public partial class ThumbnailGeneration
     {
 #if __DROID__
