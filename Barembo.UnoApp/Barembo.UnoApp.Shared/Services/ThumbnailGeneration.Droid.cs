@@ -9,17 +9,24 @@ namespace Barembo.UnoApp.Shared.Services
     public partial class ThumbnailGeneration
     {
 #if __DROID__
-        public static async Task<string> GenerateThumbnailBase64FromVideoAsync_Droid(Stream videoStream, float positionPercent, string filePath)
+        public static async Task<string> GenerateThumbnailBase64FromVideoAsync_Droid(Stream videoStream, float positionPercent, string filePath, Barembo.Interfaces.IThumbnailGeneratorService thumbnailGenerator)
         {
             Android.Media.MediaMetadataRetriever retriever = new Android.Media.MediaMetadataRetriever();
             await retriever.SetDataSourceAsync(filePath);
 
-            var frame = retriever.GetFrameAtTime(1); //ToDo
+            var length = retriever.ExtractMetadata(Android.Media.MetadataKey.Duration);
+            var playLength = Convert.ToInt32(length);
+            var extractLocation = playLength * positionPercent;
+
+            var frame = retriever.GetFrameAtTime((long)extractLocation);
+
             using (MemoryStream finalStream = new MemoryStream())
             {
                 await frame.CompressAsync(Android.Graphics.Bitmap.CompressFormat.Jpeg, 100, finalStream);
 
-                return Convert.ToBase64String(finalStream.ToArray());
+                finalStream.Position = 0;
+
+                return await thumbnailGenerator.GenerateThumbnailBase64FromImageAsync(finalStream);
             }
         }
 #endif
