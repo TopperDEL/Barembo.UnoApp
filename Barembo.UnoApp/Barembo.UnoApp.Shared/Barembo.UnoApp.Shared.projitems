@@ -24,6 +24,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\BuildVersionInfoService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LoginService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\MediaFetchService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ThumbnailGeneration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ThumbnailGeneration.Droid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ThumbnailGeneration.iOs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ThumbnailGeneration.UWP.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\BookEntriesView.xaml.cs">
       <DependentUpon>BookEntriesView.xaml</DependentUpon>
     </Compile>

@@ -53,6 +53,7 @@ namespace Barembo.UnoApp.Shared.Services
                     mediaData.Attachment.Type = AttachmentType.Image;
                     mediaData.Attachment.Size = mediaData.Stream.Length;
                     mediaData.Attachment.FileName = photo.FileName;
+                    mediaData.FilePath = photo.FullPath;
                     return mediaData;
                 }
             }
@@ -76,6 +77,7 @@ namespace Barembo.UnoApp.Shared.Services
                     mediaData.Attachment.Type = AttachmentType.Video;
                     mediaData.Attachment.Size = mediaData.Stream.Length;
                     mediaData.Attachment.FileName = video.FileName;
+                    mediaData.FilePath = video.FullPath;
                     return mediaData;
                 }
             }
