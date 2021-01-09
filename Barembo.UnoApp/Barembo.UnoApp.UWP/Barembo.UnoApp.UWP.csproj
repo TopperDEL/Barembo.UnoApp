@@ -3,7 +3,13 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.39</Version>
+      <Version>0.9.40</Version>
+    </PackageReference>
+    <PackageReference Include="FFmpegInteropX">
+      <Version>0.9.1</Version>
+    </PackageReference>
+    <PackageReference Include="FFmpegInteropX.FFmpegUWP">
+      <Version>4.3.100</Version>
     </PackageReference>
     <PackageReference Include="LibVLCSharp">
       <Version>3.4.9</Version>

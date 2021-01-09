@@ -120,6 +120,11 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.StoreService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IThumbnailGeneratorService, Barembo.Services.ThumbnailGeneratorService>();
+#if WINDOWS_UWP
+            Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_UWP(stream, positionPercent, filePath);
+#elif __DROID__
+            Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_Droid(stream, positionPercent, filePath);
+#endif
 
             //App-Services
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.ILoginService, Barembo.UnoApp.Shared.Services.LoginService>();
@@ -203,7 +208,7 @@ namespace Barembo.UnoApp
 					}
                 )
 #if DEBUG
-				.AddConsole(Microsoft.Extensions.Logging.LogLevel.Debug);
+                .AddConsole(Microsoft.Extensions.Logging.LogLevel.Debug);
 #else
                 .AddConsole(Microsoft.Extensions.Logging.LogLevel.Information);
 #endif
