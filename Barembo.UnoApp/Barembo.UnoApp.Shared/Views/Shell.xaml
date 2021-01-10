@@ -10,7 +10,8 @@
     xmlns:prismMvvm="using:Prism.Mvvm"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Loaded="ShellLoaded"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" toolkit:VisibleBoundsPadding.PaddingMask="All">
         <Grid.RowDefinitions>
