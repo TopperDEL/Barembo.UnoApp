@@ -10,7 +10,8 @@
     xmlns:prismMvvm="using:Prism.Mvvm"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Loaded="ShellLoaded"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" toolkit:VisibleBoundsPadding.PaddingMask="All">
         <Grid.RowDefinitions>
@@ -22,6 +23,6 @@
             <TextBox Text="{Binding StorjVersion}" Header="Storj-Version" FontFamily="{StaticResource BaremboFont}" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>
         </StackPanel>
         
-        <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="{x:Bind ContentRegion}" />
+        <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="{x:Bind ContentRegion}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
     </Grid>
 </ContentControl>
