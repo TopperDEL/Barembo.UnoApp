@@ -5,6 +5,7 @@
     xmlns:local="using:Barembo.UnoApp.Shared.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     xmlns:prismMvvm="using:Prism.Mvvm"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
@@ -14,9 +15,16 @@
         <StackPanel>
             <TextBox x:Uid="CreateEntryHeader" Text="{Binding Header, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Header"/>
             <TextBox x:Uid="CreateEntryBody" Text="{Binding Body, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Body"/>
-            <Button x:Uid="AddMediaButton" Content="Add media..." Command="{Binding AddMediaCommand}"/>
+            <Button x:Uid="AddImageButton" Content="Add image..." Command="{Binding AddImageCommand}"/>
+            <Button x:Uid="AddVideoButton" Content="Add video..." Command="{Binding AddVideoCommand}"/>
             <Button x:Uid="CreateEntryButton" Content="Save" Command="{Binding SaveEntryCommand}"/>
             <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
         </StackPanel>
+        <controls:Loading x:Name="LoadingControl" IsLoading="true">
+            <controls:Loading.Background>
+                <SolidColorBrush Color="Black" Opacity="0.7" />
+            </controls:Loading.Background>
+            <ProgressRing IsActive="True" Margin="12"/>
+        </controls:Loading>
     </Grid>
 </Page>

@@ -22,13 +22,16 @@ namespace Barembo.UnoApp.Shared.Services
             _eventAggregator.GetEvent<MediaRequestedMessage>().Subscribe(HandleMediaRequested);
         }
 
-        private async void HandleMediaRequested()
+        private async void HandleMediaRequested(AttachmentType attachmentType)
         {
             try
             {
-                var tempFile = Path.GetTempFileName();
+                MediaData mediaData = null;
 
-                var mediaData = await FetchVideoAsync();
+                if (attachmentType == AttachmentType.Image)
+                    mediaData = await FetchImageAsync();
+                else if (attachmentType == AttachmentType.Video)
+                    mediaData = await FetchVideoAsync();
 
                 if (mediaData != null)
                 {
@@ -40,7 +43,7 @@ namespace Barembo.UnoApp.Shared.Services
             }
         }
 
-        public async Task<MediaData> FetchMediaAsync()
+        public async Task<MediaData> FetchImageAsync()
         {
             try
             {
@@ -86,6 +89,11 @@ namespace Barembo.UnoApp.Shared.Services
             }
 
             return null;
+        }
+
+        public Task<MediaData> FetchMediaAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }
