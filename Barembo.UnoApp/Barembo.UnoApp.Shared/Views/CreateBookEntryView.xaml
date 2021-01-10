@@ -5,6 +5,7 @@
     xmlns:local="using:Barembo.UnoApp.Shared.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     xmlns:prismMvvm="using:Prism.Mvvm"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
@@ -19,5 +20,11 @@
             <Button x:Uid="CreateEntryButton" Content="Save" Command="{Binding SaveEntryCommand}"/>
             <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
         </StackPanel>
+        <controls:Loading x:Name="LoadingControl" IsLoading="true">
+            <controls:Loading.Background>
+                <SolidColorBrush Color="Black" Opacity="0.7" />
+            </controls:Loading.Background>
+            <ProgressRing IsActive="True" Margin="12"/>
+        </controls:Loading>
     </Grid>
 </Page>
