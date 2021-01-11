@@ -106,6 +106,7 @@ namespace Barembo.UnoApp
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            Barembo.Services.StoreBuffer.BaseFolder = Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path;
             //Store-Services
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IAttachmentStoreService, Barembo.StoreServices.AttachmentStoreService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IBookShareStoreService, Barembo.StoreServices.BookShareStoreService>();
@@ -120,7 +121,7 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.BufferedStoreService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IEntryService, Barembo.Services.EntryService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
-            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.StoreService>();
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>( ()=> { return new Barembo.Services.BufferedStoreService(new Barembo.Services.StoreBuffer(), new Barembo.Services.StoreService()); });
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IThumbnailGeneratorService, Barembo.Services.ThumbnailGeneratorService>();
 #if WINDOWS_UWP
             Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_UWP(stream, positionPercent, filePath);
