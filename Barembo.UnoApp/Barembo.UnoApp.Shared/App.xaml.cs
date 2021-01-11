@@ -80,7 +80,9 @@ namespace Barembo.UnoApp
         /// <param name="e">Details about the navigation failure</param>
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
+#if DEBUG
             throw new Exception($"Failed to load {e.SourcePageType.FullName}: {e.Exception}");
+#endif
         }
 
         /// <summary>

@@ -38,7 +38,7 @@ namespace Barembo.UnoApp.Shared.Helpers
 
         public async Task<IEnumerable<EntryViewModel>> GetPagedItemsAsync(int pageIndex, int pageSize, CancellationToken cancellationToken = default)
         {
-            await InitAsync();
+            await InitAsync().ConfigureAwait(false);
 
             var paged = (from e in _entryReferences
                           select e).Skip(pageIndex * pageSize).Take(pageSize);
