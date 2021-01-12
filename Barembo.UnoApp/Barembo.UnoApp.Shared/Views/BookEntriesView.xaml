@@ -26,6 +26,18 @@
                         <Image Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" MaxWidth="600"/>
                         <TextBlock Text="{x:Bind Header, Mode=OneWay}" x:Phase="0"/>
                         <TextBlock Text="{x:Bind Body, Mode=OneWay}" x:Phase="1"/>
+                        <ListView ItemsSource="{x:Bind AttachmentPreviews, Mode=OneWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="viewmodels:AttachmentPreviewViewModel">
+                                    <StackPanel>
+                                        <Image Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="600"/>
+                                        <Image Source="{x:Bind VideoPreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="600"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

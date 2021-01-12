@@ -53,6 +53,7 @@ namespace Barembo.UnoApp.Shared.Helpers
 
         private void Vm_EntryLoaded(EntryViewModel vm, Entry entry)
         {
+            vm.LoadAttachmentPreviewsAsync();
         }
     }
 }
