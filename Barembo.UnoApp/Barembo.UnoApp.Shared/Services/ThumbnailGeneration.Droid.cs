@@ -23,9 +23,9 @@ namespace Barembo.UnoApp.Shared.Services
 
             var length = retriever.ExtractMetadata(Android.Media.MetadataKey.Duration);
             var playLength = Convert.ToInt32(length);
-            var extractLocation = playLength * positionPercent;
+            var extractLocation = playLength * positionPercent * 1000; //GetFrameAtTime is in Microseconds instead of Milliseconds
 
-            var frame = retriever.GetFrameAtTime((long)extractLocation);
+            var frame = retriever.GetFrameAtTime((long)extractLocation, Android.Media.Option.ClosestSync);
 
             using (MemoryStream finalStream = new MemoryStream())
             {
