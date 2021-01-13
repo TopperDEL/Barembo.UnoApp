@@ -38,7 +38,7 @@ namespace Barembo.UnoApp.Shared.Services
                     _eventAggregator.GetEvent<MediaReceivedMessage>().Publish(mediaData);
                 }
             }
-            catch(Exception)
+            catch
             {
             }
         }
@@ -47,7 +47,7 @@ namespace Barembo.UnoApp.Shared.Services
         {
             try
             {
-                var photo = await MediaPicker.PickPhotoAsync();
+                var photo = await MediaPicker.PickPhotoAsync().ConfigureAwait(false);
                 if(photo != null)
                 {
                     MediaData mediaData = new MediaData();
@@ -60,7 +60,7 @@ namespace Barembo.UnoApp.Shared.Services
                     return mediaData;
                 }
             }
-            catch (Exception)
+            catch
             {
             }
 
@@ -71,7 +71,7 @@ namespace Barembo.UnoApp.Shared.Services
         {
             try
             {
-                var video = await MediaPicker.PickVideoAsync();
+                var video = await MediaPicker.PickVideoAsync().ConfigureAwait(false);
                 if (video != null)
                 {
                     MediaData mediaData = new MediaData();
@@ -84,7 +84,7 @@ namespace Barembo.UnoApp.Shared.Services
                     return mediaData;
                 }
             }
-            catch (Exception)
+            catch
             {
             }
 

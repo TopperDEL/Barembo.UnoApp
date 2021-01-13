@@ -25,6 +25,29 @@ namespace Barembo.UnoApp.Shared.Helpers
             _entryService = entryService;
             _eventAggregator = eventAggregator;
             _bookReference = bookReference;
+            Task.Factory.StartNew(ShowPreviews);
+        }
+        public Windows.UI.Core.CoreDispatcher Dispatcher { get; set; }
+        private async Task ShowPreviews()
+        {
+            while(true)
+            {
+                foreach(var vm in _viewModels)
+                {
+                    foreach(var preview in vm.AttachmentPreviews)
+                    {
+                        if (preview.IsVideo)
+                        {
+                            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () =>
+                            {
+                                preview.ShowNextVideoImage();
+                            });
+                        }
+                    }
+                }
+
+                await Task.Delay(200);
+            }
         }
 
         public async Task InitAsync()
@@ -38,7 +61,7 @@ namespace Barembo.UnoApp.Shared.Helpers
 
         public async Task<IEnumerable<EntryViewModel>> GetPagedItemsAsync(int pageIndex, int pageSize, CancellationToken cancellationToken = default)
         {
-            await InitAsync();
+            await InitAsync().ConfigureAwait(false);
 
             var paged = (from e in _entryReferences
                           select e).Skip(pageIndex * pageSize).Take(pageSize);
@@ -51,8 +74,11 @@ namespace Barembo.UnoApp.Shared.Helpers
             });
         }
 
+        private List<EntryViewModel> _viewModels = new List<EntryViewModel>();
         private void Vm_EntryLoaded(EntryViewModel vm, Entry entry)
         {
+            vm.LoadAttachmentPreviewsAsync();
+            _viewModels.Add(vm);
         }
     }
 }
