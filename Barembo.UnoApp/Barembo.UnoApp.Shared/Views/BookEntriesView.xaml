@@ -5,6 +5,7 @@
     xmlns:local="using:Barembo.UnoApp.Shared.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     xmlns:prismMvvm="using:Prism.Mvvm" xmlns:viewmodels="using:Barembo.App.Core.ViewModels"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
@@ -16,7 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <TextBlock Text="Entries" Grid.Row="0"/>
         <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Grid.Row="1"/>
         <ListView ItemsSource="{Binding Entries, Mode=OneWay}" Grid.Row="2">
@@ -26,6 +27,37 @@
                         <Image Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" MaxWidth="600"/>
                         <TextBlock Text="{x:Bind Header, Mode=OneWay}" x:Phase="0"/>
                         <TextBlock Text="{x:Bind Body, Mode=OneWay}" x:Phase="1"/>
+                        <ListView ItemsSource="{x:Bind AttachmentPreviews, Mode=OneWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="viewmodels:AttachmentPreviewViewModel">
+                                    <StackPanel>
+                                        <Image Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="300"/>
+                                        <Grid Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <Image Source="{x:Bind VideoPreview1, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview1, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="300"/>
+                                            <Image Source="{x:Bind VideoPreview2, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview2, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="300"/>
+                                            <Image Source="{x:Bind VideoPreview3, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview3, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="300"/>
+                                            <Image Source="{x:Bind VideoPreview4, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview4, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="300"/>
+                                            <Image Source="{x:Bind VideoPreview5, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview5, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="300"/>
+                                            <Image Source="{x:Bind VideoPreview6, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview6, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="300"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <controls:WrapPanel Padding="0,0,0,0"
+                                                        VerticalSpacing="7"
+                                                        HorizontalSpacing="6" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ListView>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

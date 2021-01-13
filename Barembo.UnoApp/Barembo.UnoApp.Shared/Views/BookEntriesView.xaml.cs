@@ -51,6 +51,7 @@ namespace Barembo.UnoApp.Shared.Views
         {
             var vm = (BookEntriesViewModel)this.DataContext;
             var source = new EntryViewModelSource(_entryService, _eventAggregator, (BookReference)navigationContext.Parameters["BookReference"]);
+            source.Dispatcher = Dispatcher;
             var collection = new IncrementalLoadingCollection<EntryViewModelSource, EntryViewModel>(source, 5);
             vm.Entries = collection;
         }
