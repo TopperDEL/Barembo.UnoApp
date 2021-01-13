@@ -18,7 +18,7 @@
             <Button x:Uid="CreateBookButton" Content="Create" Command="{Binding CreateBookCommand}"/>
             <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
         </StackPanel>
-        <controls:Loading x:Name="LoadingControl" IsLoading="{Binding SaveInProgress}">
+        <controls:Loading x:Name="LoadingControl" IsLoading="{Binding SaveInProgress}" Visibility="{Binding SaveInProgress, Converter={StaticResource BooleanToVisibilityConverter}}">
             <controls:Loading.Background>
                 <SolidColorBrush Color="Black" Opacity="0.7" />
             </controls:Loading.Background>

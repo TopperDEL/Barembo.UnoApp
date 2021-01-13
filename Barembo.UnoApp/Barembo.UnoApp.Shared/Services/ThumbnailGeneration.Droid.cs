@@ -11,6 +11,11 @@ namespace Barembo.UnoApp.Shared.Services
     public partial class ThumbnailGeneration
     {
 #if __DROID__
+        static ThumbnailGeneration()
+        {
+            LibVLCSharp.Shared.Core.Initialize();
+        }
+
         public static async Task<string> GenerateThumbnailBase64FromVideoAsync_Droid(Stream videoStream, float positionPercent, string filePath, Barembo.Interfaces.IThumbnailGeneratorService thumbnailGenerator)
         {
             Android.Media.MediaMetadataRetriever retriever = new Android.Media.MediaMetadataRetriever();
