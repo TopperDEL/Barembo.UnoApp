@@ -5,6 +5,7 @@
     xmlns:local="using:Barembo.UnoApp.Shared.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     xmlns:prismMvvm="using:Prism.Mvvm" xmlns:viewmodels="using:Barembo.App.Core.ViewModels"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
@@ -16,7 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <TextBlock Text="Entries" Grid.Row="0"/>
         <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Grid.Row="1"/>
         <ListView ItemsSource="{Binding Entries, Mode=OneWay}" Grid.Row="2">
@@ -31,12 +32,19 @@
                                 <DataTemplate x:DataType="viewmodels:AttachmentPreviewViewModel">
                                     <StackPanel>
                                         <Image Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="600"/>
+                                               MaxWidth="300"/>
                                         <Image Source="{x:Bind VideoPreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="600"/>
+                                               MaxWidth="300"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <controls:WrapPanel Padding="0,0,0,0"
+                                                        VerticalSpacing="7"
+                                                        HorizontalSpacing="6" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
                         </ListView>
                     </StackPanel>
                 </DataTemplate>
