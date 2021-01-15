@@ -17,9 +17,13 @@ namespace Barembo.UnoApp.Shared.Services
                 Foundation.NSError outError;
                 using (var asset = AVFoundation.AVAsset.FromUrl(Foundation.NSUrl.FromFilename(filePath)))
                 using (var imageGen = new AVFoundation.AVAssetImageGenerator(asset))
-                using (var imageRef = imageGen.CopyCGImageAtTime(new CoreMedia.CMTime(1, 1), out actualTime, out outError))
                 {
-                    return UIKit.UIImage.FromImage(imageRef).AsJPEG().GetBase64EncodedString(Foundation.NSDataBase64EncodingOptions.None);
+                    imageGen.AppliesPreferredTrackTransform = true; //To rotate the image like the video was recorded
+                    var frameAt = asset.Duration * positionPercent;
+                    using (var imageRef = imageGen.CopyCGImageAtTime(frameAt, out actualTime, out outError))
+                    {
+                        return UIKit.UIImage.FromImage(imageRef).AsJPEG().GetBase64EncodedString(Foundation.NSDataBase64EncodingOptions.None);
+                    }
                 }
             }
             catch
