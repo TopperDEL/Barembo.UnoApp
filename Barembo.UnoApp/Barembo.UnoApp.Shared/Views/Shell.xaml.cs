@@ -48,6 +48,8 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.CreateBookEntryMessage>().Subscribe(NavigateToCreateEntryView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookEntrySavedMessage>().Subscribe(NavigateFromSavedBookEntry);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ShowBookEntriesMessage>().Subscribe(NavigateToBookEntriesView);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.ShareBookMessage>().Subscribe(NavigateToShareBookView);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookShareSavedMessage>().Subscribe(NavigateToShowBookShareView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.GoBackMessage>().Subscribe(GoBack);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ErrorMessage>().Subscribe(RaiseError);
         }
@@ -104,6 +106,19 @@ namespace Barembo.UnoApp.Shared.Views
             var parameters = new NavigationParameters();
             parameters.Add("BookReference", bookReference);
             _regionManager.RequestNavigate(ContentRegion, "BookEntriesView", parameters);
+        }
+
+        private void NavigateToShareBookView(BookReference bookReference)
+        {
+            var parameters = new NavigationParameters();
+            parameters.Add("StoreAccess", _currentStoreAccess);
+            parameters.Add("BookReference", bookReference);
+            _regionManager.RequestNavigate(ContentRegion, "ShareBookView", parameters);
+        }
+
+        private void NavigateToShowBookShareView(BookShareReference obj)
+        {
+            _regionManager.RequestNavigate(ContentRegion, "ShowBookShareView");
         }
 
         private void GoBack()

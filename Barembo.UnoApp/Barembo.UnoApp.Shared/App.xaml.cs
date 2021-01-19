@@ -143,6 +143,8 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterForNavigation<CreateBookShelfView>();
             containerRegistry.RegisterForNavigation<CreateBookView>();
             containerRegistry.RegisterForNavigation<CreateBookEntryView>();
+            containerRegistry.RegisterForNavigation<ShareBookView>();
+            containerRegistry.RegisterForNavigation<ShowBookShareView>();
             //containerRegistry.RegisterForNavigation<ImportBookView>();
             containerRegistry.RegisterForNavigation<BookEntriesView>();
         }
@@ -157,6 +159,7 @@ namespace Barembo.UnoApp
             ViewModelLocationProvider.Register<CreateBookShelfView, Barembo.App.Core.ViewModels.CreateBookShelfViewModel>();
             ViewModelLocationProvider.Register<CreateBookView, Barembo.App.Core.ViewModels.CreateBookViewModel>();
             ViewModelLocationProvider.Register<CreateBookEntryView, Barembo.App.Core.ViewModels.CreateBookEntryViewModel>();
+            ViewModelLocationProvider.Register<ShareBookView, Barembo.App.Core.ViewModels.ShareBookViewModel>();
             //ViewModelLocationProvider.Register<ImportBookView, Barembo.App.Core.ViewModels.ImportBookViewModel>();
             ViewModelLocationProvider.Register<BookEntriesView, Barembo.App.Core.ViewModels.BookEntriesViewModel>();
         }

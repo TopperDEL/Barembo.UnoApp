@@ -138,6 +138,9 @@
   <data name="BookShelfOwnerName.Header" xml:space="preserve">
     <value>Eigentümer</value>
   </data>
+  <data name="ContributorNameHeader.Header" xml:space="preserve">
+    <value>Name des Beitragenden</value>
+  </data>
   <data name="CreateBookButton.Content" xml:space="preserve">
     <value>Buch anlegen</value>
   </data>
