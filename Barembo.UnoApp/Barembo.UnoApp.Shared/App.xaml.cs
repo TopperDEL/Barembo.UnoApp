@@ -63,6 +63,17 @@ namespace Barembo.UnoApp
             this.Suspending += OnSuspending;
         }
 
+        protected override void OnActivated(IActivatedEventArgs e)
+        {
+            // Note: Ensure the root frame is created
+
+            if (e.Kind == ActivationKind.Protocol)
+            {
+                var protocolActivatedEventArgs = (ProtocolActivatedEventArgs)e;
+                var uri = protocolActivatedEventArgs.Uri;
+            }
+        }
+
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.
