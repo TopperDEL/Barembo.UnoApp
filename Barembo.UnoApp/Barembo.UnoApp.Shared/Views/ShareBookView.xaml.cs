@@ -23,7 +23,7 @@ namespace Barembo.UnoApp.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ShareBookView : Page, INavigationAware
+    public sealed partial class ShareBookView : Page, INavigationAware, IJournalAware
     {
         public ShareBookView()
         {
@@ -43,6 +43,11 @@ namespace Barembo.UnoApp.Shared.Views
         {
             var vm = (ShareBookViewModel)this.DataContext;
             vm.Init((StoreAccess)navigationContext.Parameters["StoreAccess"], (BookReference)navigationContext.Parameters["BookReference"]);
+        }
+
+        public bool PersistInHistory()
+        {
+            return false;
         }
     }
 }
