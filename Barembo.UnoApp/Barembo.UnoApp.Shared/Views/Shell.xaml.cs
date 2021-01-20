@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -50,6 +51,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ShowBookEntriesMessage>().Subscribe(NavigateToBookEntriesView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ShareBookMessage>().Subscribe(NavigateToShareBookView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookShareSavedMessage>().Subscribe(NavigateToShowBookShareView);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.WriteToClipboardMessage>().Subscribe(WriteStringToClipboard);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.GoBackMessage>().Subscribe(GoBack);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ErrorMessage>().Subscribe(RaiseError);
         }
@@ -116,9 +118,18 @@ namespace Barembo.UnoApp.Shared.Views
             _regionManager.RequestNavigate(ContentRegion, "ShareBookView", parameters);
         }
 
-        private void NavigateToShowBookShareView(BookShareReference obj)
+        private void NavigateToShowBookShareView(BookShareReference bookShareReference)
         {
-            _regionManager.RequestNavigate(ContentRegion, "ShowBookShareView");
+            var parameters = new NavigationParameters();
+            parameters.Add("BookShareReference", bookShareReference);
+            _regionManager.RequestNavigate(ContentRegion, "ShowBookShareView", parameters);
+        }
+
+        private void WriteStringToClipboard(string stringToWrite)
+        {
+            var content = new DataPackage();
+            content.SetText(stringToWrite);
+            Clipboard.SetContent(content);
         }
 
         private void GoBack()

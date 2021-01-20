@@ -121,6 +121,8 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IBookShelfService, Barembo.Services.BookShelfService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.BufferedStoreService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IEntryService, Barembo.Services.EntryService>();
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IQRCodeGeneratorService, Barembo.Services.QRCodeGeneratorService>();
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkGeneratorService, Barembo.Services.MagicLinkGeneratorService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>( ()=> { return new Barembo.Services.BufferedStoreService(new Barembo.Services.StoreBuffer(), new Barembo.Services.StoreService()); });
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IAttachmentPreviewGeneratorService, Barembo.Services.AttachmentPreviewGeneratorService>();
@@ -160,6 +162,7 @@ namespace Barembo.UnoApp
             ViewModelLocationProvider.Register<CreateBookView, Barembo.App.Core.ViewModels.CreateBookViewModel>();
             ViewModelLocationProvider.Register<CreateBookEntryView, Barembo.App.Core.ViewModels.CreateBookEntryViewModel>();
             ViewModelLocationProvider.Register<ShareBookView, Barembo.App.Core.ViewModels.ShareBookViewModel>();
+            ViewModelLocationProvider.Register<ShowBookShareView, Barembo.App.Core.ViewModels.ShowBookShareViewModel>();
             //ViewModelLocationProvider.Register<ImportBookView, Barembo.App.Core.ViewModels.ImportBookViewModel>();
             ViewModelLocationProvider.Register<BookEntriesView, Barembo.App.Core.ViewModels.BookEntriesViewModel>();
         }
