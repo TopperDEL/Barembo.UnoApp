@@ -11,6 +11,15 @@ namespace Barembo.UnoApp.Droid
 			ConfigurationChanges = global::Uno.UI.ActivityHelper.AllConfigChanges,
 			WindowSoftInputMode = SoftInput.AdjustPan | SoftInput.StateHidden
 		)]
+	[IntentFilter(
+	new[] {
+		Android.Content.Intent.ActionView
+	},
+	Categories = new[] {
+		Android.Content.Intent.CategoryDefault,
+		Android.Content.Intent.CategoryBrowsable
+	},
+	DataScheme = "barembo")]
 	public class MainActivity : Windows.UI.Xaml.ApplicationActivity
 	{
 		protected override void OnCreate(Bundle savedInstanceState)

@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Barembo.UnoApp.Shared.Views.ShareBookView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Barembo.UnoApp.Shared.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:prismMvvm="using:Prism.Mvvm"
+    prismMvvm:ViewModelLocator.AutowireViewModel="True"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <TextBox x:Uid="ContributorNameHeader" Text="{Binding ContributorName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Contributor name"/>
+            <TextBox x:Uid="BookNameHeader" Text="{Binding BookName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Book name"/>
+            <CheckBox Content="CanReadEntries" IsChecked="{Binding AccessRights.CanReadEntries, Mode=TwoWay}"/>
+            <CheckBox Content="CanReadForeignEntries" IsChecked="{Binding AccessRights.CanReadForeignEntries, Mode=TwoWay}"/>
+            <CheckBox Content="CanAddEntries" IsChecked="{Binding AccessRights.CanAddEntries, Mode=TwoWay}"/>
+            <CheckBox Content="CanEditForeignEntries" IsChecked="{Binding AccessRights.CanEditForeignEntries, Mode=TwoWay}"/>
+            <CheckBox Content="CanEditOwnEntries" IsChecked="{Binding AccessRights.CanEditOwnEntries, Mode=TwoWay}"/>
+            <CheckBox Content="CanDeleteEntries" IsChecked="{Binding AccessRights.CanDeleteEntries, Mode=TwoWay}"/>
+            <CheckBox Content="CanDeleteForeignEntries" IsChecked="{Binding AccessRights.CanDeleteForeignEntries, Mode=TwoWay}"/>
+            <CheckBox Content="CanShareBook" IsChecked="{Binding AccessRights.CanShareBook, Mode=TwoWay}"/>
+            <CheckBox Content="CanEditBook" IsChecked="{Binding AccessRights.CanEditBook, Mode=TwoWay}"/>
+            <Button x:Uid="ShareBookButton" Content="Share" Command="{Binding SaveBookShareCommand}"/>
+            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
+        </StackPanel>
+    </Grid>
+</Page>

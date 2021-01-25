@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="Barembo.UnoApp.Shared.Views.ShowBookToImportInfoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Barembo.UnoApp.Shared.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:prismMvvm="using:Prism.Mvvm"
+    prismMvvm:ViewModelLocator.AutowireViewModel="True"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding BookShare.BookName, Mode=OneWay}"/>
+            <CheckBox Content="CanReadEntries" IsChecked="{Binding BookShare.AccessRights.CanReadEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox Content="CanReadForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanReadForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox Content="CanAddEntries" IsChecked="{Binding BookShare.AccessRights.CanAddEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox Content="CanEditForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanEditForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox Content="CanEditOwnEntries" IsChecked="{Binding BookShare.AccessRights.CanEditOwnEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox Content="CanDeleteEntries" IsChecked="{Binding BookShare.AccessRights.CanDeleteEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox Content="CanDeleteForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanDeleteForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox Content="CanShareBook" IsChecked="{Binding BookShare.AccessRights.CanShareBook, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox Content="CanEditBook" IsChecked="{Binding BookShare.AccessRights.CanEditBook, Mode=TwoWay}" IsEnabled="False"/>
+            <Button x:Uid="ImportBookButton" Content="Import book" Command="{Binding ImportBookCommand}"/>
+            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
+        </StackPanel>
+    </Grid>
+</Page>
