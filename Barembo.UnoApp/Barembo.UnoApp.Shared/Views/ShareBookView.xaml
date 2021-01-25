@@ -13,6 +13,7 @@
     <Grid>
         <StackPanel>
             <TextBox x:Uid="ContributorNameHeader" Text="{Binding ContributorName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Contributor name"/>
+            <TextBox x:Uid="BookNameHeader" Text="{Binding BookName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Book name"/>
             <CheckBox Content="CanReadEntries" IsChecked="{Binding AccessRights.CanReadEntries, Mode=TwoWay}"/>
             <CheckBox Content="CanReadForeignEntries" IsChecked="{Binding AccessRights.CanReadForeignEntries, Mode=TwoWay}"/>
             <CheckBox Content="CanAddEntries" IsChecked="{Binding AccessRights.CanAddEntries, Mode=TwoWay}"/>

@@ -52,8 +52,18 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ShareBookMessage>().Subscribe(NavigateToShareBookView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookShareSavedMessage>().Subscribe(NavigateToShowBookShareView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.WriteToClipboardMessage>().Subscribe(WriteStringToClipboard);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookImportedMessage>().Subscribe(NavigateToBookShelfView);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookToImportMessage>().Subscribe(NavigateToShowBookToImportInfoView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.GoBackMessage>().Subscribe(GoBack);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ErrorMessage>().Subscribe(RaiseError);
+        }
+
+        private void NavigateToShowBookToImportInfoView(BookShareReference bookShareReference)
+        {
+            var parameters = new NavigationParameters();
+            parameters.Add("StoreAccess", _currentStoreAccess);
+            parameters.Add("BookShareReference", bookShareReference);
+            _regionManager.RequestNavigate(ContentRegion, "ShowBookToImportInfoView", parameters);
         }
 
         private void ShellLoaded(object sender, RoutedEventArgs e)

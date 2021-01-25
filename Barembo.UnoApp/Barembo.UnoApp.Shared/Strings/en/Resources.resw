@@ -135,6 +135,9 @@
   <data name="BookName.Header" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="BookNameHeader.Header" xml:space="preserve">
+    <value>Book name</value>
+  </data>
   <data name="BookShelfOwnerName.Header" xml:space="preserve">
     <value>Owner name</value>
   </data>

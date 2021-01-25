@@ -22,6 +22,9 @@ using Prism.Ioc;
 using Barembo.UnoApp.Shared.Views;
 using Prism;
 using Prism.Mvvm;
+using Prism.Events;
+using Barembo.App.Core.Messages;
+using Barembo.Interfaces;
 
 namespace Barembo.UnoApp
 {
@@ -71,6 +74,13 @@ namespace Barembo.UnoApp
             {
                 var protocolActivatedEventArgs = (ProtocolActivatedEventArgs)e;
                 var uri = protocolActivatedEventArgs.Uri;
+
+                if (uri.AbsoluteUri.ToLower().Contains("bsr"))
+                {
+                    var magicLinkResolver = Container.Resolve<IMagicLinkResolverService>();
+                    var bookShareReference = magicLinkResolver.GetBookShareReferenceFrom(uri.AbsoluteUri);
+                    Container.Resolve<IEventAggregator>().GetEvent<BookToImportMessage>().Publish(bookShareReference);
+                }
             }
         }
 
@@ -133,9 +143,10 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.BufferedStoreService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IEntryService, Barembo.Services.EntryService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IQRCodeGeneratorService, Barembo.Services.QRCodeGeneratorService>();
-            containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkGeneratorService, Barembo.Services.MagicLinkGeneratorService>();
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkGeneratorService, Barembo.Services.MagicLinkService>();
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkResolverService, Barembo.Services.MagicLinkService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
-            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>( ()=> { return new Barembo.Services.BufferedStoreService(new Barembo.Services.StoreBuffer(), new Barembo.Services.StoreService()); });
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>(() => { return new Barembo.Services.BufferedStoreService(new Barembo.Services.StoreBuffer(), new Barembo.Services.StoreService()); });
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IAttachmentPreviewGeneratorService, Barembo.Services.AttachmentPreviewGeneratorService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IThumbnailGeneratorService, Barembo.Services.ThumbnailGeneratorService>();
 #if WINDOWS_UWP
@@ -158,8 +169,9 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterForNavigation<CreateBookEntryView>();
             containerRegistry.RegisterForNavigation<ShareBookView>();
             containerRegistry.RegisterForNavigation<ShowBookShareView>();
-            //containerRegistry.RegisterForNavigation<ImportBookView>();
+            containerRegistry.RegisterForNavigation<ImportBookView>();
             containerRegistry.RegisterForNavigation<BookEntriesView>();
+            containerRegistry.RegisterForNavigation<ShowBookToImportInfoView>();
         }
 
         protected override void ConfigureViewModelLocator()
@@ -174,7 +186,8 @@ namespace Barembo.UnoApp
             ViewModelLocationProvider.Register<CreateBookEntryView, Barembo.App.Core.ViewModels.CreateBookEntryViewModel>();
             ViewModelLocationProvider.Register<ShareBookView, Barembo.App.Core.ViewModels.ShareBookViewModel>();
             ViewModelLocationProvider.Register<ShowBookShareView, Barembo.App.Core.ViewModels.ShowBookShareViewModel>();
-            //ViewModelLocationProvider.Register<ImportBookView, Barembo.App.Core.ViewModels.ImportBookViewModel>();
+            ViewModelLocationProvider.Register<ImportBookView, Barembo.App.Core.ViewModels.ImportBookViewModel>();
+            ViewModelLocationProvider.Register<ShowBookToImportInfoView, Barembo.App.Core.ViewModels.ShowBookToImportInfoViewModel>();
             ViewModelLocationProvider.Register<BookEntriesView, Barembo.App.Core.ViewModels.BookEntriesViewModel>();
         }
 
