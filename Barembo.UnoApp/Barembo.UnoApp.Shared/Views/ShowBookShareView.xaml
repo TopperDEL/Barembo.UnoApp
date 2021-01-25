@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Barembo.UnoApp.Shared.Views.ShowBookShareView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Barembo.UnoApp.Shared.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    xmlns:prismMvvm="using:Prism.Mvvm"
+    prismMvvm:ViewModelLocator.AutowireViewModel="True"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <controls:ImageEx Source="{Binding QRCodePNG, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}"
+                                          MaxWidth="600" MaxHeight="500"
+                                          EnableLazyLoading="true"/>
+            <TextBlock Text="{Binding MagicLink, Mode=OneWay}" TextWrapping="Wrap"/>
+            <Button x:Uid="CopyToClipboardButton" Content="Copy to clipboard" Command="{Binding WriteMagicLinkToClipboardCommand}"/>
+            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
+        </StackPanel>
+    </Grid>
+</Page>
