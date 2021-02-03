@@ -146,7 +146,10 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkGeneratorService, Barembo.Services.MagicLinkService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkResolverService, Barembo.Services.MagicLinkService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
-            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>(() => { return new Barembo.Services.BufferedStoreService(new Barembo.Services.StoreBuffer(), new Barembo.Services.StoreService()); });
+            var uploadQueueService = new uplink.NET.Services.UploadQueueService(Path.Combine(Barembo.Services.StoreBuffer.BaseFolder, "uplinkNET.db"));
+            containerRegistry.RegisterSingleton<uplink.NET.Interfaces.IUploadQueueService>(()=>uploadQueueService);
+
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>(() => { return new Barembo.Services.BufferedStoreService(new Barembo.Services.StoreBuffer(), new Barembo.Services.StoreService(), uploadQueueService); });
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IAttachmentPreviewGeneratorService, Barembo.Services.AttachmentPreviewGeneratorService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IThumbnailGeneratorService, Barembo.Services.ThumbnailGeneratorService>();
 #if WINDOWS_UWP
@@ -161,6 +164,7 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.ILoginService, Barembo.UnoApp.Shared.Services.LoginService>();
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IBuildVersionInfoService, Barembo.UnoApp.Shared.Services.BuildVersionInfoService>();
             containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IMediaFetchService, Barembo.UnoApp.Shared.Services.MediaFetchService>();
+            containerRegistry.RegisterSingleton<Barembo.App.Core.Interfaces.IQRCodeScannerService, Barembo.UnoApp.Shared.Services.QRCodeScannerService>();
 
             //Views to navigate to
             containerRegistry.RegisterForNavigation<BookShelfView>();
