@@ -26,6 +26,9 @@ namespace Barembo.UnoApp.Droid
 			: base(() => new App(), javaReference, transfer)
 		{
 			ConfigureUniversalImageLoader();
+
+			// Initialize the scanner first so it can track the current context
+			ZXing.Mobile.MobileBarcodeScanner.Initialize(this);
 		}
 
 		private void ConfigureUniversalImageLoader()

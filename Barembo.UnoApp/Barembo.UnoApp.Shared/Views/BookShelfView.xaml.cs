@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using uplink.NET.Interfaces;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,9 +26,13 @@ namespace Barembo.UnoApp.Shared.Views
     /// </summary>
     public sealed partial class BookShelfView : Page, INavigationAware
     {
-        public BookShelfView()
+        readonly IUploadQueueService _uploadQueueService;
+
+        public BookShelfView(IUploadQueueService uploadQueueService)
         {
             this.InitializeComponent();
+
+            _uploadQueueService = uploadQueueService;
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -42,6 +47,8 @@ namespace Barembo.UnoApp.Shared.Views
         public async void OnNavigatedTo(NavigationContext navigationContext)
         {
             await ((BookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
+
+            _uploadQueueService.ProcessQueueInBackground();
         }
     }
 }

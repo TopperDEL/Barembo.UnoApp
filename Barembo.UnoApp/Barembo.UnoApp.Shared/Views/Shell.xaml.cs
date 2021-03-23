@@ -37,6 +37,11 @@ namespace Barembo.UnoApp.Shared.Views
         {
             this.InitializeComponent();
 
+#if WINDOWS_UWP
+            Services.QRCodeScannerService._dispatcher = this.Dispatcher;
+            Services.QRCodeScannerService._rootFrame = this;
+#endif
+
             _regionManager = regionManager;
             _eventAggregator = eventAggregator;
 
