@@ -18,6 +18,8 @@
             <PasswordBox x:Uid="SecretVerify" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret verify"/>
             <TextBlock x:Uid="SecretAndVerifyNotMatch" Text="Secret and Secretverify do not match" Foreground="Red"
                    Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <TextBlock x:Uid="OrUseAccess" Text="--- Or ---"/>
+            <TextBox x:Uid="AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant"/>
             <Button x:Uid="LoginButton" Command="{Binding LoginCommand}" Content="Login"/>
             <TextBlock Text="{Binding LoginError, Mode=OneWay}" Foreground="Red" TextWrapping="Wrap"
                        Visibility="{Binding LoginFailed, Converter={StaticResource BooleanToVisibilityConverter}}"/>
