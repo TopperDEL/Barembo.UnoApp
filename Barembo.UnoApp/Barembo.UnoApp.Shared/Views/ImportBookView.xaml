@@ -11,6 +11,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Import book view!"/>
+        <StackPanel>
+            <Button x:Uid="ScanQRCodeButton" Content="Scan QR-code" Command="{Binding ScanQRCodeCommand}"/>
+            <TextBox Text="{Binding MagicLink, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button x:Uid="ImportMagicLinkButton" Content="Import Magic-Link" Command="{Binding ImportMagicLinkCommand}"/>
+            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
+        </StackPanel>
     </Grid>
 </Page>

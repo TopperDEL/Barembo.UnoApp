@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Barembo.App.Core.ViewModels;
+using Prism.Regions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,11 +22,29 @@ namespace Barembo.UnoApp.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ImportBookView : Page
+    public sealed partial class ImportBookView : Page, INavigationAware
     {
         public ImportBookView()
         {
             this.InitializeComponent();
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            var vm = (ImportBookViewModel)this.DataContext;
+            if(vm.ScanQRCodeCommand.CanExecute())
+            {
+                vm.ScanQRCodeCommand.Execute();
+            }
         }
     }
 }
