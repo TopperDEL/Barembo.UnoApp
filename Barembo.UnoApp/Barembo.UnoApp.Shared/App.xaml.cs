@@ -146,8 +146,13 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkGeneratorService, Barembo.Services.MagicLinkService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkResolverService, Barembo.Services.MagicLinkService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
+#if __DROID__
+            var uploadQueueService = new uplink.NET.Services.UploadQueueService();
+            containerRegistry.RegisterSingleton<uplink.NET.Interfaces.IUploadQueueService>(() => uploadQueueService);
+#else
             var uploadQueueService = new uplink.NET.Services.UploadQueueService(Path.Combine(Barembo.Services.StoreBuffer.BaseFolder, "uplinkNET.db"));
             containerRegistry.RegisterSingleton<uplink.NET.Interfaces.IUploadQueueService>(()=>uploadQueueService);
+#endif
 
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>(() => { return new Barembo.Services.BufferedStoreService(new Barembo.Services.StoreBuffer(), new Barembo.Services.StoreService(), uploadQueueService); });
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IAttachmentPreviewGeneratorService, Barembo.Services.AttachmentPreviewGeneratorService>();
