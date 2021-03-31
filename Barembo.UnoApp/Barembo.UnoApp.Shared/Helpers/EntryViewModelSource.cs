@@ -77,6 +77,7 @@ namespace Barembo.UnoApp.Shared.Helpers
         private List<EntryViewModel> _viewModels = new List<EntryViewModel>();
         private void Vm_EntryLoaded(EntryViewModel vm, Entry entry)
         {
+            vm.EntryLoaded -= Vm_EntryLoaded;
             vm.LoadAttachmentPreviewsAsync();
             _viewModels.Add(vm);
         }
