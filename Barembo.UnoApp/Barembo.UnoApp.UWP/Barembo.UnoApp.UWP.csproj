@@ -3,7 +3,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.71</Version>
+      <Version>0.9.72</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
       <Version>0.9.44</Version>
