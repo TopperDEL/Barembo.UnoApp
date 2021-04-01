@@ -61,10 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.71</Version>
+      <Version>0.9.72</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.42</Version>
+      <Version>0.9.44</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.0.0</Version>

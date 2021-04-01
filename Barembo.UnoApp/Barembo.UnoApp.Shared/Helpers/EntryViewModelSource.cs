@@ -16,25 +16,25 @@ namespace Barembo.UnoApp.Shared.Helpers
     {
         private IEnumerable<EntryReference> _entryReferences;
         private readonly IEntryService _entryService;
-        private readonly IEventAggregator _eventAggregator;
         private readonly BookReference _bookReference;
         private bool _loaded;
+        private List<EntryViewModel> _viewModels = new List<EntryViewModel>();
+        private Task _showPreviewsTask;
 
-        public EntryViewModelSource(IEntryService entryService, IEventAggregator eventAggregator, BookReference bookReference)
+        public EntryViewModelSource(IEntryService entryService, BookReference bookReference)
         {
             _entryService = entryService;
-            _eventAggregator = eventAggregator;
             _bookReference = bookReference;
-            Task.Factory.StartNew(ShowPreviews);
+            _showPreviewsTask = Task.Factory.StartNew(ShowPreviews);
         }
         public Windows.UI.Core.CoreDispatcher Dispatcher { get; set; }
         private async Task ShowPreviews()
         {
-            while(true)
+            while (true)
             {
-                foreach(var vm in _viewModels)
+                foreach (var vm in _viewModels.ToList())
                 {
-                    foreach(var preview in vm.AttachmentPreviews)
+                    foreach (var preview in vm.AttachmentPreviews)
                     {
                         if (preview.IsVideo)
                         {
@@ -48,6 +48,12 @@ namespace Barembo.UnoApp.Shared.Helpers
 
                 await Task.Delay(200);
             }
+        }
+
+        public void Unload()
+        {
+            _showPreviewsTask.Dispose();
+            _viewModels.Clear();
         }
 
         public async Task InitAsync()
@@ -64,7 +70,7 @@ namespace Barembo.UnoApp.Shared.Helpers
             await InitAsync().ConfigureAwait(false);
 
             var paged = (from e in _entryReferences
-                          select e).Skip(pageIndex * pageSize).Take(pageSize);
+                         select e).Skip(pageIndex * pageSize).Take(pageSize);
 
             return paged.Select(s =>
             {
@@ -74,11 +80,10 @@ namespace Barembo.UnoApp.Shared.Helpers
             });
         }
 
-        private List<EntryViewModel> _viewModels = new List<EntryViewModel>();
-        private void Vm_EntryLoaded(EntryViewModel vm, Entry entry)
+        private async void Vm_EntryLoaded(EntryViewModel vm, Entry entry)
         {
             vm.EntryLoaded -= Vm_EntryLoaded;
-            vm.LoadAttachmentPreviewsAsync();
+            await vm.LoadAttachmentPreviewsAsync();
             _viewModels.Add(vm);
         }
     }
