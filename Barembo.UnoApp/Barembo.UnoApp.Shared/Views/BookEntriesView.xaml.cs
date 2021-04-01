@@ -29,6 +29,8 @@ namespace Barembo.UnoApp.Shared.Views
     {
         private readonly IEntryService _entryService;
         private readonly IEventAggregator _eventAggregator;
+        private EntryViewModelSource _viewModelSource;
+        private IncrementalLoadingCollection<EntryViewModelSource, EntryViewModel> _collection;
 
         public BookEntriesView(IEntryService entryService, IEventAggregator eventAggregator)
         {
@@ -45,15 +47,17 @@ namespace Barembo.UnoApp.Shared.Views
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
+            _viewModelSource?.Unload();
+            _collection = null;
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             var vm = (BookEntriesViewModel)this.DataContext;
-            var source = new EntryViewModelSource(_entryService, _eventAggregator, (BookReference)navigationContext.Parameters["BookReference"]);
-            source.Dispatcher = Dispatcher;
-            var collection = new IncrementalLoadingCollection<EntryViewModelSource, EntryViewModel>(source, 5);
-            vm.Entries = collection;
+            _viewModelSource = new EntryViewModelSource(_entryService, (BookReference)navigationContext.Parameters["BookReference"]);
+            _viewModelSource.Dispatcher = Dispatcher;
+            _collection = new IncrementalLoadingCollection<EntryViewModelSource, EntryViewModel>(_viewModelSource, 5);
+            vm.Entries = _collection;
         }
     }
 }
