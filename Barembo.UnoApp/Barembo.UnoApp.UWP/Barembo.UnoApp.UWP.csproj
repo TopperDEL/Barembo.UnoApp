@@ -6,7 +6,7 @@
       <Version>0.9.72</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.44</Version>
+      <Version>0.9.45</Version>
     </PackageReference>
     <PackageReference Include="FFmpegInteropX">
       <Version>0.9.1</Version>
