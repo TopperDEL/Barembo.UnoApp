@@ -83,10 +83,11 @@ namespace Barembo.UnoApp.Shared.Views
             _regionManager.RequestNavigate(ContentRegion, "BookShelfView", parameters);
         }
 
-        private void NavigateToCreateBookShelfView(StoreAccess storeAccess)
+        private void NavigateToCreateBookShelfView(Tuple<StoreAccess,string> data)
         {
             var parameters = new NavigationParameters();
-            parameters.Add("StoreAccess", storeAccess);
+            parameters.Add("StoreAccess", data.Item1);
+            parameters.Add("Error", data.Item2);
             _regionManager.RequestNavigate(ContentRegion, "CreateBookShelfView", parameters);
         }
 

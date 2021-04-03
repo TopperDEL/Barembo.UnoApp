@@ -8,6 +8,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     xmlns:prismMvvm="using:Prism.Mvvm" xmlns:viewmodels="using:Barembo.App.Core.ViewModels"
+    xmlns:toolkit="using:Uno.UI.Toolkit"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -20,51 +21,61 @@
 
         <TextBlock Text="Entries" Grid.Row="0"/>
         <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Grid.Row="1"/>
-        <ListView ItemsSource="{Binding Entries, Mode=OneWay}" Grid.Row="2">
+        <ListView ItemsSource="{Binding Entries, Mode=OneWay}" Grid.Row="2" SelectionMode="None">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:EntryViewModel">
-                    <Grid>
-                        <StackPanel Visibility="{x:Bind IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" MinHeight="400">
+                    <Grid HorizontalAlignment="Stretch" Margin="10">
+                        <StackPanel Visibility="{x:Bind IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" MinHeight="400" HorizontalAlignment="Stretch">
                             <ProgressRing IsActive="True"/>
                         </StackPanel>
-                        <StackPanel Visibility="{x:Bind IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityInvertedConverter}}">
-                            <controls:ImageEx Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2"
+                        <toolkit:ElevatedView Elevation="10" CornerRadius="3">
+                            <StackPanel Visibility="{x:Bind IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityInvertedConverter}}" HorizontalAlignment="Stretch" MaxWidth="740"
+                                    Background="LightGray" BorderBrush="Gray" BorderThickness="2" Padding="10" CornerRadius="10,10,10,10">
+                                <TextBlock Text="{x:Bind CreationDate, Mode=OneWay, Converter={StaticResource DateTimeConverter}}" x:Phase="1" HorizontalAlignment="Right" Margin="0,0,0,10" FontWeight="Normal"/>
+                                <TextBlock Text="{x:Bind Header, Mode=OneWay}" x:Phase="0" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16"/>
+                                <controls:ImageEx Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" CornerRadius="50,5,50,5"
                                           MaxWidth="600" MaxHeight="500"
                                           EnableLazyLoading="true"/>
-                            <TextBlock Text="{x:Bind Header, Mode=OneWay}" x:Phase="0"/>
-                            <TextBlock Text="{x:Bind Body, Mode=OneWay}" x:Phase="1"/>
-                            <ListView ItemsSource="{x:Bind AttachmentPreviews, Mode=OneWay}">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate x:DataType="viewmodels:AttachmentPreviewViewModel">
-                                        <StackPanel>
-                                            <controls:ImageEx Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="150" EnableLazyLoading="true"/>
-                                            <Grid Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                <controls:ImageEx Source="{x:Bind VideoPreview1, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview1, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="150" EnableLazyLoading="true"/>
-                                                <controls:ImageEx Source="{x:Bind VideoPreview2, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview2, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="150" EnableLazyLoading="true"/>
-                                                <controls:ImageEx Source="{x:Bind VideoPreview3, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview3, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="150" EnableLazyLoading="true"/>
-                                                <controls:ImageEx Source="{x:Bind VideoPreview4, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview4, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="150" EnableLazyLoading="true"/>
-                                                <controls:ImageEx Source="{x:Bind VideoPreview5, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview5, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="150" EnableLazyLoading="true"/>
-                                                <controls:ImageEx Source="{x:Bind VideoPreview6, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview6, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                               MaxWidth="150" EnableLazyLoading="true"/>
-                                            </Grid>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <controls:WrapPanel Padding="0,0,0,0"
+                                <TextBlock Text="{x:Bind Body, Mode=OneWay}" x:Phase="1" MaxWidth="600" TextWrapping="WrapWholeWords" HorizontalAlignment="Stretch" FontStretch="Expanded" Margin="0,10,0,10"/>
+                                <ListView ItemsSource="{x:Bind AttachmentPreviews, Mode=OneWay}" SelectionMode="None">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate x:DataType="viewmodels:AttachmentPreviewViewModel">
+                                            <StackPanel>
+                                                <controls:ImageEx Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
+                                                <Grid Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                    <controls:ImageEx Source="{x:Bind VideoPreview1, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview1, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
+                                                    <controls:ImageEx Source="{x:Bind VideoPreview2, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview2, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
+                                                    <controls:ImageEx Source="{x:Bind VideoPreview3, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview3, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
+                                                    <controls:ImageEx Source="{x:Bind VideoPreview4, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview4, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
+                                                    <controls:ImageEx Source="{x:Bind VideoPreview5, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview5, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
+                                                    <controls:ImageEx Source="{x:Bind VideoPreview6, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview6, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
+                                                </Grid>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <controls:WrapPanel Padding="0,0,0,0"
                                                         VerticalSpacing="7"
                                                         HorizontalSpacing="6" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ListView>
-                        </StackPanel>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ListView>
+                            </StackPanel>
+                        </toolkit:ElevatedView>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
