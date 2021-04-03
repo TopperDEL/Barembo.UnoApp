@@ -5,4 +5,5 @@
     <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <converter:BooleanToVisibilityInvertedConverter x:Key="BooleanToVisibilityInvertedConverter"/>
     <converter:ByteArrayToBitmapImageConverter x:Key="ByteArrayToBitmapImageConverter"/>
+    <converter:DateTimeConverter x:Key="DateTimeConverter"/>
 </ResourceDictionary>
