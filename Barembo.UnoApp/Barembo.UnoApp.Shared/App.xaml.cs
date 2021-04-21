@@ -64,6 +64,14 @@ namespace Barembo.UnoApp
 
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.UnhandledException += App_UnhandledException;
+        }
+
+        private void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            Microsoft.AppCenter.Crashes.Crashes.TrackError(e.Exception, new Dictionary<string, string>() {
+                {"ExceptionType","Unhandled Exception"}
+                });
         }
 
         protected override void OnActivated(IActivatedEventArgs e)
