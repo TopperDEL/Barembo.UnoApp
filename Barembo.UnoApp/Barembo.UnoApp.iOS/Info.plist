@@ -64,7 +64,7 @@
   <key>NSPhotoLibraryAddUsageDescription</key>
   <string>To attach a photo or video to your entry, we need access to your Gallery.</string>
   <key>MinimumOSVersion</key>
-	<string>14.2</string>
+	<string>10.0</string>
   <key>CFBundleURLTypes</key>
   <array>
     <dict>
