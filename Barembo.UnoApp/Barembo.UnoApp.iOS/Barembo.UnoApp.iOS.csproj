@@ -144,6 +144,9 @@
     <PackageReference Include="Prism.DryIoc.Uno">
       <Version>8.0.0.1909</Version>
     </PackageReference>
+    <PackageReference Include="Uno.Extensions.Logging.OSLog">
+      <Version>1.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Uno.Microsoft.Toolkit">
       <Version>7.1.0-build.2.g0e224f133a</Version>
     </PackageReference>
