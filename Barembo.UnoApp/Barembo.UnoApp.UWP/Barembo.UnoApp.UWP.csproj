@@ -20,6 +20,9 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>4.2.0</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug">
+      <Version>5.0.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <!-- 
 			If, in the same solution, you are referencing a project that uses https://github.com/onovotny/MSBuildSdkExtras,
@@ -40,7 +43,6 @@
     <PackageReference Include="Uno.Core" Version="2.3.0" />
     <PackageReference Include="Uno.UI" Version="3.6.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
     <PackageReference Include="uplink.NET">
       <Version>2.6.1385</Version>
     </PackageReference>
@@ -77,7 +79,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>
     </PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>30DDCC86B31DE397F5CE6CDCFB6CC806E71A7F79</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>335E2B436A40C78326071E816768C51ACA2A3987</PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
