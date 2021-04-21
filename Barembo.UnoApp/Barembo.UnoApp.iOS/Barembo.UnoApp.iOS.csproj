@@ -127,7 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.76</Version>
+      <Version>0.9.77</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
       <Version>0.9.49</Version>

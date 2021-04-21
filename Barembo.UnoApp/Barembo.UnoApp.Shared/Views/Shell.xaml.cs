@@ -61,6 +61,7 @@ namespace Barembo.UnoApp.Shared.Views
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.BookToImportMessage>().Subscribe(NavigateToShowBookToImportInfoView);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.GoBackMessage>().Subscribe(GoBack);
             _eventAggregator.GetEvent<Barembo.App.Core.Messages.ErrorMessage>().Subscribe(RaiseError);
+            _eventAggregator.GetEvent<Barembo.App.Core.Messages.InAppInfoMessage>().Subscribe(RaiseInAppInfo);
         }
 
         private void NavigateToShowBookToImportInfoView(BookShareReference bookShareReference)
@@ -154,6 +155,11 @@ namespace Barembo.UnoApp.Shared.Views
         }
 
         private void RaiseError(Tuple<ErrorType, string> errorData)
+        {
+            
+        }
+
+        private void RaiseInAppInfo(Tuple<InAppInfoMessageType, Dictionary<string,string>> data)
         {
 
         }
