@@ -73,7 +73,7 @@
       <Version>0.9.78</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.49</Version>
+      <Version>0.9.50</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.2.0</Version>
