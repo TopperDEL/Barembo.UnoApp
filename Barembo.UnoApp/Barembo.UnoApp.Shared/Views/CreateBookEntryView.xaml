@@ -21,11 +21,20 @@
             <Button x:Uid="CreateEntryButton" Content="Save" Command="{Binding SaveEntryCommand}"/>
             <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
         </StackPanel>
+        
         <controls:Loading x:Name="LoadingControl" IsLoading="{Binding SaveInProgress}" Visibility="{Binding SaveInProgress, Converter={StaticResource BooleanToVisibilityConverter}}">
             <controls:Loading.Background>
                 <SolidColorBrush Color="Black" Opacity="0.7" />
             </controls:Loading.Background>
             <ProgressRing IsActive="True" Margin="12"/>
         </controls:Loading>
+
+        <ListView ItemsSource="{Binding InfoMessage, Mode=OneWay}" Visibility="{Binding SaveInProgress, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
