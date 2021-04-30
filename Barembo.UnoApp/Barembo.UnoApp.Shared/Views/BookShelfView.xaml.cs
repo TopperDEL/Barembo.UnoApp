@@ -1,6 +1,7 @@
 ﻿using Barembo.App.Core.ViewModels;
 using Barembo.Interfaces;
 using Barembo.Models;
+using Microsoft.AppCenter.Analytics;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -49,22 +50,27 @@ namespace Barembo.UnoApp.Shared.Views
 
         public async void OnNavigatedTo(NavigationContext navigationContext)
         {
+            Analytics.TrackEvent("BookShelfView - OnNavigatedTo");
             var storeAccess = (StoreAccess)navigationContext.Parameters["StoreAccess"];
             BookShelf bookShelf;
             try
             {
+                Analytics.TrackEvent("BookShelfView - OnNavigatedTo - try fetch bookshelf");
                 bookShelf = await _storeService.GetObjectFromJsonAsync<BookShelf>(storeAccess, StoreKey.BookShelf());
-
+                Analytics.TrackEvent("BookShelfView - OnNavigatedTo - bookshelf fetched");
             }
             catch (Exception ex)
             {
+                Analytics.TrackEvent("BookShelfView - OnNavigatedTo - fetch bookshelf exception");
                 Microsoft.AppCenter.Crashes.Crashes.TrackError(ex, new Dictionary<string, string>() {
                 {"ExceptionType","Try to load BookShelf on Android"}
                 });
             }
+            Analytics.TrackEvent("BookShelfView - OnNavigatedTo - before initasync");
             await ((BookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
-
+            Analytics.TrackEvent("BookShelfView - OnNavigatedTo - after initasync");
             _uploadQueueService.ProcessQueueInBackground();
+            Analytics.TrackEvent("BookShelfView - OnNavigatedTo - after procqueueinbackground");
         }
     }
 }
