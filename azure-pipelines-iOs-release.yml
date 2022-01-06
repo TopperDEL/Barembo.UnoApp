@@ -23,7 +23,7 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '**/*iOs.sln'
+    restoreSolution: '**/*.sln'
 
 - task: InstallAppleCertificate@2
   inputs:
@@ -38,14 +38,14 @@ steps:
 
 - task: ios-bundle-version@1
   inputs:
-    sourcePath: 'Barembo.UnoApp/Barembo.UnoApp.iOS/Info.plist'
+    sourcePath: 'Boallz/Boallz.Uno/Boallz.Uno.Mobile/iOS/Info.plist'
     versionCodeOption: 'buildid'
     versionCode: '$(Build.BuildId)'
     printFile: true
 
 - task: XamariniOS@2
   inputs:
-    solutionFile: '**/*iOs.sln'
+    solutionFile: '**/*.sln'
     configuration: 'AppStore'
     buildForSimulator: false
     packageApp: true
