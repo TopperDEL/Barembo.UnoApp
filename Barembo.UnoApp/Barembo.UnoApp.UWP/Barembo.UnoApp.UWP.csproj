@@ -3,10 +3,10 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.78</Version>
+      <Version>0.9.83</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.51</Version>
+      <Version>0.9.52</Version>
     </PackageReference>
     <PackageReference Include="FFmpegInteropX">
       <Version>0.9.1</Version>
@@ -44,10 +44,10 @@
     <PackageReference Include="Uno.UI" Version="3.8.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
     <PackageReference Include="uplink.NET">
-      <Version>2.7.1488-alpha</Version>
+      <Version>2.8.2410</Version>
     </PackageReference>
     <PackageReference Include="uplink.NET.Win">
-      <Version>2.7.1488-alpha</Version>
+      <Version>2.8.2410</Version>
     </PackageReference>
     <PackageReference Include="VideoLAN.LibVLC.UWP">
       <Version>3.3.0</Version>
