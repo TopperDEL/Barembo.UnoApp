@@ -18,11 +18,15 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBox Text="{Binding BaremboVersion}" Header="Barembo-Version" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>
-            <TextBox Text="{Binding StorjVersion}" Header="Storj-Version" FontFamily="{StaticResource BaremboFont}" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding BaremboVersion}" Header="Barembo-Version" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>
+                <TextBox Text="{Binding StorjVersion}" Header="Storj-Version" FontFamily="{StaticResource BaremboFont}" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>
+            </StackPanel>
+            <TextBox x:Name="InAppMessage" IsReadOnly="True"/>
         </StackPanel>
-        
+
         <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="{x:Bind ContentRegion}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
     </Grid>
 </ContentControl>
