@@ -163,6 +163,7 @@ namespace Barembo.UnoApp.Shared.Views
         private void RaiseInAppInfo(Tuple<InAppInfoMessageType, Dictionary<string,string>> data)
         {
             Analytics.TrackEvent("RaiseError - " + data.Item1.ToString() + " - " + data.Item2);
+            InAppMessage.Text = data.Item1.ToString() + " - " + data.Item2;
         }
     }
 }
