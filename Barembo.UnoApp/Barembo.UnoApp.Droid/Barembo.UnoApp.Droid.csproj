@@ -61,10 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.78</Version>
+      <Version>0.9.83</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.51</Version>
+      <Version>0.9.52</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.2.0</Version>
@@ -91,10 +91,10 @@
     <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.33" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
     <PackageReference Include="uplink.NET">
-      <Version>2.7.1488-alpha</Version>
+      <Version>2.8.2410</Version>
     </PackageReference>
     <PackageReference Include="uplink.NET.Droid">
-      <Version>2.7.1488-alpha</Version>
+      <Version>2.8.2410</Version>
     </PackageReference>
     <PackageReference Include="VideoLAN.LibVLC.Android">
       <Version>3.2.0</Version>
