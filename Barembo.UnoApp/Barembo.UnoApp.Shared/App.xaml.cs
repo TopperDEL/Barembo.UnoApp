@@ -168,6 +168,7 @@ namespace Barembo.UnoApp
 #if WINDOWS_UWP
             Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_UWP(stream, positionPercent, filePath);
 #elif __DROID__
+            Barembo.Services.ThumbnailGeneratorService.ImageThumbnailAsyncCallback = async (stream, width, height) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromImageAsync_Droid(stream, width, height);
             Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_Droid(stream, positionPercent, filePath, Container.Resolve<Barembo.Interfaces.IThumbnailGeneratorService>());
 #elif __IOS__
             Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_iOs(stream, positionPercent, filePath);
