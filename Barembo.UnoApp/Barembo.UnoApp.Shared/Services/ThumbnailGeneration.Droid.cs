@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Graphics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -34,6 +35,43 @@ namespace Barembo.UnoApp.Shared.Services
                 finalStream.Position = 0;
 
                 return await thumbnailGenerator.GenerateThumbnailBase64FromImageAsync(finalStream);
+            }
+        }
+
+        public static async Task<string> GenerateThumbnailBase64FromImageAsync_Droid(Stream image, int width, int height)
+        {
+            Bitmap originalImage = await BitmapFactory.DecodeStreamAsync(image);
+
+            float newHeight;
+            float newWidth;
+
+            var originalHeight = originalImage.Height;
+            var originalWidth = originalImage.Width;
+
+            if (originalHeight > originalWidth)
+            {
+                newHeight = height;
+                float ratio = originalHeight / height;
+                newWidth = originalWidth / ratio;
+            }
+            else
+            {
+                newWidth = width;
+                float ratio = originalWidth / width;
+                newHeight = originalHeight / ratio;
+            }
+
+            Bitmap resizedImage = Bitmap.CreateScaledBitmap(originalImage, (int)newWidth, (int)newHeight, true);
+
+            originalImage.Recycle();
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                resizedImage.Compress(Bitmap.CompressFormat.Png, 100, ms);
+
+                resizedImage.Recycle();
+
+                return Convert.ToBase64String(ms.ToArray());
             }
         }
 #endif
