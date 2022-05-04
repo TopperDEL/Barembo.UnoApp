@@ -40,6 +40,7 @@ namespace Barembo.UnoApp.Shared.Services
 
         public static async Task<string> GenerateThumbnailBase64FromImageAsync_Droid(Stream image, int width, int height)
         {
+            image.Position = 0;
             Bitmap originalImage = await BitmapFactory.DecodeStreamAsync(image);
 
             float newHeight;
