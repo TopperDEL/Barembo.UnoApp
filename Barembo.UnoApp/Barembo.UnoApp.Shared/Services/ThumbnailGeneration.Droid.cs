@@ -1,4 +1,6 @@
-﻿using Android.Graphics;
+﻿#if __DROID__
+using Android.Graphics;
+#endif
 using System;
 using System.Collections.Generic;
 using System.IO;
