@@ -88,12 +88,12 @@
       <Version>8.0.0.1909</Version>
     </PackageReference>
     <PackageReference Include="Uno.Microsoft.Toolkit">
-      <Version>7.1.0-build.2.g0e224f133a</Version>
+      <Version>7.1.11</Version>
     </PackageReference>
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>7.1.0-build.2.g0e224f133a</Version>
+      <Version>7.1.11</Version>
     </PackageReference>
-    <PackageReference Include="Uno.UI" Version="3.8.6" />
+    <PackageReference Include="Uno.UI" Version="4.6.19" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
     <PackageReference Include="uplink.NET">
       <Version>2.9.2958</Version>
