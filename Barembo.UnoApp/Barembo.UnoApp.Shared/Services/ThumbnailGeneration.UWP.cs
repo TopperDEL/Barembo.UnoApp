@@ -13,7 +13,7 @@ namespace Barembo.UnoApp.Shared.Services
 #if WINDOWS_UWP
         public static async Task<string> GenerateThumbnailBase64FromVideoAsync_UWP(Stream videoStream, float positionPercent, string filePath)
         {
-            var grabber = await FFmpegInterop.FrameGrabber.CreateFromStreamAsync(videoStream.AsRandomAccessStream());
+            var grabber = await FFmpegInteropX.FrameGrabber.CreateFromStreamAsync(videoStream.AsRandomAccessStream());
             var extractLocation = grabber.Duration * positionPercent;
             var frame = await grabber.ExtractVideoFrameAsync(extractLocation);
             using (var stream = new Windows.Storage.Streams.InMemoryRandomAccessStream())
