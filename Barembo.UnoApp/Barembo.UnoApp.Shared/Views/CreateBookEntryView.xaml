@@ -20,6 +20,13 @@
             <Button x:Uid="AddVideoButton" Content="Add video..." Command="{Binding AddVideoCommand}"/>
             <Button x:Uid="CreateEntryButton" Content="Save" Command="{Binding SaveEntryCommand}"/>
             <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
+            <ItemsControl ItemsSource="{Binding Books}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding BookViewModel.Book.Name}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
         
         <controls:Loading x:Name="LoadingControl" IsLoading="{Binding SaveInProgress}" Visibility="{Binding SaveInProgress, Converter={StaticResource BooleanToVisibilityConverter}}">
