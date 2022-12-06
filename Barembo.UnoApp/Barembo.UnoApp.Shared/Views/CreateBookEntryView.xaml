@@ -23,7 +23,7 @@
             <ItemsControl ItemsSource="{Binding Books}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding BookViewModel.Book.Name}"/>
+                        <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" Content="{Binding BookViewModel.Book.Name}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
