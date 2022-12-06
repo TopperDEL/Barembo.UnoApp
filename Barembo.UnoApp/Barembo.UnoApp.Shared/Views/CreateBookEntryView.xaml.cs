@@ -46,7 +46,11 @@ namespace Barembo.UnoApp.Shared.Views
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            ((CreateBookEntryViewModel)this.DataContext).Init((BookReference)navigationContext.Parameters["BookReference"]);
+            var bookReference = (BookReference)navigationContext.Parameters["BookReference"];
+            var bookShelfViewModel = (BookShelfViewModel)navigationContext.Parameters["BookShelfViewModel"];
+            CreateBookEntryViewModel vm = this.DataContext as CreateBookEntryViewModel;
+
+            vm.Init(bookReference, bookShelfViewModel);
         }
     }
 }

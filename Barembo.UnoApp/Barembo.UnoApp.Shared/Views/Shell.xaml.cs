@@ -109,10 +109,11 @@ namespace Barembo.UnoApp.Shared.Views
             _regionManager.RequestNavigate(ContentRegion, "ImportBookView", parameters);
         }
 
-        private void NavigateToCreateEntryView(BookReference bookReference)
+        private void NavigateToCreateEntryView(Tuple<BookReference, BookShelfViewModel> data)
         {
             var parameters = new NavigationParameters();
-            parameters.Add("BookReference", bookReference);
+            parameters.Add("BookReference", data.Item1);
+            parameters.Add("BookShelfViewModel", data.Item2);
             _regionManager.RequestNavigate(ContentRegion, "CreateBookEntryView", parameters);
         }
 
