@@ -56,18 +56,6 @@
                                                                                      Image5="{x:Bind VideoPreview5, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
                                                                                      Image6="{x:Bind VideoPreview6, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
                                                                                      MaxWidth="150" />
-                                                <!--<Image Source="{x:Bind VideoPreview1, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                                               MaxWidth="150" />-->
-                                                <!--<controls:ImageEx Source="{x:Bind VideoPreview2, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview2, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
-                                                    <controls:ImageEx Source="{x:Bind VideoPreview3, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview3, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
-                                                    <controls:ImageEx Source="{x:Bind VideoPreview4, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview4, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
-                                                    <controls:ImageEx Source="{x:Bind VideoPreview5, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview5, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
-                                                    <controls:ImageEx Source="{x:Bind VideoPreview6, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview6, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>-->
                                             </Grid>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
