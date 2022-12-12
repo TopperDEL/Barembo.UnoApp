@@ -19,40 +19,16 @@ namespace Barembo.UnoApp.Shared.Helpers
         private readonly BookReference _bookReference;
         private bool _loaded;
         private List<EntryViewModel> _viewModels = new List<EntryViewModel>();
-        private Task _showPreviewsTask;
 
         public EntryViewModelSource(IEntryService entryService, BookReference bookReference)
         {
             _entryService = entryService;
             _bookReference = bookReference;
-            _showPreviewsTask = Task.Factory.StartNew(ShowPreviews);
         }
         public Windows.UI.Core.CoreDispatcher Dispatcher { get; set; }
-        private async Task ShowPreviews()
-        {
-            while (true)
-            {
-                foreach (var vm in _viewModels.ToList())
-                {
-                    foreach (var preview in vm.AttachmentPreviews)
-                    {
-                        if (preview.IsVideo)
-                        {
-                            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () =>
-                            {
-                                preview.ShowNextVideoImage();
-                            });
-                        }
-                    }
-                }
-
-                await Task.Delay(200);
-            }
-        }
-
+        
         public void Unload()
         {
-            _showPreviewsTask.Dispose();
             _viewModels.Clear();
         }
 
