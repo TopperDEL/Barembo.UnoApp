@@ -17,6 +17,9 @@
             <Image Source="{x:Bind Image4}" Visibility="{x:Bind ShowImage4,Mode=OneWay}"/>
             <Image Source="{x:Bind Image5}" Visibility="{x:Bind ShowImage5,Mode=OneWay}"/>
             <Image Source="{x:Bind Image6}" Visibility="{x:Bind ShowImage6,Mode=OneWay}"/>
+            <Border Background="White" Width="40" Height="40" CornerRadius="20" Opacity="0.6">
+                <SymbolIcon Symbol="Play" Foreground="Black" />
+            </Border>
         </Grid>
     </Border>
 </UserControl>
