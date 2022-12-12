@@ -38,7 +38,7 @@
                                     Background="LightGray" BorderBrush="Gray" BorderThickness="2" Padding="10" CornerRadius="10,10,10,10">
                                 <TextBlock Text="{x:Bind CreationDate, Mode=OneWay, Converter={StaticResource DateTimeConverter}}" x:Phase="1" HorizontalAlignment="Right" Margin="0,0,0,10" FontWeight="Normal"/>
                                 <TextBlock Text="{x:Bind Header, Mode=OneWay}" x:Phase="0" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16"/>
-                                <controls:ImageEx Source="{x:Bind Thumbnail, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" CornerRadius="50,5,50,5"
+                                <controls:ImageEx Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" CornerRadius="50,5,50,5"
                                           MaxWidth="600" MaxHeight="500"
                                           EnableLazyLoading="true"/><!--ToDo: Visibility-Field for Thumbnail-->
                                 <TextBlock Text="{x:Bind Body, Mode=OneWay}" x:Phase="1" MaxWidth="600" TextWrapping="WrapWholeWords" HorizontalAlignment="Stretch" FontStretch="Expanded" Margin="0,10,0,10"/>
