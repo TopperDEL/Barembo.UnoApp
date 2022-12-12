@@ -9,14 +9,15 @@
     mc:Ignorable="d"
     xmlns:prismMvvm="using:Prism.Mvvm" xmlns:viewmodels="using:Barembo.App.Core.ViewModels"
     xmlns:toolkit="using:Uno.UI.Toolkit"
+    xmlns:baremboControls="using:Barembo.UnoApp.Shared.Controls"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/> <!--It is important that the Heights have fixed values! Setting them to AUTO-->
+            <RowDefinition Height="30"/> <!--would lead the ListView to be as high as it wants destroying the lazy loading-->
+            <RowDefinition Height="*"/>  <!--of entries. It would load all entries making the view unusable!-->
         </Grid.RowDefinitions>
 
         <TextBlock Text="Entries" Grid.Row="0"/>
@@ -37,7 +38,7 @@
                                     Background="LightGray" BorderBrush="Gray" BorderThickness="2" Padding="10" CornerRadius="10,10,10,10">
                                 <TextBlock Text="{x:Bind CreationDate, Mode=OneWay, Converter={StaticResource DateTimeConverter}}" x:Phase="1" HorizontalAlignment="Right" Margin="0,0,0,10" FontWeight="Normal"/>
                                 <TextBlock Text="{x:Bind Header, Mode=OneWay}" x:Phase="0" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16"/>
-                                <controls:ImageEx Source="{x:Bind Thumbnail, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" CornerRadius="50,5,50,5"
+                                <controls:ImageEx Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" CornerRadius="50,5,50,5"
                                           MaxWidth="600" MaxHeight="500"
                                           EnableLazyLoading="true"/><!--ToDo: Visibility-Field for Thumbnail-->
                                 <TextBlock Text="{x:Bind Body, Mode=OneWay}" x:Phase="1" MaxWidth="600" TextWrapping="WrapWholeWords" HorizontalAlignment="Stretch" FontStretch="Expanded" Margin="0,10,0,10"/>
@@ -47,8 +48,16 @@
                                             <Grid>
                                                 <controls:ImageEx Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
                                                MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
-                                                <controls:ImageEx Source="{x:Bind VideoPreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                                               MaxWidth="150" EnableLazyLoading="false" CornerRadius="5" IsCacheEnabled="False"/>
+                                                <baremboControls:VideoPreviewControl Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                                     Image1="{x:Bind VideoPreview1, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image2="{x:Bind VideoPreview2, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image3="{x:Bind VideoPreview3, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image4="{x:Bind VideoPreview4, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image5="{x:Bind VideoPreview5, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image6="{x:Bind VideoPreview6, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     MaxWidth="150" />
+                                                <!--<Image Source="{x:Bind VideoPreview1, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
+                                               MaxWidth="150" />-->
                                                 <!--<controls:ImageEx Source="{x:Bind VideoPreview2, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview2, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
                                                MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
                                                     <controls:ImageEx Source="{x:Bind VideoPreview3, Mode=OneTime, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind ShowVideoPreview3, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
