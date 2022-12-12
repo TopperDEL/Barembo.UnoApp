@@ -55,7 +55,7 @@
                                                                                      Image4="{x:Bind VideoPreview4, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
                                                                                      Image5="{x:Bind VideoPreview5, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
                                                                                      Image6="{x:Bind VideoPreview6, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
-                                                                                     MaxWidth="150" />
+                                                                                     MaxWidth="150" /> <!--ToDo: Show video if video is in cache or on disk?-->
                                             </Grid>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
