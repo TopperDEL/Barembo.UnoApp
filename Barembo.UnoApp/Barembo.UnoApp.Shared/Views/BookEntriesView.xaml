@@ -38,16 +38,23 @@
                                     Background="LightGray" BorderBrush="Gray" BorderThickness="2" Padding="10" CornerRadius="10,10,10,10">
                                 <TextBlock Text="{x:Bind CreationDate, Mode=OneWay, Converter={StaticResource DateTimeConverter}}" x:Phase="1" HorizontalAlignment="Right" Margin="0,0,0,10" FontWeight="Normal"/>
                                 <TextBlock Text="{x:Bind Header, Mode=OneWay}" x:Phase="0" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16"/>
-                                <controls:ImageEx Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" CornerRadius="50,5,50,5"
-                                          MaxWidth="600" MaxHeight="500"
-                                          EnableLazyLoading="true"/><!--ToDo: Visibility-Field for Thumbnail-->
+                                <Border CornerRadius="50,5,50,5" MaxWidth="600" MaxHeight="500">
+                                    <Image Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" x:Phase="2" 
+                                           
+                                          />
+                                </Border>
+                                <!--ToDo: Visibility-Field for Thumbnail-->
+                                <!--CornerRadius="50,5,50,5" EnableLazyLoading="true"-->
                                 <TextBlock Text="{x:Bind Body, Mode=OneWay}" x:Phase="1" MaxWidth="600" TextWrapping="WrapWholeWords" HorizontalAlignment="Stretch" FontStretch="Expanded" Margin="0,10,0,10"/>
                                 <ListView ItemsSource="{x:Bind AttachmentPreviews, Mode=OneWay}" x:Phase="3" SelectionMode="None">
                                     <ListView.ItemTemplate>
                                         <DataTemplate x:DataType="viewmodels:AttachmentPreviewViewModel">
                                             <Grid>
-                                                <controls:ImageEx Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                                               MaxWidth="150" EnableLazyLoading="true" CornerRadius="5"/>
+                                                <Border CornerRadius="5" MaxWidth="150">
+                                                    <Image Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
+                                                           />
+                                                </Border>
+                                                <!--EnableLazyLoading="true" CornerRadius="5"-->
                                                 <baremboControls:VideoPreviewControl Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
                                                                                      Image1="{x:Bind VideoPreview1, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
                                                                                      Image2="{x:Bind VideoPreview2, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
