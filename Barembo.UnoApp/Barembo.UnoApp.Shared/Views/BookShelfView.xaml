@@ -20,7 +20,7 @@
             <Button x:Uid="NewBookButton" Content="New book" Command="{Binding AddOwnBookCommand}"/>
             <Button x:Uid="ImportBookButton" Content="Import book" Command="{Binding AddForeignBookCommand}"/>
         </StackPanel>
-        <TextBlock Grid.Row="1" Text="{Binding BookShelf.OwnerName, Mode=OneWay}"/>
+        <!--<TextBlock Grid.Row="1" Text="{Binding BookShelf.OwnerName, Mode=OneWay}"/>-->
         <ListView Grid.Row="2" ItemsSource="{Binding Books, Mode=OneWay}" HorizontalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:BookViewModel">

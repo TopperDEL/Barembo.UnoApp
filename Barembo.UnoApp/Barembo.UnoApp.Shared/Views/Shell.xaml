@@ -24,7 +24,7 @@
                 <TextBox Text="{Binding BaremboVersion}" Header="Barembo-Version" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>
                 <TextBox Text="{Binding StorjVersion}" Header="Storj-Version" FontFamily="{StaticResource BaremboFont}" IsReadOnly="True" BorderThickness="0" FontSize="10" Padding="10"/>
             </StackPanel>
-            <TextBox x:Name="InAppMessage" IsReadOnly="True"/>
+            <!--<TextBox x:Name="InAppMessage" IsReadOnly="True"/>-->
         </StackPanel>
 
         <ContentControl Grid.Row="1" prismRegions:RegionManager.RegionName="{x:Bind ContentRegion}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
