@@ -41,7 +41,7 @@
                             <Border CornerRadius="20" Grid.Row="0" Grid.ColumnSpan="2">
                                 <Image Source="{Binding Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" MaxHeight="150" Stretch="UniformToFill"/>
                             </Border>
-                            
+
                             <TextBlock Grid.Row="1" Text="{Binding Book.Name, Mode=OneWay}" FontFamily="{StaticResource BaremboFont}" Margin="10"/>
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Text="{Binding EntryCount, Mode=OneWay}" FontFamily="{StaticResource BaremboFont}" Margin="10"/>
 
@@ -58,12 +58,6 @@
                             </StackPanel>
                         </Grid>
                     </Border>
-                    <!--<StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Book.Name, Mode=OneWay}" FontFamily="{StaticResource BaremboFont}"/>
-                        <Button x:Uid="CreateNewEntryButton" Content="Create entry" Command="{Binding CreateEntryCommand}"/>
-                        <Button x:Uid="ListEntriesButton" Content="List entries" Command="{Binding ShowEntriesCommand}"/>
-                        <Button x:Uid="ShareBookButton" Content="Share book" Command="{Binding ShareBookCommand}"/>
-                    </StackPanel>-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
