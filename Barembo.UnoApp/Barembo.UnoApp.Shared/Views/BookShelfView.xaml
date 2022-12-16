@@ -26,7 +26,7 @@
                 <DataTemplate x:DataType="viewmodels:BookViewModel">
                     <Border CornerRadius="20" Margin="10" Width="300">
                         <Border.Background>
-                            <SolidColorBrush Color="LightGreen" Opacity="0.5"/>
+                            <SolidColorBrush Color="{StaticResource BaremboGreen}" Opacity="0.5"/>
                         </Border.Background>
                         <Grid>
                             <Grid.RowDefinitions>
