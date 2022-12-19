@@ -3,4 +3,5 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Barembo.UnoApp.Shared.Resources">
     <Color x:Key="BaremboGreen">#94D94B</Color>
+    <SolidColorBrush x:Key="BaremboGreenBackground" Color="{StaticResource BaremboGreen}" Opacity="0.8"/>
 </ResourceDictionary>
