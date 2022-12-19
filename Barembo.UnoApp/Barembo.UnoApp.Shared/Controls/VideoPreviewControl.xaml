@@ -11,12 +11,12 @@
 
     <Border CornerRadius="5">
         <Grid>
-            <Image Source="{x:Bind Image1}" Visibility="{x:Bind ShowImage1,Mode=OneWay}"/>
-            <Image Source="{x:Bind Image2}" Visibility="{x:Bind ShowImage2,Mode=OneWay}"/>
-            <Image Source="{x:Bind Image3}" Visibility="{x:Bind ShowImage3,Mode=OneWay}"/>
-            <Image Source="{x:Bind Image4}" Visibility="{x:Bind ShowImage4,Mode=OneWay}"/>
-            <Image Source="{x:Bind Image5}" Visibility="{x:Bind ShowImage5,Mode=OneWay}"/>
-            <Image Source="{x:Bind Image6}" Visibility="{x:Bind ShowImage6,Mode=OneWay}"/>
+            <Image Source="{x:Bind Image1}" Visibility="{x:Bind ShowImage1,Mode=OneWay}" Stretch="UniformToFill"/>
+            <Image Source="{x:Bind Image2}" Visibility="{x:Bind ShowImage2,Mode=OneWay}" Stretch="UniformToFill"/>
+            <Image Source="{x:Bind Image3}" Visibility="{x:Bind ShowImage3,Mode=OneWay}" Stretch="UniformToFill"/>
+            <Image Source="{x:Bind Image4}" Visibility="{x:Bind ShowImage4,Mode=OneWay}" Stretch="UniformToFill"/>
+            <Image Source="{x:Bind Image5}" Visibility="{x:Bind ShowImage5,Mode=OneWay}" Stretch="UniformToFill"/>
+            <Image Source="{x:Bind Image6}" Visibility="{x:Bind ShowImage6,Mode=OneWay}" Stretch="UniformToFill"/>
             <Border Background="White" Width="40" Height="40" CornerRadius="20" Opacity="0.6">
                 <SymbolIcon Symbol="Play" Foreground="Black" />
             </Border>
