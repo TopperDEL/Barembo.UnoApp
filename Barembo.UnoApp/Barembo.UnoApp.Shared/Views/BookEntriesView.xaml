@@ -58,7 +58,7 @@
                                         <ItemsControl ItemsSource="{x:Bind AttachmentPreviews, Mode=OneWay}" MaxHeight="120" Margin="0,0,0,20">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <StackPanel Orientation="Horizontal"/>
+                                                    <ItemsStackPanel Orientation="Horizontal"/>
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
