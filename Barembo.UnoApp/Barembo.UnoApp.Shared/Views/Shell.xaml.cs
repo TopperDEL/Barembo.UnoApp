@@ -157,10 +157,12 @@ namespace Barembo.UnoApp.Shared.Views
 
         private void RaiseError(Tuple<ErrorType, string> errorData)
         {
+            //ToDo: Show in-app notification
         }
 
         private void RaiseInAppInfo(Tuple<InAppInfoMessageType, Dictionary<string,string>> data)
         {
+            //ToDo: Show in-app notification
         }
     }
 }

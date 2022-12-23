@@ -50,7 +50,7 @@ namespace Barembo.UnoApp.Shared.Services
             try
             {
                 var photo = await MediaPicker.PickPhotoAsync().ConfigureAwait(false);
-                if(photo != null)
+                if (photo != null)
                 {
                     MediaData mediaData = new MediaData();
                     mediaData.Stream = await photo.OpenReadAsync();
@@ -64,6 +64,7 @@ namespace Barembo.UnoApp.Shared.Services
             }
             catch
             {
+                return null;
             }
 
             return null;
@@ -88,6 +89,7 @@ namespace Barembo.UnoApp.Shared.Services
             }
             catch
             {
+                return null;
             }
 
             return null;
