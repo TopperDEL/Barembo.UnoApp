@@ -2,7 +2,6 @@
 using Barembo.App.Core.Messages;
 using Barembo.App.Core.ViewModels;
 using Barembo.Models;
-using Microsoft.AppCenter.Analytics;
 using Prism;
 using Prism.DryIoc;
 using Prism.Events;
@@ -158,13 +157,10 @@ namespace Barembo.UnoApp.Shared.Views
 
         private void RaiseError(Tuple<ErrorType, string> errorData)
         {
-            Analytics.TrackEvent("RaiseError - " + errorData.Item1.ToString() + " - " + errorData.Item2);
         }
 
         private void RaiseInAppInfo(Tuple<InAppInfoMessageType, Dictionary<string,string>> data)
         {
-            Analytics.TrackEvent("RaiseError - " + data.Item1.ToString() + " - " + data.Item2);
-            //InAppMessage.Text = data.Item1.ToString() + " - " + data.Item2;
         }
     }
 }

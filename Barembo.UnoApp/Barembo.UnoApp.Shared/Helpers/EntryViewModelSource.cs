@@ -18,7 +18,7 @@ namespace Barembo.UnoApp.Shared.Helpers
         private readonly IEntryService _entryService;
         private readonly BookReference _bookReference;
         private bool _loaded;
-        private List<EntryViewModel> _viewModels = new List<EntryViewModel>();
+        readonly List<EntryViewModel> _viewModels = new List<EntryViewModel>();
 
         public EntryViewModelSource(IEntryService entryService, BookReference bookReference)
         {
@@ -36,8 +36,8 @@ namespace Barembo.UnoApp.Shared.Helpers
         {
             if (!_loaded)
             {
-                //System.Diagnostics.Debug.WriteLine("Loading entryrefs")
-;                _entryReferences = await _entryService.ListEntriesAsync(_bookReference);
+                //System.Diagnostics.Debug.WriteLine("Loading entryrefs");
+                _entryReferences = await _entryService.ListEntriesAsync(_bookReference);
                 _loaded = true;
             }
         }

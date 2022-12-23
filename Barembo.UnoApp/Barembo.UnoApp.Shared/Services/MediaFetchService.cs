@@ -40,6 +40,8 @@ namespace Barembo.UnoApp.Shared.Services
             }
             catch
             {
+                //If something goes wrong nothign happens - that's ok for the moment.
+                //ToDo: Would be better to raise an "Error happened" event, though.
             }
         }
 

@@ -14,12 +14,6 @@
     <PackageReference Include="FFmpegInteropX.FFmpegUWP">
       <Version>5.1.100</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>4.5.3</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>4.5.3</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug">
       <Version>7.0.0</Version>
     </PackageReference>

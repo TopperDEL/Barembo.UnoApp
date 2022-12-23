@@ -70,12 +70,6 @@
     <PackageReference Include="Barembo.Connector">
       <Version>0.9.58</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>4.5.3</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>4.5.3</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug">
       <Version>7.0.0</Version>
     </PackageReference>

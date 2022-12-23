@@ -20,7 +20,8 @@ namespace Barembo.UnoApp.Shared.Controls
 {
     public sealed partial class VideoPreviewControl : UserControl
     {
-        private Task _updatePreviewTask;
+        readonly Task _updatePreviewTask;
+        private bool _shouldStopPreview;
 
         public VideoPreviewControl()
         {
@@ -33,7 +34,9 @@ namespace Barembo.UnoApp.Shared.Controls
 
         private void VideoPreviewControl_Unloaded(object sender, RoutedEventArgs e)
         {
+            _shouldStopPreview = true;
             _updatePreviewTask.Dispose();
+            
             this.Unloaded -= VideoPreviewControl_Unloaded;
         }
 
@@ -41,9 +44,9 @@ namespace Barembo.UnoApp.Shared.Controls
         {
             int number = 1;
             VideoPreviewControl targetControl = target as VideoPreviewControl;
-            while (true)
+            while (!_shouldStopPreview)
             {
-                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () => targetControl.SetImage(number++));
+                await Dispatcher.RunIdleAsync((_) => targetControl.SetImage(number++));
                 await Task.Delay(300);
                 if (number > 6)
                 {

@@ -48,30 +48,14 @@ namespace Barembo.UnoApp
             InitializeLogging();
 
 #if __IOS__
-            Microsoft.AppCenter.AppCenter.Start("a36c506c-f8f6-438d-a1f3-bb1fa9bb783e", typeof(Microsoft.AppCenter.Analytics.Analytics), typeof(Microsoft.AppCenter.Crashes.Crashes));
-
             //Initialize the uplink.NET-library
             uplink.NET.Models.Access.Init_iOs(Foundation.NSBundle.MainBundle.BundlePath);
-#endif
-#if __DROID__
-            Microsoft.AppCenter.AppCenter.Start("c4909240-0dcb-4d5c-a2f3-95c0501ca07d", typeof(Microsoft.AppCenter.Analytics.Analytics), typeof(Microsoft.AppCenter.Crashes.Crashes));
-#endif
-#if WINDOWS_UWP
-            Microsoft.AppCenter.AppCenter.Start("cfc03045-3cc0-4026-b98d-e4bc207dc783", typeof(Microsoft.AppCenter.Analytics.Analytics), typeof(Microsoft.AppCenter.Crashes.Crashes));
 #endif
 
             this.InitializeComponent();
 #if HAS_UNO || NETFX_CORE
             this.Suspending += OnSuspending;
 #endif
-            this.UnhandledException += App_UnhandledException;
-        }
-
-        private void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
-        {
-            Microsoft.AppCenter.Crashes.Crashes.TrackError(e.Exception, new Dictionary<string, string>() {
-                {"ExceptionType","Unhandled Exception"}
-                });
         }
 
         protected override void OnActivated(IActivatedEventArgs e)
@@ -109,6 +93,7 @@ namespace Barembo.UnoApp
         /// <param name="e">Details about the navigation failure</param>
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
+            //Only necessary in debug-mode
 #if DEBUG
             throw new Exception($"Failed to load {e.SourcePageType.FullName}: {e.Exception}");
 #endif

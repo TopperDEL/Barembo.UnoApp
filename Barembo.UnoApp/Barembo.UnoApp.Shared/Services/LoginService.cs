@@ -12,7 +12,7 @@ namespace Barembo.UnoApp.Shared.Services
         private const string BAREMBO_RESOURCE = "BAREMBO";
         private const string ACCESS_GRANT = "ACCESS_GRANT";
 
-        private PasswordVault _vault = new PasswordVault();
+        readonly PasswordVault _vault = new PasswordVault();
 
         public bool GetIsLoggedIn()
         {
