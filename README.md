@@ -1,7 +1,8 @@
 # Barembo.UnoApp
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b36018380eaa475ebb7178420db8e213)](https://app.codacy.com/gh/TopperDEL/Barembo.UnoApp?utm_source=github.com&utm_medium=referral&utm_content=TopperDEL/Barembo.UnoApp&utm_campaign=Badge_Grade) [![Storj.io](https://github.com/storj/storj/raw/main/resources/logo.png)](https://storj.io)
 
- The Barembo-App, made with Uno. Currently under heavy development. At the moment I'm concentrating on the build-pipeline.
+ The Barembo-App, made with Uno. Barembo is a secure data-Store for diaries and memories. It uses Storj as it's backend, so you and only you control the data and have access to it.
+ The app is still under heavy development, but you can already use it on [Android](https://play.google.com/store/apps/details?id=de.Barembo.UnoApp&hl=en_US&gl=US). Be carefull! The app may contain errors and lead to data-loss.
 
 ## Build Pipelines
 
