@@ -118,16 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessGrant.Header" xml:space="preserve">
-    <value>Zugriffs-Schlüssel</value>
+    <value>Zugriffsschlüssel</value>
   </data>
   <data name="AddImageButton.Content" xml:space="preserve">
     <value>Foto hinzufügen...</value>
   </data>
   <data name="AddVideoButton.Content" xml:space="preserve">
     <value>Video hinzufügen...</value>
-  </data>
-  <data name="ApiKey.Header" xml:space="preserve">
-    <value>API-key</value>
   </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Barembo</value>
@@ -168,6 +165,9 @@
   <data name="GoBackButton.Content" xml:space="preserve">
     <value>Zurück</value>
   </data>
+  <data name="HaveNoAccount.Text" xml:space="preserve">
+    <value>Noch kein Account?</value>
+  </data>
   <data name="ImportBookButton.Content" xml:space="preserve">
     <value>Buch importieren</value>
   </data>
@@ -175,25 +175,13 @@
     <value>Einträge anzeigen</value>
   </data>
   <data name="LoginButton.Content" xml:space="preserve">
-    <value>Login</value>
+    <value>Anmelden</value>
   </data>
   <data name="NewBookButton.Content" xml:space="preserve">
     <value>Neues Buch anlegen</value>
   </data>
-  <data name="OrUseAccess.Text" xml:space="preserve">
-    <value>--- Oder ---</value>
-  </data>
-  <data name="SatelliteAddress.Header" xml:space="preserve">
-    <value>Satellite-Adresse</value>
-  </data>
-  <data name="Secret.Header" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="SecretAndVerifyNotMatch.Text" xml:space="preserve">
-    <value>Die beiden Passwörter stimmen nicht überein</value>
-  </data>
-  <data name="SecretVerify.Header" xml:space="preserve">
-    <value>Passwort erneut</value>
+  <data name="RegisterForFree.Text" xml:space="preserve">
+    <value>Hier kostenlos anmelden</value>
   </data>
   <data name="ShareBookButton.Content" xml:space="preserve">
     <value>Buch teilen</value>

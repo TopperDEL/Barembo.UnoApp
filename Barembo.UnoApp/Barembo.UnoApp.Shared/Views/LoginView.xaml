@@ -10,19 +10,19 @@
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="LoginViewLoaded">
 
-    <Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500">
         <StackPanel>
-            <TextBox x:Uid="SatelliteAddress" Text="{Binding SatelliteAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Satellite Address"/>
-            <TextBox x:Uid="ApiKey" Text="{Binding ApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Api-Key"/>
-            <PasswordBox x:Uid="Secret" Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret"/>
-            <PasswordBox x:Uid="SecretVerify" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret verify"/>
-            <TextBlock x:Uid="SecretAndVerifyNotMatch" Text="Secret and Secretverify do not match" Foreground="Red"
-                   Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-            <TextBlock x:Uid="OrUseAccess" Text="--- Or ---"/>
+            <Border CornerRadius="10" MaxWidth="100" MaxHeight="100">
+                <Image Source="/Assets/BaremboLogo.png" Grid.Row="0" />
+            </Border>
             <TextBox x:Uid="AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant"/>
-            <Button x:Uid="LoginButton" Command="{Binding LoginCommand}" Content="Login"/>
+            <Button x:Uid="LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" CornerRadius="10"
+                    Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
             <TextBlock Text="{Binding LoginError, Mode=OneWay}" Foreground="Red" TextWrapping="Wrap"
                        Visibility="{Binding LoginFailed, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Center" Padding="0,20,0,0">
+                <Span xml:space="preserve"><Run x:Uid="HaveNoAccount" Text="Have no account yet?"/><Run Text=" "/><Hyperlink NavigateUri="https://www.storj.io/signup" Foreground="{StaticResource BaremboGreen}"><Run x:Uid="RegisterForFree" Text="Register for free"/></Hyperlink></Span>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Page>
