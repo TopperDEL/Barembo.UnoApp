@@ -15,7 +15,7 @@
             <Border CornerRadius="10" MaxWidth="100" MaxHeight="100">
                 <Image Source="/Assets/BaremboLogo.png" Grid.Row="0" />
             </Border>
-            <TextBox x:Uid="AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant"/>
+            <TextBox x:Uid="AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant" Margin="10"/>
             <Button x:Uid="LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" CornerRadius="10"
                     Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
             <TextBlock Text="{Binding LoginError, Mode=OneWay}" Foreground="Red" TextWrapping="Wrap"
