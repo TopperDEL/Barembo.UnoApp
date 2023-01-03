@@ -171,6 +171,9 @@
   <data name="ImportBookButton.Content" xml:space="preserve">
     <value>Buch importieren</value>
   </data>
+  <data name="ImportMagicLinkButton.Content" xml:space="preserve">
+    <value>Buch importieren</value>
+  </data>
   <data name="ListEntriesButton.Content" xml:space="preserve">
     <value>Einträge anzeigen</value>
   </data>

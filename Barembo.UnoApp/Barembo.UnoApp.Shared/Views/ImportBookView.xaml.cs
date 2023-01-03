@@ -41,11 +41,11 @@ namespace Barembo.UnoApp.Shared.Views
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            var vm = (ImportBookViewModel)this.DataContext;
-            if(vm.ScanQRCodeCommand.CanExecute())
-            {
-                vm.ScanQRCodeCommand.Execute();
-            }
+            //var vm = (ImportBookViewModel)this.DataContext;
+            //if(vm.ScanQRCodeCommand.CanExecute())
+            //{
+            //    vm.ScanQRCodeCommand.Execute();
+            //}
         }
     }
 }
