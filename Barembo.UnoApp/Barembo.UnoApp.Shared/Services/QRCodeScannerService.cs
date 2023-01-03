@@ -20,10 +20,16 @@ namespace Barembo.UnoApp.Shared.Services
 #else
             var scanner = new ZXing.Mobile.MobileBarcodeScanner();
 #endif
+            try
+            {
+                var result = await scanner.Scan();
 
-            var result = await scanner.Scan();
-
-            return result.Text;
+                return result.Text;
+            }
+            catch
+            {
+                return "";
+            }
         }
     }
 }
