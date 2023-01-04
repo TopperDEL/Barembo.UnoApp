@@ -155,9 +155,19 @@ namespace Barembo.UnoApp.Shared.Views
             _regionManager.Regions[ContentRegion].NavigationService.Journal.GoBack();
         }
 
-        private void RaiseError(Tuple<ErrorType, string> errorData)
+        private async void RaiseError(Tuple<ErrorType, string> errorData)
         {
-            //ToDo: Show in-app notification
+            //ToDo: Translate the error
+            var errorDialog = new ContentDialog
+            {
+                Title = "Error - " + errorData.Item1.ToString(),
+                Content = errorData.Item2
+            };
+
+            errorDialog.PrimaryButtonText = "Ok";
+            //errorDialog.PrimaryButtonStyle = this.Resources["ButtonRoundedStyle"] as Style; //ToDo: Style the popup
+
+            await errorDialog.ShowAsync();
         }
 
         private void RaiseInAppInfo(Tuple<InAppInfoMessageType, Dictionary<string,string>> data)
