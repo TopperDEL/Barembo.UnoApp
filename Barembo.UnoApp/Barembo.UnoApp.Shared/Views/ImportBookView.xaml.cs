@@ -41,7 +41,7 @@ namespace Barembo.UnoApp.Shared.Views
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            
+            //Nothing to do here
         }
     }
 }
