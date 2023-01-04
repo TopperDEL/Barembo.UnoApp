@@ -141,6 +141,33 @@
   <data name="BookShelfOwnerName.Header" xml:space="preserve">
     <value>Owner name</value>
   </data>
+  <data name="CanAddEntries.Content" xml:space="preserve">
+    <value>May add new entries</value>
+  </data>
+  <data name="CanDeleteEntries.Content" xml:space="preserve">
+    <value>May delete own entries</value>
+  </data>
+  <data name="CanDeleteForeignEntries.Content" xml:space="preserve">
+    <value>May delete foreign entries</value>
+  </data>
+  <data name="CanEditBook.Content" xml:space="preserve">
+    <value>May edit the book details</value>
+  </data>
+  <data name="CanEditForeignEntries.Content" xml:space="preserve">
+    <value>May edit foreign entries</value>
+  </data>
+  <data name="CanEditOwnEntries.Content" xml:space="preserve">
+    <value>May edit own entries</value>
+  </data>
+  <data name="CanReadEntries.Content" xml:space="preserve">
+    <value>May read own entries</value>
+  </data>
+  <data name="CanReadForeignEntries.Content" xml:space="preserve">
+    <value>May read foreign entries</value>
+  </data>
+  <data name="CanShareBook.Content" xml:space="preserve">
+    <value>May share the book with others</value>
+  </data>
   <data name="ContributorNameHeader.Header" xml:space="preserve">
     <value>Contributor name</value>
   </data>

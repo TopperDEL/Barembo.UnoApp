@@ -141,6 +141,33 @@
   <data name="BookShelfOwnerName.Header" xml:space="preserve">
     <value>Eigentümer</value>
   </data>
+  <data name="CanAddEntries.Content" xml:space="preserve">
+    <value>Darf neue Einträge hinzufügen</value>
+  </data>
+  <data name="CanDeleteEntries.Content" xml:space="preserve">
+    <value>Darf eigene Einträge löschen</value>
+  </data>
+  <data name="CanDeleteForeignEntries.Content" xml:space="preserve">
+    <value>Darf fremde Einträge löschen</value>
+  </data>
+  <data name="CanEditBook.Content" xml:space="preserve">
+    <value>Darf die Buchdaten bearbeiten</value>
+  </data>
+  <data name="CanEditForeignEntries.Content" xml:space="preserve">
+    <value>Darf fremde Einträge bearbeiten</value>
+  </data>
+  <data name="CanEditOwnEntries.Content" xml:space="preserve">
+    <value>Darf eigene Einträge bearbeiten</value>
+  </data>
+  <data name="CanReadEntries.Content" xml:space="preserve">
+    <value>Darf eigene Einträge lesen</value>
+  </data>
+  <data name="CanReadForeignEntries.Content" xml:space="preserve">
+    <value>Darf fremde Einträge lesen</value>
+  </data>
+  <data name="CanShareBook.Content" xml:space="preserve">
+    <value>Darf das Buch mit anderen teilen</value>
+  </data>
   <data name="ContributorNameHeader.Header" xml:space="preserve">
     <value>Name des Beitragenden</value>
   </data>

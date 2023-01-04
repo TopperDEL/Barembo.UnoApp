@@ -10,21 +10,23 @@
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500">
         <StackPanel>
             <TextBox x:Uid="ContributorNameHeader" Text="{Binding ContributorName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Contributor name"/>
             <TextBox x:Uid="BookNameHeader" Text="{Binding BookName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Book name"/>
-            <CheckBox Content="CanReadEntries" IsChecked="{Binding AccessRights.CanReadEntries, Mode=TwoWay}"/>
-            <CheckBox Content="CanReadForeignEntries" IsChecked="{Binding AccessRights.CanReadForeignEntries, Mode=TwoWay}"/>
-            <CheckBox Content="CanAddEntries" IsChecked="{Binding AccessRights.CanAddEntries, Mode=TwoWay}"/>
-            <CheckBox Content="CanEditForeignEntries" IsChecked="{Binding AccessRights.CanEditForeignEntries, Mode=TwoWay}"/>
-            <CheckBox Content="CanEditOwnEntries" IsChecked="{Binding AccessRights.CanEditOwnEntries, Mode=TwoWay}"/>
-            <CheckBox Content="CanDeleteEntries" IsChecked="{Binding AccessRights.CanDeleteEntries, Mode=TwoWay}"/>
-            <CheckBox Content="CanDeleteForeignEntries" IsChecked="{Binding AccessRights.CanDeleteForeignEntries, Mode=TwoWay}"/>
-            <CheckBox Content="CanShareBook" IsChecked="{Binding AccessRights.CanShareBook, Mode=TwoWay}"/>
-            <CheckBox Content="CanEditBook" IsChecked="{Binding AccessRights.CanEditBook, Mode=TwoWay}"/>
-            <Button x:Uid="ShareBookButton" Content="Share" Command="{Binding SaveBookShareCommand}"/>
-            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
+            <CheckBox x:Uid="CanAddEntries" Content="CanAddEntries" IsChecked="{Binding AccessRights.CanAddEntries, Mode=TwoWay}"/>
+            <CheckBox x:Uid="CanReadEntries" Content="CanReadEntries" IsChecked="{Binding AccessRights.CanReadEntries, Mode=TwoWay}"/>
+            <CheckBox x:Uid="CanEditOwnEntries" Content="CanEditOwnEntries" IsChecked="{Binding AccessRights.CanEditOwnEntries, Mode=TwoWay}"/>
+            <CheckBox x:Uid="CanDeleteEntries" Content="CanDeleteEntries" IsChecked="{Binding AccessRights.CanDeleteEntries, Mode=TwoWay}"/>
+            <CheckBox x:Uid="CanReadForeignEntries" Content="CanReadForeignEntries" IsChecked="{Binding AccessRights.CanReadForeignEntries, Mode=TwoWay}"/>
+            <CheckBox x:Uid="CanEditForeignEntries" Content="CanEditForeignEntries" IsChecked="{Binding AccessRights.CanEditForeignEntries, Mode=TwoWay}"/>
+            <CheckBox x:Uid="CanDeleteForeignEntries" Content="CanDeleteForeignEntries" IsChecked="{Binding AccessRights.CanDeleteForeignEntries, Mode=TwoWay}"/>
+            <CheckBox x:Uid="CanShareBook" Content="CanShareBook" IsChecked="{Binding AccessRights.CanShareBook, Mode=TwoWay}"/>
+            <CheckBox x:Uid="CanEditBook" Content="CanEditBook" IsChecked="{Binding AccessRights.CanEditBook, Mode=TwoWay}"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Uid="ShareBookButton" Content="Share" Command="{Binding SaveBookShareCommand}" Background="{StaticResource BaremboGreenBackground}" Foreground="White" CornerRadius="10"/>
+                <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Background="{StaticResource BaremboGreenBackground}" Foreground="White" CornerRadius="10" Margin="5,0"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

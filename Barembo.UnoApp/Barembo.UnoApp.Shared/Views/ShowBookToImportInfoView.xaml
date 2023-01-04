@@ -10,20 +10,22 @@
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500">
         <StackPanel>
             <TextBlock Text="{Binding BookShare.BookName, Mode=OneWay}"/>
-            <CheckBox Content="CanReadEntries" IsChecked="{Binding BookShare.AccessRights.CanReadEntries, Mode=TwoWay}" IsEnabled="False"/>
-            <CheckBox Content="CanReadForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanReadForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
-            <CheckBox Content="CanAddEntries" IsChecked="{Binding BookShare.AccessRights.CanAddEntries, Mode=TwoWay}" IsEnabled="False"/>
-            <CheckBox Content="CanEditForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanEditForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
-            <CheckBox Content="CanEditOwnEntries" IsChecked="{Binding BookShare.AccessRights.CanEditOwnEntries, Mode=TwoWay}" IsEnabled="False"/>
-            <CheckBox Content="CanDeleteEntries" IsChecked="{Binding BookShare.AccessRights.CanDeleteEntries, Mode=TwoWay}" IsEnabled="False"/>
-            <CheckBox Content="CanDeleteForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanDeleteForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
-            <CheckBox Content="CanShareBook" IsChecked="{Binding BookShare.AccessRights.CanShareBook, Mode=TwoWay}" IsEnabled="False"/>
-            <CheckBox Content="CanEditBook" IsChecked="{Binding BookShare.AccessRights.CanEditBook, Mode=TwoWay}" IsEnabled="False"/>
-            <Button x:Uid="ImportBookButton" Content="Import book" Command="{Binding ImportBookCommand}"/>
-            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
+            <CheckBox x:Uid="CanAddEntries" Content="CanAddEntries" IsChecked="{Binding BookShare.AccessRights.CanAddEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox x:Uid="CanReadEntries" Content="CanReadEntries" IsChecked="{Binding BookShare.AccessRights.CanReadEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox x:Uid="CanEditOwnEntries" Content="CanEditOwnEntries" IsChecked="{Binding BookShare.AccessRights.CanEditOwnEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox x:Uid="CanDeleteEntries" Content="CanDeleteEntries" IsChecked="{Binding BookShare.AccessRights.CanDeleteEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox x:Uid="CanReadForeignEntries" Content="CanReadForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanReadForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox x:Uid="CanEditForeignEntries" Content="CanEditForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanEditForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox x:Uid="CanDeleteForeignEntries" Content="CanDeleteForeignEntries" IsChecked="{Binding BookShare.AccessRights.CanDeleteForeignEntries, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox x:Uid="CanShareBook" Content="CanShareBook" IsChecked="{Binding BookShare.AccessRights.CanShareBook, Mode=TwoWay}" IsEnabled="False"/>
+            <CheckBox x:Uid="CanEditBook" Content="CanEditBook" IsChecked="{Binding BookShare.AccessRights.CanEditBook, Mode=TwoWay}" IsEnabled="False"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Uid="ImportBookButton" Content="Import book" Command="{Binding ImportBookCommand}" Background="{StaticResource BaremboGreenBackground}" Foreground="White" CornerRadius="10"/>
+                <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Background="{StaticResource BaremboGreenBackground}" Foreground="White" CornerRadius="10" Margin="5,0"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
