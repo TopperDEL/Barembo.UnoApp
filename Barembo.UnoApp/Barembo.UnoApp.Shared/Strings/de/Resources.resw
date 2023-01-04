@@ -171,6 +171,9 @@
   <data name="ImportBookButton.Content" xml:space="preserve">
     <value>Buch importieren</value>
   </data>
+  <data name="ImportBookInfo.Text" xml:space="preserve">
+    <value>Kopiere den magischen Link des Buches und füge ihn hier ein oder scanne den zugehörigen Barcode, um ein anderes Buch zu importieren.</value>
+  </data>
   <data name="ImportMagicLinkButton.Content" xml:space="preserve">
     <value>Buch importieren</value>
   </data>

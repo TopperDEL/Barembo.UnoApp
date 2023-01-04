@@ -126,9 +126,6 @@
   <data name="AddVideoButton.Content" xml:space="preserve">
     <value>Add video...</value>
   </data>
-  <data name="ApiKey.Header" xml:space="preserve">
-    <value>API-key</value>
-  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Barembo</value>
   </data>
@@ -171,6 +168,9 @@
   <data name="ImportBookButton.Content" xml:space="preserve">
     <value>Import book</value>
   </data>
+  <data name="ImportBookInfo.Text" xml:space="preserve">
+    <value>Either copy and paste the magic link or scan the QR code to import a book from a different bookshelf.</value>
+  </data>
   <data name="ListEntriesButton.Content" xml:space="preserve">
     <value>List entries</value>
   </data>
@@ -179,21 +179,6 @@
   </data>
   <data name="NewBookButton.Content" xml:space="preserve">
     <value>Create new book</value>
-  </data>
-  <data name="OrUseAccess.Text" xml:space="preserve">
-    <value>--- Or ---</value>
-  </data>
-  <data name="SatelliteAddress.Header" xml:space="preserve">
-    <value>Satellite address</value>
-  </data>
-  <data name="Secret.Header" xml:space="preserve">
-    <value>Secret</value>
-  </data>
-  <data name="SecretAndVerifyNotMatch.Text" xml:space="preserve">
-    <value>Secret and verify secret do not match</value>
-  </data>
-  <data name="SecretVerify.Header" xml:space="preserve">
-    <value>Verify secret</value>
   </data>
   <data name="ShareBookButton.Content" xml:space="preserve">
     <value>Share book</value>

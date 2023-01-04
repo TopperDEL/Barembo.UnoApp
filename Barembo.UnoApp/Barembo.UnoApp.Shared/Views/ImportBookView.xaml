@@ -14,17 +14,19 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal"  Margin="0,10" HorizontalAlignment="Center">
-            <TextBox Text="{Binding MagicLink, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Magic Book-Link" MinWidth="370"/>
+        <TextBlock Grid.Row="0" x:Uid="ImportBookInfo" Text="Either copy and paste the magic link or scan the QR code to import a book from a different bookshelf." HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="WrapWholeWords"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal"  Margin="0,10" HorizontalAlignment="Center">
+            <TextBox Text="{Binding MagicLink, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  MinWidth="270"/>
             <Button Command="{Binding ScanQRCodeCommand}" CornerRadius="10"
                     VerticalAlignment="Bottom" Margin="5,0"
                     Background="{StaticResource BaremboGreenBackground}" Foreground="White">
                 <SymbolIcon Symbol="Camera"/>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
             <Button x:Uid="ImportMagicLinkButton" Content="Import book" Command="{Binding ImportMagicLinkCommand}" CornerRadius="10"
                     Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
             <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Margin="5,0"  CornerRadius="10"
