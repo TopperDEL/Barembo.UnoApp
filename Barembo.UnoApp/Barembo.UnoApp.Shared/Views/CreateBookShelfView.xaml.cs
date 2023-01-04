@@ -43,11 +43,6 @@ namespace Barembo.UnoApp.Shared.Views
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             ((CreateBookShelfViewModel)this.DataContext).Init((StoreAccess)navigationContext.Parameters["StoreAccess"]);
-            var error = navigationContext.Parameters["Error"] as string;
-            if(!string.IsNullOrEmpty(error))
-            {
-                ErrorText.Text = error;
-            }
         }
     }
 }

@@ -138,6 +138,12 @@
   <data name="BookNameHeader.Header" xml:space="preserve">
     <value>Book name</value>
   </data>
+  <data name="BookShelfNameInfo.Text" xml:space="preserve">
+    <value>Barembo organizes your books in a bookshelf.</value>
+  </data>
+  <data name="BookShelfNameQuestion.Text" xml:space="preserve">
+    <value>Whom belongs this bookshelf to?</value>
+  </data>
   <data name="BookShelfOwnerName.Header" xml:space="preserve">
     <value>Owner name</value>
   </data>
@@ -170,6 +176,9 @@
   </data>
   <data name="ContributorNameHeader.Header" xml:space="preserve">
     <value>Contributor name</value>
+  </data>
+  <data name="CreateABook.Content" xml:space="preserve">
+    <value>Create a book</value>
   </data>
   <data name="CreateBookButton.Content" xml:space="preserve">
     <value>Create book</value>
@@ -206,6 +215,15 @@
   </data>
   <data name="NewBookButton.Content" xml:space="preserve">
     <value>Create new book</value>
+  </data>
+  <data name="NoBooksInfo.Text" xml:space="preserve">
+    <value>You don't have any books in your bookshelf, yet.</value>
+  </data>
+  <data name="OrImportOne.Content" xml:space="preserve">
+    <value>Or import one</value>
+  </data>
+  <data name="ReadyInASecond.Text" xml:space="preserve">
+    <value>Ready in a second</value>
   </data>
   <data name="ShareBookButton.Content" xml:space="preserve">
     <value>Share book</value>

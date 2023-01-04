@@ -138,6 +138,12 @@
   <data name="BookNameHeader.Header" xml:space="preserve">
     <value>Name des Buchs für den Beitragenden</value>
   </data>
+  <data name="BookShelfNameInfo.Text" xml:space="preserve">
+    <value>Barembo legt deine Bücher in einem Bücherregal ab.</value>
+  </data>
+  <data name="BookShelfNameQuestion.Text" xml:space="preserve">
+    <value>Wem gehört dieses Bücherregal?</value>
+  </data>
   <data name="BookShelfOwnerName.Header" xml:space="preserve">
     <value>Eigentümer</value>
   </data>
@@ -170,6 +176,9 @@
   </data>
   <data name="ContributorNameHeader.Header" xml:space="preserve">
     <value>Name des Beitragenden</value>
+  </data>
+  <data name="CreateABook.Content" xml:space="preserve">
+    <value>Lege ein Buch an</value>
   </data>
   <data name="CreateBookButton.Content" xml:space="preserve">
     <value>Buch anlegen</value>
@@ -212,6 +221,15 @@
   </data>
   <data name="NewBookButton.Content" xml:space="preserve">
     <value>Neues Buch anlegen</value>
+  </data>
+  <data name="NoBooksInfo.Text" xml:space="preserve">
+    <value>Du hast noch keine Bücher in deinem Bücherregal.</value>
+  </data>
+  <data name="OrImportOne.Content" xml:space="preserve">
+    <value>Oder importiere eins</value>
+  </data>
+  <data name="ReadyInASecond.Text" xml:space="preserve">
+    <value>Gleich bereit...</value>
   </data>
   <data name="RegisterForFree.Text" xml:space="preserve">
     <value>Hier kostenlos anmelden</value>
