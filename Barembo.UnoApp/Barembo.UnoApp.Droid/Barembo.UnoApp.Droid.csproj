@@ -76,6 +76,9 @@
     <PackageReference Include="Prism.DryIoc.Uno">
       <Version>8.1.97</Version>
     </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.8.116</Version>
+    </PackageReference>
     <PackageReference Include="Uno.Microsoft.Toolkit">
       <Version>7.1.11</Version>
     </PackageReference>
