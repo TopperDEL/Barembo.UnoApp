@@ -50,17 +50,6 @@ namespace Barembo.UnoApp.Shared.Views
 
         public async void OnNavigatedTo(NavigationContext navigationContext)
         {
-            var storeAccess = (StoreAccess)navigationContext.Parameters["StoreAccess"];
-            BookShelf bookShelf;
-            try
-            {
-                bookShelf = await _storeService.GetObjectFromJsonAsync<BookShelf>(storeAccess, StoreKey.BookShelf());
-            }
-            catch
-            {
-                //Try again:
-                bookShelf = await _storeService.GetObjectFromJsonAsync<BookShelf>(storeAccess, StoreKey.BookShelf());
-            }
             await ((BookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
             _uploadQueueService.ProcessQueueInBackground();
         }
