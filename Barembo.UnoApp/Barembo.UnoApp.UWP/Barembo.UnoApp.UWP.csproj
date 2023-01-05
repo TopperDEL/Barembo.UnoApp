@@ -3,10 +3,10 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.99</Version>
+      <Version>0.9.101</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.59</Version>
+      <Version>0.9.60</Version>
     </PackageReference>
     <PackageReference Include="FFmpegInteropX">
       <Version>1.0.1</Version>

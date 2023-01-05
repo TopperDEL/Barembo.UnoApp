@@ -16,22 +16,22 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.RowSpan="3" Visibility="{Binding NoBookShelfExists, Converter={StaticResource BooleanToVisibilityInvertedConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="0" Grid.RowSpan="3" Visibility="{Binding NoBookShelfExists, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock x:Uid="ReadyInASecond" Text="Ready in a second" HorizontalAlignment="Center"/>
         </StackPanel>
-        <StackPanel Grid.Row="0" Grid.RowSpan="3" Visibility="{Binding NoBooks, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="0" Grid.RowSpan="3" Visibility="{Binding NoBooks, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock x:Uid="NoBooksInfo" Text="You don't have any books in your bookshelf, yet." HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Margin="10">
-                <Button x:Uid="CreateABook" Content="Create a book" CornerRadius="10" Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
-                <Button x:Uid="OrImportOne" Content="Or import one" CornerRadius="10" Background="{StaticResource BaremboGreenBackground}" Foreground="White" Margin="5,0"/>
+                <Button x:Uid="CreateABook" Content="Create a book" Command="{Binding AddOwnBookCommand}" CornerRadius="10" Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
+                <Button x:Uid="OrImportOne" Content="Or import one" Command="{Binding AddForeignBookCommand}" CornerRadius="10" Background="{StaticResource BaremboGreenBackground}" Foreground="White" Margin="5,0"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5" Visibility="{Binding NoBooks, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5" Visibility="{Binding HasBooks, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}">
             <Button x:Uid="NewBookButton" Content="New book" Command="{Binding AddOwnBookCommand}" Margin="5" CornerRadius="10" Background="{StaticResource BaremboGreenBackground}"/>
             <Button x:Uid="ImportBookButton" Content="Import book" Command="{Binding AddForeignBookCommand}" CornerRadius="10" Margin="5" Background="{StaticResource BaremboGreenBackground}"/>
         </StackPanel>
         <!--<TextBlock Grid.Row="1" Text="{Binding BookShelf.OwnerName, Mode=OneWay}"/>-->
-        <ListView Grid.Row="2" ItemsSource="{Binding Books, Mode=OneWay}" HorizontalAlignment="Center" Visibility="{Binding NoBooks, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}">
+        <ListView Grid.Row="2" ItemsSource="{Binding Books, Mode=OneWay}" HorizontalAlignment="Center" Visibility="{Binding HasBooks, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:BookViewModel">
                     <Border CornerRadius="20" Margin="10" Width="300" Background="{StaticResource BaremboGreenBackground}">
