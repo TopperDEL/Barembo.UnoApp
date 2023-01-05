@@ -202,7 +202,7 @@
     <value>Import book</value>
   </data>
   <data name="ImportBookInfo.Text" xml:space="preserve">
-    <value>Either copy and paste the magic link or scan the QR code to import a book from a different bookshelf.</value>
+    <value>Scan the QR code or paste the URL to import a book from a different bookshelf.</value>
   </data>
   <data name="ListEntriesButton.Content" xml:space="preserve">
     <value>List entries</value>
