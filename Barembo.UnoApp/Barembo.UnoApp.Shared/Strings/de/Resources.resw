@@ -120,12 +120,6 @@
   <data name="AccessGrant.Header" xml:space="preserve">
     <value>Zugriffsschlüssel</value>
   </data>
-  <data name="AddImageButton.Content" xml:space="preserve">
-    <value>Foto hinzufügen...</value>
-  </data>
-  <data name="AddVideoButton.Content" xml:space="preserve">
-    <value>Video hinzufügen...</value>
-  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Barembo</value>
   </data>

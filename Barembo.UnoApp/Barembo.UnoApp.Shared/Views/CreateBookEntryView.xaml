@@ -11,24 +11,40 @@
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <StackPanel>
-            <TextBox x:Uid="CreateEntryHeader" Text="{Binding Header, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Header"/>
-            <TextBox x:Uid="CreateEntryBody" Text="{Binding Body, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Body"
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" MaxWidth="500" Margin="10,20">
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <Button x:Uid="CreateEntryButton" Content="Save" Command="{Binding SaveEntryCommand}"
+                    CornerRadius="10" Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
+                    <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Margin="5,0"
+                    CornerRadius="10" Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
+                </StackPanel>
+                <TextBox x:Uid="CreateEntryHeader" Text="{Binding Header, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Header"/>
+                <TextBox x:Uid="CreateEntryBody" Text="{Binding Body, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Body"
                      TextWrapping="Wrap" AcceptsReturn="True"/>
-            <Button x:Uid="AddImageButton" Content="Add image..." Command="{Binding AddImageCommand}"/>
-            <Button x:Uid="AddVideoButton" Content="Add video..." Command="{Binding AddVideoCommand}"/>
-            <Button x:Uid="CreateEntryButton" Content="Save" Command="{Binding SaveEntryCommand}"/>
-            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
-            <ItemsControl ItemsSource="{Binding Books}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" Content="{Binding BookViewModel.Book.Name}"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
-        
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <Button Command="{Binding AddImageCommand}"
+                    CornerRadius="10" Background="{StaticResource BaremboGreenBackground}" Foreground="White">
+                        <SymbolIcon Symbol="Camera"/>
+                    </Button>
+                    <Button Command="{Binding AddVideoCommand}" Margin="5,0"
+                    CornerRadius="10" Background="{StaticResource BaremboGreenBackground}" Foreground="White">
+                        <SymbolIcon Symbol="Video"/>
+                    </Button>
+                </StackPanel>
+
+                <TextBlock Text="Zielbücher:" Margin="0,20,0,0"/>
+                <ItemsControl ItemsSource="{Binding Books}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" Content="{Binding BookViewModel.Book.Name}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
         <controls:Loading x:Name="LoadingControl" IsLoading="{Binding SaveInProgress}" Visibility="{Binding SaveInProgress, Converter={StaticResource BooleanToVisibilityConverter}}">
             <controls:Loading.Background>
                 <SolidColorBrush Color="Black" Opacity="0.7" />
