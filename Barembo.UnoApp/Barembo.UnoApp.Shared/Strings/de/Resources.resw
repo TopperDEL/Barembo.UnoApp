@@ -177,6 +177,9 @@
   <data name="ContributorNameHeader.Header" xml:space="preserve">
     <value>Name des Beitragenden</value>
   </data>
+  <data name="CopyToClipboardButton.Content" xml:space="preserve">
+    <value>In die Zwischenablage</value>
+  </data>
   <data name="CreateABook.Content" xml:space="preserve">
     <value>Lege ein Buch an</value>
   </data>
@@ -233,6 +236,9 @@
   </data>
   <data name="RegisterForFree.Text" xml:space="preserve">
     <value>Hier kostenlos anmelden</value>
+  </data>
+  <data name="ScanQRCodeInfo.Text" xml:space="preserve">
+    <value>Scanne den folgenden Code oder teile ihn als Text über die Zwischenablage:</value>
   </data>
   <data name="ShareBookButton.Content" xml:space="preserve">
     <value>Buch teilen</value>

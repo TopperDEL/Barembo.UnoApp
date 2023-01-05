@@ -11,14 +11,17 @@
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500">
         <StackPanel>
-            <controls:ImageEx Source="{Binding QRCodePNG, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}"
-                                          MaxWidth="600" MaxHeight="500"
-                                          EnableLazyLoading="true"/>
-            <TextBlock Text="{Binding MagicLink, Mode=OneWay}" TextWrapping="Wrap"/>
-            <Button x:Uid="CopyToClipboardButton" Content="Copy to clipboard" Command="{Binding WriteMagicLinkToClipboardCommand}"/>
-            <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}"/>
+            <TextBlock x:Uid="ScanQRCodeInfo" Text="Scan the following code or share it as a text via your clipboard:" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="WrapWholeWords"/>
+            <Image Source="{Binding QRCodePNG, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}"
+                                          MaxWidth="600" MaxHeight="500"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Uid="CopyToClipboardButton" Content="Copy to clipboard" Command="{Binding WriteMagicLinkToClipboardCommand}" CornerRadius="10"
+                    Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
+                <Button x:Uid="GoBackButton" Content="Go back" Command="{Binding GoBackCommand}" Margin="5,0"  CornerRadius="10"
+                    Background="{StaticResource BaremboGreenBackground}" Foreground="White"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
