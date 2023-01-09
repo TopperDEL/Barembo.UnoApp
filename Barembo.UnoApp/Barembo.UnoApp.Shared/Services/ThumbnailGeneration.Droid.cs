@@ -18,25 +18,24 @@ namespace Barembo.UnoApp.Shared.Services
         {
             LibVLCSharp.Shared.Core.Initialize();
         }
-
         public static async Task<string> GenerateThumbnailBase64FromVideoAsync_Droid(Stream videoStream, float positionPercent, string filePath, Barembo.Interfaces.IThumbnailGeneratorService thumbnailGenerator)
         {
-            Android.Media.MediaMetadataRetriever retriever = new Android.Media.MediaMetadataRetriever();
+            var retriever = new Android.Media.MediaMetadataRetriever();
             await retriever.SetDataSourceAsync(filePath);
 
             var length = retriever.ExtractMetadata(Android.Media.MetadataKey.Duration);
             var playLength = Convert.ToInt32(length);
             var extractLocation = playLength * positionPercent * 1000; //GetFrameAtTime is in Microseconds instead of Milliseconds
-
+            
             var frame = retriever.GetFrameAtTime((long)extractLocation, Android.Media.Option.ClosestSync);
-
             using (MemoryStream finalStream = new MemoryStream())
             {
+                frame = Bitmap.CreateScaledBitmap(frame, 600, 450, false);
                 await frame.CompressAsync(Android.Graphics.Bitmap.CompressFormat.Jpeg, 100, finalStream);
 
                 finalStream.Position = 0;
 
-                return await thumbnailGenerator.GenerateThumbnailBase64FromImageAsync(finalStream);
+                return Convert.ToBase64String(finalStream.ToArray());
             }
         }
 
@@ -64,13 +63,13 @@ namespace Barembo.UnoApp.Shared.Services
                 newHeight = originalHeight / ratio;
             }
 
-            Bitmap resizedImage = Bitmap.CreateScaledBitmap(originalImage, (int)newWidth, (int)newHeight, true);
+            Bitmap resizedImage = Bitmap.CreateScaledBitmap(originalImage, (int)newWidth, (int)newHeight, false);
 
             originalImage.Recycle();
 
             using (MemoryStream ms = new MemoryStream())
             {
-                resizedImage.Compress(Bitmap.CompressFormat.Png, 100, ms);
+                await resizedImage.CompressAsync(Bitmap.CompressFormat.Png, 100, ms);
 
                 resizedImage.Recycle();
 
