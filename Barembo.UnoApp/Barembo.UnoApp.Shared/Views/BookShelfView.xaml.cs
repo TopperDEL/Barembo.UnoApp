@@ -50,9 +50,9 @@ namespace Barembo.UnoApp.Shared.Views
             //Nothing to do here
         }
 
-        public async void OnNavigatedTo(NavigationContext navigationContext)
+        public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            await ((BookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
+            _ = ((BookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
             _uploadQueueService.ProcessQueueInBackground();
             _backgroundActionService.ProcessActionsInBackground();
         }
