@@ -22,6 +22,7 @@ using Prism.Mvvm;
 using Prism.Events;
 using Barembo.App.Core.Messages;
 using Barembo.Interfaces;
+using Barembo.App.Core.ViewModels;
 
 namespace Barembo.UnoApp
 {
@@ -53,6 +54,7 @@ namespace Barembo.UnoApp
 #endif
 
             this.InitializeComponent();
+
 #if HAS_UNO || NETFX_CORE
             this.Suspending += OnSuspending;
 #endif
@@ -129,16 +131,19 @@ namespace Barembo.UnoApp
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IBookStoreService, Barembo.StoreServices.BookStoreService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IContributorStoreService, Barembo.StoreServices.ContributorStoreService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IEntryStoreService, Barembo.StoreServices.EntryStoreService>();
+            var storeBuffer = new Barembo.Services.StoreBuffer();
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreBuffer>(() => storeBuffer);
 
             //Services
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IBookService, Barembo.Services.BookService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IBookShelfService, Barembo.Services.BookShelfService>();
-            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService, Barembo.Services.BufferedStoreService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IEntryService, Barembo.Services.EntryService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IQRCodeGeneratorService, Barembo.Services.QRCodeGeneratorService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkGeneratorService, Barembo.Services.MagicLinkService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IMagicLinkResolverService, Barembo.Services.MagicLinkService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreAccessService, Barembo.Services.StoreAccessService>();
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IFileAccessHelper, Barembo.Services.FileAccessHelper>();
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IBackgroundActionService, Barembo.Services.BackgroundActionService>();
 #if __DROID__
             var uploadQueueService = new uplink.NET.Services.UploadQueueService();
             containerRegistry.RegisterSingleton<uplink.NET.Interfaces.IUploadQueueService>(() => uploadQueueService);
@@ -146,12 +151,12 @@ namespace Barembo.UnoApp
             var uploadQueueService = new uplink.NET.Services.UploadQueueService(Path.Combine(Barembo.Services.StoreBuffer.BaseFolder, "uplinkNET.db"));
             containerRegistry.RegisterSingleton<uplink.NET.Interfaces.IUploadQueueService>(()=>uploadQueueService);
 #endif
+            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>(() => { return new Barembo.Services.BufferedStoreService(storeBuffer, new Barembo.Services.StoreService(), uploadQueueService); });
 
-            containerRegistry.RegisterSingleton<Barembo.Interfaces.IStoreService>(() => { return new Barembo.Services.BufferedStoreService(new Barembo.Services.StoreBuffer(), new Barembo.Services.StoreService(), uploadQueueService); });
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IAttachmentPreviewGeneratorService, Barembo.Services.AttachmentPreviewGeneratorService>();
             containerRegistry.RegisterSingleton<Barembo.Interfaces.IThumbnailGeneratorService, Barembo.Services.ThumbnailGeneratorService>();
 #if WINDOWS_UWP
-            Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_UWP(stream, positionPercent, filePath);
+            //Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_UWP(stream, positionPercent, filePath);
 #elif __DROID__
             Barembo.Services.ThumbnailGeneratorService.ImageThumbnailAsyncCallback = async (stream, width, height) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromImageAsync_Droid(stream, width, height);
             Barembo.Services.ThumbnailGeneratorService.VideoThumbnailAsyncCallback = async (stream, positionPercent, filePath) => await Barembo.UnoApp.Shared.Services.ThumbnailGeneration.GenerateThumbnailBase64FromVideoAsync_Droid(stream, positionPercent, filePath, Container.Resolve<Barembo.Interfaces.IThumbnailGeneratorService>());

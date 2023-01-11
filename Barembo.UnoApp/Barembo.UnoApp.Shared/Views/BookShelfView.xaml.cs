@@ -29,13 +29,15 @@ namespace Barembo.UnoApp.Shared.Views
     {
         readonly IUploadQueueService _uploadQueueService;
         readonly IStoreService _storeService;
+        readonly IBackgroundActionService _backgroundActionService;
 
-        public BookShelfView(IUploadQueueService uploadQueueService, IStoreService storeService)
+        public BookShelfView(IUploadQueueService uploadQueueService, IStoreService storeService, IBackgroundActionService backgroundActionService)
         {
             this.InitializeComponent();
 
             _uploadQueueService = uploadQueueService;
             _storeService = storeService;
+            _backgroundActionService = backgroundActionService;
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -50,8 +52,16 @@ namespace Barembo.UnoApp.Shared.Views
 
         public async void OnNavigatedTo(NavigationContext navigationContext)
         {
-            await ((BookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
-            _uploadQueueService.ProcessQueueInBackground();
+            try
+            {
+                await ((BookShelfViewModel)this.DataContext).InitAsync((StoreAccess)navigationContext.Parameters["StoreAccess"]);
+                _uploadQueueService.ProcessQueueInBackground();
+                _backgroundActionService.ProcessActionsInBackground();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

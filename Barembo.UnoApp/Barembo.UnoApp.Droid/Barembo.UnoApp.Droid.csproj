@@ -65,10 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.101</Version>
+      <Version>0.9.103</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.60</Version>
+      <Version>0.9.70</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug">
       <Version>7.0.0</Version>
@@ -96,9 +96,6 @@
     </PackageReference>
     <PackageReference Include="uplink.NET.Droid">
       <Version>2.9.2958</Version>
-    </PackageReference>
-    <PackageReference Include="VideoLAN.LibVLC.Android">
-      <Version>3.2.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.7.3</Version>

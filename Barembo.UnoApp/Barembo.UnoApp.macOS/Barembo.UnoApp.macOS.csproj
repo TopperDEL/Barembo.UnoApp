@@ -70,10 +70,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.101</Version>
+      <Version>0.9.103</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.60</Version>
+      <Version>0.9.70</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug">
       <Version>5.0.0</Version>
