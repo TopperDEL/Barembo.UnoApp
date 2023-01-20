@@ -3,10 +3,10 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <ItemGroup>
     <PackageReference Include="Barembo.App.Core">
-      <Version>0.9.104</Version>
+      <Version>0.9.105</Version>
     </PackageReference>
     <PackageReference Include="Barembo.Connector">
-      <Version>0.9.70</Version>
+      <Version>0.9.71</Version>
     </PackageReference>
     <PackageReference Include="FFmpegInteropX">
       <Version>1.0.1</Version>
@@ -45,9 +45,6 @@
     </PackageReference>
     <PackageReference Include="uplink.NET.Win">
       <Version>2.9.2958</Version>
-    </PackageReference>
-    <PackageReference Include="VideoLAN.LibVLC.Windows">
-      <Version>4.0.0-alpha-20230109</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.7.3</Version>

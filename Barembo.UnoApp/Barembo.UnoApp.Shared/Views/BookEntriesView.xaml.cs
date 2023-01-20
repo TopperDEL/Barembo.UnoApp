@@ -59,5 +59,21 @@ namespace Barembo.UnoApp.Shared.Views
             _collection = new IncrementalLoadingCollection<EntryViewModelSource, EntryViewModel>(_viewModelSource, 5);
             vm.Entries = _collection;
         }
+
+        private void EntrySelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                ShowEntryDetailsStoryboard.Begin();
+                EntryDetails.IsHitTestVisible = true;
+            }
+        }
+
+        private void CloseEntryDetails(object sender, RoutedEventArgs e)
+        {
+            HideEntryDetailsStoryboard.Begin();
+            HideEntryDetailsStoryboard.Completed += (a,b)=> { EntriesList.SelectedItem = null; } ;
+            EntryDetails.IsHitTestVisible = false;
+        }
     }
 }

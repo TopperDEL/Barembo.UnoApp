@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converter\ByteArrayToBitmapImageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\EntryViewModelSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\DataTemplates.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\BuildVersionInfoService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LoginService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\MediaFetchService.cs" />
@@ -80,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Resources\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\DataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
