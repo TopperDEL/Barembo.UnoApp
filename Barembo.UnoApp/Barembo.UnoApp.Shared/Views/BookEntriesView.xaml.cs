@@ -72,7 +72,7 @@ namespace Barembo.UnoApp.Shared.Views
         private void CloseEntryDetails(object sender, RoutedEventArgs e)
         {
             HideEntryDetailsStoryboard.Begin();
-            HideEntryDetailsStoryboard.Completed += (a,b)=> { EntriesList.SelectedItem = null; } ;
+            HideEntryDetailsStoryboard.Completed += (_, b) => { EntriesList.SelectedItem = null; };
             EntryDetails.IsHitTestVisible = false;
         }
     }
