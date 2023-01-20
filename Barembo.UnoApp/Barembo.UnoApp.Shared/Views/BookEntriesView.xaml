@@ -10,9 +10,13 @@
     xmlns:prismMvvm="using:Prism.Mvvm" xmlns:viewmodels="using:Barembo.App.Core.ViewModels"
     xmlns:toolkit="using:Uno.UI.Toolkit"
     xmlns:baremboControls="using:Barembo.UnoApp.Shared.Controls"
+    xmlns:myResources="using:Barembo.UnoApp.Shared.Resources"
     prismMvvm:ViewModelLocator.AutowireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <myResources:DataTemplates/>
+    </Page.Resources>
     <Grid>
         <Grid.Resources>
             <Storyboard x:Name="HideEntryDetailsStoryboard">
