@@ -15,7 +15,60 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <myResources:DataTemplates/>
+        <DataTemplate x:Key="EntryViewModelDataTemplate" x:DataType="viewmodels:EntryViewModel">
+            <Grid HorizontalAlignment="Stretch" Margin="10">
+                <ProgressRing IsActive="True" Visibility="{x:Bind IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" MinHeight="400"/>
+                <toolkit:ElevatedView Elevation="10" CornerRadius="3">
+                    <Border Background="{StaticResource BaremboGreenBackground}" CornerRadius="20">
+                        <Grid Visibility="{x:Bind IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityInvertedConverter}, FallbackValue=Collapsed}"
+                                  HorizontalAlignment="Stretch" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" CornerRadius="20" MaxHeight="300" MaxWidth="500" x:Phase="2" Visibility="{x:Bind HasThumbnail, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                <Image Source="{x:Bind Thumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Stretch="UniformToFill" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Grid.Row="1" VerticalAlignment="Top" Text="{x:Bind CreationDate, Mode=OneWay, Converter={StaticResource DateTimeConverter}}" x:Phase="1" HorizontalAlignment="Left" FontWeight="Normal" FontSize="12" Margin="10,5,10,0"/>
+                            <TextBlock Grid.Row="2" Text="{x:Bind Header, Mode=OneWay}" x:Phase="0" FontWeight="Bold" HorizontalAlignment="Left" FontSize="20" Margin="10,0" />
+                            <TextBlock Grid.Row="3" Text="{x:Bind Body, Mode=OneWay}" x:Phase="1" MaxWidth="600" TextWrapping="WrapWholeWords" HorizontalAlignment="Left" FontStretch="Expanded" Margin="10,10"/>
+                            <ScrollViewer Grid.Row="4" HorizontalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{x:Bind AttachmentPreviews, Mode=OneWay}" MaxHeight="120" Margin="0,0,0,20">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <ItemsStackPanel Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate x:DataType="viewmodels:AttachmentPreviewViewModel">
+                                            <Grid Margin="10,0,5,0">
+                                                <Border CornerRadius="5" MaxWidth="150">
+                                                    <Image Source="{x:Bind ImagePreview, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" Visibility="{x:Bind IsImage, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
+                                                           />
+                                                </Border>
+                                                <baremboControls:VideoPreviewControl Visibility="{x:Bind IsVideo, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                                     Image1="{x:Bind VideoPreview1, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image2="{x:Bind VideoPreview2, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image3="{x:Bind VideoPreview3, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image4="{x:Bind VideoPreview4, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image5="{x:Bind VideoPreview5, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     Image6="{x:Bind VideoPreview6, Mode=OneWay, Converter={StaticResource ByteArrayToBitmapImageConverter}}" 
+                                                                                     MaxHeight="112" MaxWidth="150" />
+                                                <!--ToDo: Show video if video is in cache or on disk?-->
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Grid>
+                    </Border>
+                </toolkit:ElevatedView>
+            </Grid>
+        </DataTemplate>
     </Page.Resources>
     <Grid>
         <Grid.Resources>
